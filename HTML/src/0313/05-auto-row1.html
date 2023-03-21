@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="default1.css">
+  <style>
+    /* auto-flow 
+      - 행과 열 중에 아이템을 가늠하기 힘든 컨테이너의 경우 해당 row의 길이 혹은 column의 길이를
+        일정하게 맞춰주기 위해 쓰는 옵션
+      - 열은 grid-auto-column, 행은 grid-auto-row 로 사용할 수 있다.
+      - 다만 auto-column이나 auto-row 사용시 상대편의 row나 column은 무조건 고정값이어야 한다.
+    */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      /* grid-template-rows: repeat(3, minmax(100px, auto)); */
+      grid-auto-rows: minmax(100px, auto);
+      gap : 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- div.grid-container>div.grid-item{$}*13 -->
+  <div class="grid-container">
+    <div class="grid-item">1</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item">3</div>
+    <div class="grid-item">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus culpa corrupti eum. Dolorem, cum quae earum perspiciatis animi soluta ea quam, nesciunt eligendi numquam quibusdam placeat officia qui corrupti beatae!
+    </div>
+    <div class="grid-item">5</div>
+    <div class="grid-item">6</div>
+    <div class="grid-item">7</div>
+    <div class="grid-item">8</div>
+    <div class="grid-item">9</div>
+    <div class="grid-item">10</div>
+    <div class="grid-item">11</div>
+    <div class="grid-item">12</div>
+    <div class="grid-item">13</div>
+  </div>
+</body>
+</html>
