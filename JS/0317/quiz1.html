@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // Q1.
+    let v1 = prompt("숫자1");
+    let v2 = prompt("숫자2");
+
+    alert(parseInt(v1) + parseInt(v2));
+
+    // Q2.
+    alert(parseInt(v1) - parseInt(v2));
+
+    //Q3.
+    console.log(`${v1} 곱하기 ${v2}는 ${v1*v2}입니다.`)
+
+    //Q4.
+    console.log(`${v1} 나누기 ${v2}는 ${v1/v2}입니다.`)
+
+    //Q5.
+    document.write(`<h1>${v1}과 ${v2}를 하나씩 더하기 전 두 수를 더한 값은 ${(++v1) + (++v2)}입니다.</h1>`)
+
+    //Q6.
+    document.write(`<p>${v1}은 ${v2}보다 ${(v1 > v2) ? "큽니다" : "작습니다"}</p>`)
+
+    //Q7.
+    document.write(`<p>${v1} ${(v1 < v2) ? "<" : ">"} ${v2}</p>`)
+
+    //Q8.
+    document.write(`<input type="text" value=${v1}><input type="text" value=${v2}><p>${(v1 == v2) || (v1 > v2) ? `${v1}이 ${v2} 이상`: `${v1}이 ${v2} 미만`}</p>`)
+  </script>
+<!--
+1. v1 + v2 alert [연산결과]
+2. v1 –v2 alert [v1] –[v2] : [연산결과]
+3. v1 * v2 console.log[v1] 곱하기[v2] 는[연산결과]입니다.
+4. v1 / v2 console.log[v1] 나누기[v2]는[연산결과]입니다.
+5. (++v1) + (++v2) document.write <h1>[v1]과[v2]를하나씩더하기전두수를더한값은[연산결과]입니다.</h1>
+6. (v1 > v2) ? “큽니다” : “작습니다”document.write<p> [v1]은[v2[ 보다[연산결과]</p>
+7. (v1 < v2) ? “<” : “>”document.write<p>[v1] [연산결과][v2]
+v1<c
+8. (v1 == v2) || (v1 > v2) ? “v1이v2이상”: “v1이v2 미만”document.write<input type=”text” value=”[v1]”><input type=”text” value=”[v2]”><p>[연산결과]</p>-->
+</html>

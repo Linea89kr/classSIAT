@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    tr{
+        border: 1px solid black;
+    }
+    td{
+        border: 1px solid black;
+    }
+</style>
+<body>
+<input id="form1" type="number">
+<input id="form2" type="number">
+<button id="btn1" type="number">draw it man!</button>
+<div>
+    <script>
+        let clickit1 = document.getElementById("btn1");
+        // 표 그리는 함수 선언
+        let drawitman = function drawit() {
+            let v1 = document.getElementById(`form1`).value;
+            let v2 = document.getElementById(`form2`).value;
+            //버튼 클릭을 감지했을 때 form1, 2의 값을 받아온다.
+            //그리고 for문 출력
+            document.write(`<table>`); // 테이블 선언
+            document.write(`<tr>`); // 가로줄 그리기
+            for (i = v1; i <= v2; i++) {
+                document.write(`<td><b>${i} 단</b>></td>`) // 줄 안에 글자 넣기
+            }
+            document.write(`</tr>`);
+            // n단을 그리기. v1~v2까지 열을 생성.
+
+            // tr 먼저 그리기, 1~9단.
+            for (j = 1; j <= 9; j++) {
+                document.write("<tr>")
+                // 줄 그리기
+                for (i = v1; i <= v2; i++) {
+                    document.write(`<td> ${i} * ${j} = ${(i * j)} </td>`)
+                }
+                document.write(`</tr>`);
+            }
+            document.write(`</table>`);
+        }
+        clickit1.addEventListener("click", drawitman, false)
+    </script>
+</div>
+</body>
+</html>

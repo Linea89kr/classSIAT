@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <input id="form1" type="number">
+</div>
+<div>
+    <button id="btn1">실행!</button>
+</div>
+</body>
+<script>
+    let clickit = document.getElementById("btn1");
+
+    // clikcit을 선언. 버튼 눌림 감지용
+    /* 변수 cal1을 선언.
+    변수 cal1을 부르면 함수 execforp을 호출, 실행한다.
+
+    execforp: 말 그대로 for phrase 를 실해해라 라는 함수
+
+     */
+    let cal1 = function execforp() {
+        let v1 = document.getElementById(`form1`).value;
+        if (2 <= v1 <= 20) {
+            for (let i = 0; i < v1; i++) {
+                for (let j = 0; j <= i; j++) {
+                    document.write(`*`);
+                }
+                document.write(`<br>`);
+            }
+        }
+        else {alert(`값이 2보다 작거나 20보다 큽니다!`)}
+    }
+    clickit.addEventListener("click", cal1, false)
+    /*
+    * v1 값을 부른다. 어찰피 이런 류의 문제는 '동작했을 때 가장 최신의 값을 가져와야 함'
+    * 따라서 함수 안에 v1을 불러서 form1 안의 값을 바로 가져온다.
+    * i 값을 0에서 v1보다 작을 때 까지 씩 키우고,
+    * j 값을 i와 비교해서 동일해질 때까지 1씩 키운다.
+    * */
+
+</script>
+</html>

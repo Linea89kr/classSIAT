@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="form1" type="text">
+<input id="form2" type="text">
+<button id="btn1">나누기!</button>
+<div id="div1"></div>
+
+</body>
+<script>
+    let clickit1 = document.getElementById("btn1");
+    // input 값을 가져와서 비교하는 함수를 만들자.
+    let compareIt1 = function compareIt() {
+        let v1 = document.getElementById(`form1`).value;
+        //form1의 값
+        let v2 = document.getElementById(`form2`).value;
+        let text1 = document.getElementById(`div1`);
+
+        if ((v1 % v2) === 0) {
+            text1.innerHTML = `<h1>${v1}은 ${v2}의 배수입니다.</h1>`;
+            //v1이 0보다 더 크다면 div1의 값을 해당 값으로 변경.
+        } else if ((v1 % v2) !== 0) {
+            text1.innerHTML = `<h1>${v1}은 ${v2}의 배수가 아닙니다.</h1>`;
+            //v1이 0보다 더 크다면 div1의 값을 해당 값으로 변경.
+        }
+    };
+
+    clickit1.addEventListener("click", compareIt1, false)
+
+
+    /*
+    * input 타입에 두개의 값을 받아 v1이 v2의 배수인지 아닌지를 판별하는 프로그램을 작성하라
+
+    * 1. input 타입 두개에 각각 값을 받는다 (값은 v1과 v2)
+    * 2. 만약 v1이 v2로 나눴을 때 나머지가 0이 되면 <h1>[v1]은 [v2]의 배수 입니다</h1> 를 출력
+    * 3. 그렇지 않고 나눴을 시 나머지가 0이 아닐경우 <h1>[v1]은 [v2]의 배수가 아닙니다 </h1> 을 출력
+    * *출력은 innerHTML을 활용하여 웹의 맨 아래쪽에 출력한다
+    * */
+</script>
+</html>
