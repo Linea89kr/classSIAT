@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 제어문
+      /*
+        - 로직을 선택적으로 분기 처리하거나 로직을 원하는 횟수만큼 반복 처리할 경우 사용하는 구문
+        - 제어문은 크게 조건문과 반복문으로 분류된다.
+        
+        조건문
+        - 조건문은 특정 조건이 참일 경우 해당 로직을 실행하고 그렇지 않을 경우 다른 로직을 실행하거나
+          로직을 스킵할 때 사용한다.
+        - 조건에 따라 선택적으로 로직을 실행할 경우 사용하는 문장
+        - 조건문에는 크게 if문과 switch~case 문이 존재한다.
+
+        if문
+        - 조건이 참을 경우 안의 로직을 실행, 그렇지 않을 경우 로직을 실행하지 않는 조건 분기 구문
+        - else문을 사용할 경우 조건을 만족하지 못했을 시에 대한 로직을 실행할 수 있다.
+        - 조건 안에 조건을 넣어 조건을 상세하게 걸 수 있지만 가독성이 떨어지므로 가급적이면
+          많은 조건문을 안에서 사용하지 않도록 할 것
+        - 조건문의 분기가 많아질 경우 (if) ~ (else if) ~ (else) 문을 사용할 수 있다.
+      */
+    </script>
+    <input type="text" name="val1" id="val1" placeholder="숫자입력 (1~10)" />
+    <button id="btn1">연산</button>
+    <div id="div1"></div>
+    <script>
+      let globar = 3;
+
+      let reg1 = /[0-9]{0,10}/;
+      let sample = "123";
+
+      console.log(reg1.test(sample));
+
+      document.getElementById("btn1").addEventListener("click", () => {
+        let val1 = document.getElementById("val1").value;
+        if (val1 > 5) {
+          let val2 = 4;
+          console.log(globar);
+          alert(`val1은 5보다 큽니다. ${val1}`);
+        } else {
+          alert("val1은 5보다 같거나 작습니다.");
+        }
+        console.log(val2);
+        console.log("이벤트 실행됨");
+        document.getElementById("val1").value = "";
+        document.getElementById("div1").textContent = val1;
+      });
+    </script>
+  </body>
+</html>

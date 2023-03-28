@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+        }
+
+        .div1 {
+            background-image: radial-gradient(circle at 75% 75%, white, blue);
+        }
+
+        .div2 {
+            height: 200px;
+            background-image: radial-gradient(circle closest-side at 30% 40%, white, blue);
+            /*
+            closest-side
+            closest-corner
+            farthest-side
+            farthest-corner
+            */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+
+</body>
+
+</html>

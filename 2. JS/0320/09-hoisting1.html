@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 호이스팅(hoisting)
+      /*
+        - 변수 선언과 함수 선언을 끌어올리는 기법
+        - 자바스크립트에서 사이드 이펙트의 주범이자 각종 에러를 낳는 원인
+        - var 변수를 통해 선언할 경우 변수 안에는 임시로 undefined값이 들어가 있게 된다.
+        - 함수 선언문 방식으로 선언 시 해당 함수는 마치 위에서 선언한 것 처럼 선언된다.
+        - 이를 방지하기 위해 let과 const를 사용할 수 있으며 TDZ(Temporal Dead Zone)을
+          구성하여 초기화 되기 전 접근을 방지할 수 있다
+          => 단 이를 통해 let 과 const가 호이스팅이 되지 않는다는 것은 아니다.
+      
+      */
+      // console.log(a);
+
+      // var a = 3;
+
+      // funcA();
+
+      // function funcA() {
+      //   console.log("이것은 funcA입니다");
+      // }
+
+      let b = 3;
+      console.log(b);
+
+      c();
+      const c = function () {
+        console.log("이것은 c 함수입니다.");
+      };
+    </script>
+  </body>
+</html>

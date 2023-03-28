@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+        file
+        file 타입은 local에 있는 file 데이터를 읽을 때 사용하는 input type이다.
+        단 input은 단순히 file의 위치와 이름만을 가져오며 자세한 정보는 JS에서 제공하는 함수를 통해 전달받을 수 있다.
+        이후 multipart/form-data 형태의 데이터 포맷 형식으로 서버에 전달하는 기술과 JS의 file API를 활용하여 데이터 포맷을 후처리, 전송하는 방식으로 전송을 한다. 
+
+        파일은 로컬파일의 위치와 이름만 가져오지, 파일 자체가 브라우저에 들어가는 것은 아님!
+    -->
+    <form action="./01-homework1.html" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" id="file">
+        <button>전송</button>
+        <!--파일 전송 방식에는 enc 타입과 스크립트의 file api로 보내는 방식이 있음.-->
+    </form>
+    <script>
+        File(); /*script>file();은 알아서 포매팅 해서 보내버림.*/
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 20rem;
+            height: 20rem;
+            margin: 60px;
+            animation-name: bg1, widthfr;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-direction: alternate-reverse;
+
+            font-size: 3rem;
+            color: white;
+            display: block;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .pdiv {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            color: white;
+            transform: translate(-50%, -50%)
+                /*근데 한번 더 보긴 해야겠다.*/
+        }
+
+        @keyframes widthfr {
+            0% {
+                width: 15rem;
+                height: 15rem;
+            }
+
+            15% {
+                width: 10rem;
+                height: 10rem;
+            }
+
+            30% {
+                width: 11rem;
+                height: 11rem;
+            }
+
+            45% {
+                width: 13rem;
+                height: 13rem;
+            }
+
+            60% {
+                width: 12rem;
+                height: 12rem;
+            }
+
+            75% {
+                width: 15rem;
+                height: 15rem;
+            }
+
+            90% {
+                width: 18rem;
+                height: 18rem;
+            }
+
+            100% {
+                width: 20rem;
+                height: 20rem;
+            }
+        }
+
+        @keyframes bg1 {
+            0% {
+                background-color: red;
+            }
+
+            15% {
+                background-color: orange;
+            }
+
+            30% {
+                background-color: yellow;
+            }
+
+            45% {
+                background-color: green;
+            }
+
+            60% {
+                background-color: blue;
+            }
+
+            75% {
+                background-color: blueviolet;
+            }
+
+            90% {
+                background-color: purple;
+            }
+
+            100% {
+                background-color: red;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="pdiv">우와 정말 대단해!</div>
+    </div>
+</body>
+
+</html>

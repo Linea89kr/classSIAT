@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1 {
+            width: 600px;
+            height: 380px;
+            border: 10px dotted black;
+            background-image: url(./img/landscape.jpg);
+            background-repeat: no-repeat;
+            padding: 30px;
+            /*저 둘을 같이 쓰기*/
+            /* background-size: cover; */
+            /* 
+            background-size: 300px 150px;
+            background-size: 80%
+            background-size: contain
+            background-size: cover
+            가로 크기에 맞추어 세로 크기까지 증가.
+            전체 영역에 비율로 보통 넣음.
+            auto: 
+            contain: 배경 이미지의 긴 부분에 맞춰서 비율에 맞춰 확장.
+            이미지가 해당 블럭 안에 들어가는 최대 크기로 확장.
+            cover: 해당 이미지를 꽉 채움
+
+            커버나 컨테인을 쓰면 repeat 까지 쓰는 건 비추.
+            */
+            /* background-position: center; */
+            /*
+            center left right top bottom
+            요 위치로 지정.
+            left top -> 좌측 상단
+            정둥앙만큼은 center. center center 아님!
+            */
+            background-color: aqua;
+            background-origin: border-box;
+            /* 
+            content-box
+            border-box
+            padding-box 이게 디폴트
+             */
+            background-clip: border-box
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1"></div>
+</body>
+
+</html>

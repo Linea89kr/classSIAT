@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            color: red;
+            font-weight: bold;
+            font-size: 2.5rem;
+        }
+
+        /*캐스케이딩 스타일 시트 기준으로 따지면 파란색이 밑에 있으니까 우선적용되어야 하는 게 맞음.
+        위에서 아래로 흐르고.
+        접근제한자로 중요도를 판별할 수 있다. tag class id inline 순으로 중요도가 올라감.
+        CSS는 위에서 아래로 갈수록 아래쪽에서 더 우선권을 가짐.
+        상속하는 디자인이 있고, 디자인을 상속받는 것이 있을 때,
+        후자가 상속을 받지 않지 않는 디자인보다 우선권이 높음.
+
+        P태그는 상속이 가능한 디자인.
+        P태그가 span까지 내려옴.
+        모든 태그가 다 상속되는 건 아님!
+        상속을 받고난 뒤에 해당 태그에다 동일한 속성을 그대로 주고 다른 값을 집어넣었을 경우,
+        상속을 했던 디자인의 우선순위가 가장 낮음.
+        span의 red를 주석처리 하면 p의 blue가 상속되고 있다.
+        */
+        p {
+            color: blue;
+            /* p태그 아래의 모든 폰트는 이 blue 영향을 받음.*/
+            /* 하지만 하위 태그에서 color를 선언하면 동작 순서상 red가 더 우선순위가 높아서 발동되는 것.
+            하위 태그에서 덮어씌우기 용이한 구조를 위해 그렇게 짜여진 거 같은데...*/
+        }
+    </style>
+</head>
+
+<body>
+    <h1>표준 웹 기술</h1>
+    <p><span>H</span>TML</p>
+    <p><span>C</span>SS</p>
+    <p><span>J</span>avascript</p>
+</body>
+
+</html>

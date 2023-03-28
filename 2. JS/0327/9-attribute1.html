@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+        }
+
+        .bg {
+            background-color: red;
+        }
+
+        .bd {
+            border: 4px dotted blue;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="img1" src="/1. HTML/0220/images.jpg" alt="aaaa">
+    <div class="" id="div1"></div>
+</body>
+<script>
+    const attrs = console.dir(document.getElementById(`img1`).attributes)
+    for (const vali of attrs) {
+        console.log(vali);
+    }
+
+    const id = document.getElementById(`id`);
+    console.log(id);
+
+    const isTrue = document.getElementById(`img1`).hasAttribute(`alt`);
+    console.log(isTrue);
+
+    document.getElementById(`img1`).setAttribute(`data des`, `abc`)
+    // document.getElementById(`img1`).removeAttribute(`data des`)
+
+    // document.getElementById(`div1`).setAttribute(`class, bg`)
+    // document.getElementById(`div1`).className(`bg, bd`)
+
+    document.getElementById(`div1`).classList.add(`bg`, `bd`) // bg 클래스를 클래스 id에 넣어주세요.
+    document.getElementById(`div1`.classList.length) // 클래스 길이는 얼마나 되나요?
+    document.getElementById(`div1`.classList.contains(`bg`)); // bg를 갖고 있나요?
+    document.getElementById(`div1`.classList.item(`bd`)); // 몇번째 인덱스에 있나요 반환해주세요.
+    document.getElementById(`div1`.classList.remove(`bd`)); // 이 css 클래스를 지워주세요.
+    document.getElementById(`btn1`).addEventListener(click, function () {
+        document.getElementById(`div1`).classList.toggle(`bd`)
+    }, false); // 이게 있으면 ~ 해주시고, 없으면 ~! 해주세요.
+
+
+
+
+
+</script>
+<button id="btn1"></button>
+
+
+<script>
+    // document.getElementById("div1")
+    // .setAttribute("class","bg");
+    // document.getElementById("div1")
+    // .className = "bg bd";
+    document.getElementById("div1").classList.add("bg", "bd");
+    console.log(document.getElementById("div1").classList.length);
+    console.log(document.getElementById("div1").classList.contains("bg"));
+    console.log(document.getElementById("div1").classList.item(1));
+    document.getElementById("div1").classList.remove("bd");
+
+    document.getElementById("btn1").addEventListener("click", function () {
+        document.getElementById("div1").classList.toggle("bd");
+    });
+</script>
+
+</html>

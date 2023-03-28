@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            display: inline-block;
+            /* border: 1px solid black; */
+            margin: 0px;
+            padding: 0px;
+            width: 100px;
+            text-align: center;
+            box-sizing: border-box;
+            /*border-radius: 30/50px;*/
+            /* border-top-left-radius: 10px;
+            border-top-right-radius: 10px; */
+            /* border-left: 1px solid red; < 고급 선택자 맨 마지막 친구만! */
+        }
+
+        li:last-child {
+            border-right: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <!--보통 헤더 메뉴 이런식으로 만듬-->
+    <ul>
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+    </ul>
+</body>
+
+</html>

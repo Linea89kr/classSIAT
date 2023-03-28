@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>안녕하세요</h1>
+  <!-- <script>
+    alert("안녕하세요 JavaScript");
+  </script> -->
+  <!-- <script src="./01-script1.js"></script> -->
+  <button onclick="alert('버튼1을 눌렀습니다');">버튼1</button>
+  <script type="text/JavaScript">
+    // 1. alert을 이용해 출력하는 방식
+    alert("이것은 alert창입니다.");
+    // 2. html 문서에 출력하는 방식
+    document.write("<h1>이 문장은 문서에 출력됩니다</h1>");
+    document.write(`<h2>이것은 백틱을 쓴 문장입니다</h2>`);
+    // 3. console.log를 사용하는 방식
+    console.log("이것은 로그로 찍은 내용입니다");
+
+    /*
+    자바스크립트 작성 방법
+    1. html 코드에 <script> 태그를 넣어서 실행
+    2. 태그 안에 onclick과 같은 이벤트에 로직을 넣어 이벤트 트리거로 실행
+    3. 외부에 js를 작성하여 해당 파일을 <script src="">로 불러와서 실행
+
+    html 화면에서 자바스크립트 리터럴 출력 방법
+    1.alert을 통해 창을 띄워 출력하는 방법
+    2.document.write를 통해 문서 내부에서 출력하는 방법
+    3.console.log를 통해 개발자 콘솔에서 출력하는 방법
+
+    자바스크립트 필수 숙지 규칙
+    - 코드는 위에서 아래로, 좌에서 우로 읽는다.
+    - 자바 스크립트는 대소문자를 구분하여 작성한다
+    - 코드 한 줄을 작성한 후에는 반드시 세미콜론(;)을 쓴다 
+      => 예외가 있다면 함수, if문 for문이 끝나는 지점에 세미콜론을 사용할 필요는 없음
+    - 코드의 가독성을 위해 한 줄에 한 문장만 작성하는 것을 권장한다
+    - 문자열 데이터를 작성할 때는 큰 따옴표("")와 작은 따옴표(''), 그리고 백틱(``)의
+      겹침 오류를 주의한다
+    - 코드를 작성할 때 중괄호({}) 혹은 소괄호(())의 짝이 맞아야 한다
+      => 반드시 열었으면 닫아주어야 한다.
+    - 코드를 작성시 반드시 들여쓰기를 지킬 것!!!
+    */
+  </script>
+</body>
+</html>

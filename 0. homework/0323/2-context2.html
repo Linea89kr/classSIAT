@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+
+    /* 
+    실행 컨텍스트
+    실행 가능한 코드를 형상화하고 구분하는 추상적인 개념
+    코드의 뭉치, 혹은 실행 단위
+    보통 자바스크립트에서는 function 형태로 묶어서 들어간다.
+    설령 컨텍스트가 형성되는 경우를 세가지로 나눌 수 있으며, 전역 코드, eval() 함수로 실행되는
+    코드, 함수 안의 코드를 실행하는 경우가 있다.
+    현재 실행되는 컨텍스트에서 컨텍스트 내에 다른 함수, 혹은 eval()이 호출되면 새로운 컨텍스트가 형성되며 스텍테 들어가고 제어권이 해당 컨텍스트로 넘어간다.
+
+    실행 컨텍스트 순서
+    활성 객체 생성
+    arguments 객체 생성
+    스코프 정보 생성
+    지역 함수 및 변수 생성
+
+    스코프
+
+    변수의 유효범위, 혹은 컨텍스트 밖의 함수 혹은 변수로 접근할 수 있는 범위
+    스코프는 참조 대상 식별자를 찾아내기 위한 규칙, 스톡을 이야기 함
+    프로그래밍은 변수를 선언하고 값을 할당하며 변수를 참조하는 기본적인 기능을 제공하며 이것으로
+    프로그램의 상태를 관리할 수 있다.
+    변수는 전역 또는 코드 블록이나 함수 내에 선언하여 코드 블록이나 함수는 중첩될 수 있다.
+
+
+
+
+
+    둘 다 동등한 Depth라서 스코핑이 일어나지 않음
+
+    function funcA(a) {
+        console.log(a)
+    }
+
+    이렇게 하거나
+
+    function funcB() {
+        let a = 3;
+        funcA();
+        function funcA(a) {
+            console.log(a)
+        }
+    }
+    funcB();
+    이렇게 하거나
+
+    let a = 3;
+    function funcA() {
+        console.log(a)
+    }
+        function funcB() {
+    
+        funcA();
+    }
+    funcB();
+
+    이렇게 되거나.
+    */
+
+    function funcA() {
+        console.log(a)
+    }
+
+    function funcB() {
+        let a = 3;
+        funcA();
+    }
+    funcB();
+</script>
+
+</html>

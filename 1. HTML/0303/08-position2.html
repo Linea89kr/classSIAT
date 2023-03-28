@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+
+            /*
+            static을 기준으로 옮기는 게 가능.
+            아래에서 위로 읽기 때문에 div3, div2, div1순으로 읽음.
+            */
+            /* position: absolute; */
+            /*
+            body의 좌측 상단을 기준으로 타고 들어감.
+            static이 아닌, 부모 요소를 기준으로 배치 됨*/
+        }
+
+        .div1 {
+            background: yellowgreen;
+            top: 50px;
+            left: 50px;
+            position: absolute;
+        }
+
+        .div2 {
+            background: bisque;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        /*bg 치고 엔터 하면 자동 완성 (기본은 black)*/
+
+        .div3 {
+            background: lightblue;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        .outer {
+            width: 200px;
+            height: 600px;
+        }
+
+        .rim {
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+         Position
+         웹 문서 안의 요소들을 배치할 때 기준을 제시하는 속성
+         웹 요소들의 배치를 어떤 기준으로 할 것인가를 정할 때 사용 한다.
+         => static: 요소를 위에서 아래로 배치 - default
+         => relative: static을 기준으로 요소를 자유롭게 이동할 수 있도록 배치
+         => absolute: static이 아닌 부모 요소를 기준으로 배치
+             => static이 아닌 부모 요소를 찾고, static이 아니면 부모 요소를 기준으로.
+             => static이 아닌 부모 요소를 찾고, static이면 더 상위 부모로.
+             => 만약 계속 static이 나오면 body를 기준으로 삼음.
+             relative가 절대좌표
+             absolute가 상대좌표
+             absolute -> 부모요소의 좌측 상단을 기준으로 배치.
+             만약 static이 아닌 요소가 없다 -> body를 기준으로 배치.
+                간혹 부모요소가 static이여도 잡히곤 하는데,
+                top:auto; 같은 속성이 걸려있는 경우.
+                top이 넣고 안넣고 차이 아니야? 라고 하지만, top:auto;가 자동으로 걸리는 것.
+         => fixed: 화면을 기준으로 절대 위치를 잡아서 배치
+         상위의 블럭이 어떤 것이건 브라우져의 절대값 기준으로 배치.
+         다른 것에 영향을 받지 않는 독립블럭이 되어버림.
+         => sticky: 화면이 일정이상 위치를 벗어날 경우 기존 relative에서 fixed로 변형
+         움직일 수 있는 범위: 부모 객체의 범위
+
+         position에서 이동 배치 시 필요 요소
+         top: 상단을 기준으로 이동
+         bottom: 하단을 기준으로 이동
+         left: 좌측을 기준으로 이동
+         right: 우측을 기준으로 이동
+         ppt position 내용은 부정확함.
+
+    -->
+    <div class="rim"></div>
+    <div class="outer">
+        <div class="div1">div1</div>
+        <div class="div2">div2</div>
+        <div class="div3">div3</div>
+    </div>
+
+</body>
+
+</html>

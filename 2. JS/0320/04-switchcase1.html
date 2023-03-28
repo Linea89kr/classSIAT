@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // switch~case
+      /*
+        - 자바스크립트에서 제공하는 또 다른 조건문
+        - 기존의 if문처럼 사용이 가능하나 if문하고의 차이점은 if문처럼 범위 비교가 아닌
+          일치연산을 통한 동등 비교만이 가능하다.
+        - 형식 switch([비교 변수/값]){case 비교값 : ... default : ...}
+        - 각 case 안에 들어있는 값이 switch에서 비교하려는 변수의 대상이 되어 두 값끼리
+          동등 비교가 일어나게 된다.
+        - 비교가 일어난 이후 값이 참이면 해당 로직을 실행하고 아니면 다음 case 문의 값과
+          비교를 하게 된다.
+        - 만약 모든 비교식이 false일 경우 default 문의 로직이 실행된다.
+        - switch ~ case 문에서 주의해야 할 점은 case문 하나가 참일 시 해당 로직 뿐만이 아닌
+          그 아래 있는 다른 로직도 전부 실행이 된다.
+        - 이것을 방지하기 위해 각 case 문 맨 마지막에 break;라는 문장을 넣어 아래있는
+          로직이 실행되는 것을 방지하고 switch ~ case문을 빠져나오게 만들 수 있다. 
+      
+      */
+      let a = 2;
+      let b = 2;
+      switch (a) {
+        case 1:
+          console.log("a는 1입니다.");
+          switch (b) {
+            case 2:
+              console.log("b는 2입니다.");
+              break;
+            default:
+              console.log("b에 해당되는 값이 없습니다.");
+          }
+          break;
+        case 2:
+          console.log("a는 2입니다.");
+          break;
+        case 3:
+          console.log("a는 3입니다.");
+          break;
+        // default:
+        //   console.log("a에 해당되는 값은 없습니다.");
+      }
+
+      let c = 2;
+      switch (c) {
+        case 1:
+          console.log(`c는 1입니다.`);
+        case 2:
+          console.log(`c는 2입니다.`);
+          break;
+        case 3:
+          console.log(`c는 3입니다.`);
+        default:
+          console.log("c는 해당되는 내용이 없습니다");
+      }
+
+      let d = 3;
+      // '==='
+      switch (d) {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+          console.log("d는 1부터 5사이의 값입니다.");
+      }
+    </script>
+  </body>
+</html>

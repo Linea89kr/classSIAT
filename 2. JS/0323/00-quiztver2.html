@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>문제</h1>
+    <div action="a"></div>
+    <label for="rd1">답1<input type="radio" name="rd1" value="1"></label><br> 
+    <label for="rd2">답2<input type="radio" name="rd2" value="2"></label><br> 
+    <label for="rd1">답3<input type="radio" name="rd3" value="3"></label><br> 
+    <label for="rd1">답4<input type="radio" name="rd4" value="4"></label><br> 
+    <label for="rd1">답5<input type="radio" name="rd5" value="5"></label><br> 
+    <button type="button" id="btn1">버튼!</button>
+</body>
+<script>
+    document.getElementById(`btn1`).addEventListener(`click`,function(){
+        const rds = document.querySelectorAll(`input[name="rd"]`);
+        const ans = 3;
+        for (let index = 0; index < rds.length; index++){
+            if(rds[index].checked){
+                if(rds[index].value == ans){
+                    document.getElementById(`output`).innerHTML=`<h1>정답입니다!</h1>`
+                }else{
+                    document.getElementById(`output`).innerHTML=`<h1>땡! 다시 고르세요!</h1>`
+                }
+                break;
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // and ex1
+      // and : 중간에 연산이 거짓일 경우 이 뒤로
+      // 연산을 수행하지 않는다.
+      console.log(3 >= 1 && 5 < 4); // false
+      console.log("dog" && "cat"); // cat
+      console.log("" && "cat"); // ''
+      console.log(1000 && "dog"); // dog
+      console.log("apple" && "pineapple"); // pineapple
+      console.log(false && "dog"); // false
+      console.log(undefined && "" && "cat"); // ''
+
+      const c1 = { a: "abc" };
+      // const c2 = {
+      //   a: 123,
+      //   b: "abc",
+      //   c() {
+      //     console.log("asdf");
+      //   },
+      // };
+      console.log(!!c1);
+      // console.log(c2.a && 2 + 4);
+      console.log(NaN == +undefined);
+
+      // or 연산
+      console.log("dog" || "cat"); // dog
+      console.log(0 || "cat"); // cat
+      console.log("" || 1234); // 1234
+      console.log(undefined || null); // null
+
+      // not 연산
+      console.log("---------------");
+      console.log(!!"cat"); // true
+      console.log(!!""); // false
+      console.log(!!0); // false
+      console.log(!!5); // true
+    </script>
+  </body>
+</html>

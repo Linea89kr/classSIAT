@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            height: 60px;
+            border: 1px solid black;
+            /* overflow-y: auto;
+            y축이 넘치면 스크롤을 넣어주세요.*/
+            /* overflow-x: auto;
+            x축이 넘치면 스크롤을 넣어주세요 */
+            overflow: auto;
+            /*브라우저에서 지정한 디폴트를 적용해주세요!
+            -> 보통 visible*/
+            /*overflow: scroll;
+             넘칠 경우 스크롤을 넣어주세요.
+            elipsis의 경우 저렇게 넣으면... 처리가 이미 되서 스크롤 넘기면 아무것도 없음.*/
+            /*text overflow를 쓰려면 whitespace가 nowrap으로 켜져야 하고, 
+            조건 하나 더가 있는데 뭔지 모르겠다. 속기록 참고하기.
+            
+            
+            목록 스타일: 목록으로 쭉 나열할 때 쓰는 것들.
+            ul 태그의 경우 bullet의 모양을 바꿀 수 있음.
+            dash or latin?
+            > 이걸 스타일로 옮긴게 목록 스타일.
+            list-style-type: none (불릿을 감추는 걸 자주 씀)
+            
+            list-style-image
+            -> 얘도 잘 안씀.
+            
+            list-style-position
+            리스트 안에서 들여쓰기 내어쓰기를 할 경우에 표시하는 것.
+            ppt 대로는 안하고 ul 안에 list를 넣거나 하는 방식으로 적용.
+            -> 잘 안씀!
+
+            신문 기사의 문장들만 클론코딩을 해볼 것.
+            (아무 기사나 들어가서 따라서 코딩하기.
+            -> 가르쳐줄 건 다 가르쳐줬다. 이젠 알아서 적용해보삼.)
+            */
+            white-space: nowrap;
+
+        }
+
+        .div1 {
+            text-overflow: clip;
+        }
+
+        .div2 {
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+    text overflow
+    넘치는 텍스트에 대해 처리하는 속성
+    clip: 넘치는 텍스트를 자른다
+    elipsis: 말줄임표로 잘린 텍스트가 있다고 표시
+-->
+    <div class="div1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam porro hic culpa cupiditate non
+        mollitia expedita
+        corrupti sapiente, sint id perspiciatis a dolor possimus ab dicta enim nesciunt quisquam laboriosam.</div>
+    <div class="div2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam porro hic culpa cupiditate non
+        mollitia expedita
+        corrupti sapiente, sint id perspiciatis a dolor possimus ab dicta enim nesciunt quisquam laboriosam.</div>
+</body>
+
+</html>

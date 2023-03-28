@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+/*
+getter setter
+es6에 들어와서 새로 생긴 기능
+기존의 프로퍼티를 가져오거나 내보낼 때 해당 프로퍼티의 외부 노출을 막기위해 생겨났다.
+getter: 프로퍼티를 내보낼 때 쓰는 메서드
+setter: 프로퍼티를 가져올 때 쓰는 메서드
+=> getter와 setter를 사용해 정보 은닉이 가능하다
+=> 직접적인 접근의 방지가 가능하다
+=> 일관성있는 코드가 만들어지며 코드의 가독성이 좋아진다.
+
+getter
+동적으로 출력할 프로퍼티 값이 필요한 경우 사용하는 메서드
+getter는 파라미터가 없고 반드시 리턴 명령어가 존재해야 한다.
+getter에서는 선언시 반드시 앞에 get 이라는 명령어가 붙는다
+    getter를 씀으로써 생기는 장점
+    계산 미루기 (lazy getter)
+    getter의 값 계산은 실제 값이 필요할 때 이루어지며 바로 연산이 쉽지 않으므로 처음 실행시 리소스가 소모되지 않는다.
+    캐싱: 캐싱은 기존의 연산한 결과를 저장하는 것을 의미하며 getter의 캐싱 연산을 통해 동일한 값의 정보가 들어올 경우 기존에 캐싱한 값을 사용한다.
+    => 불필요한 연산을 방지하고 리소스의 소모를 줄일 수 있다.
+
+
+setter
+외부의 리터럴 값을 넣을 때 해당 값을 변경하거나 유효성에 맞춰 넣어야 할 경우
+사용하는 메서드
+setter는 파라미터가 반드시 하나만 존재해야 하며 return을 할 수 없다.
+setter 메서드 선언시 앞에 set이라는 명령어가 반드시 붙는다.
+
+
+
+get key  import
+set lock export
+
+set은 반드시 하나의 파라메터만 가져옴
+get은 반드시 return을 가져와야 함.
+*/
+
+
+const obj1 = {
+        a: 3,
+        set b(val1){ //set = lock
+            b = val1;
+        },
+        get b(){ //get = open
+            return "a" + _b;
+        }
+    }
+
+</script>
+</html>

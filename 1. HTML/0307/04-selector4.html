@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        input[type="text"]:enabled {
+            background-color: yellowgreen;
+        }
+
+        input[type="text"]:disabled {
+            background-color: #999;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        /* 박스를 숨겨버려서 글자만 보이게!*/
+
+        input[type="checkbox"]:checked+label {
+            font-weight: bold;
+        }
+
+        /* 체크되면 폰트를 굵게! */
+    </style>
+</head>
+
+<body>
+    <input type="text" name="txt1"><br>
+    <input type="text" name="txt2" disabled><br>
+    <div>
+        <input type="checkbox" name="ch1" id="ch1"><label for="ch1">체크1</label>
+        <input type="checkbox" name="ch2" id="ch2"><label for="ch2">체크2</label>
+        <input type="checkbox" name="ch3" id="ch3"><label for="ch3">체크3</label>
+    </div>
+</body>
+
+</html>

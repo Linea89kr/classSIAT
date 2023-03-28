@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+    인터넷 익스플로러 강점기
+    -> 윈도우 미디어 플레이어를 웹에 강제로 apk형태로 탑재해서 사용하던 형태.
+    -> 다른 브라우저들도 거기 맞춰나가던 시절
+    -> HTML5가 되어도 레거시가 좀 남아있긴 함.
+    -> HTML5를 WHATWG에서 만들 때 가장 우선적으로 제거해야했던 독점요소가 멀티미디어
+    -> 오페라, 사파리, 모질라 등에서도 자체 영상 규격을 만들었었음.
+    -> (그래서 지금은 코덱이 셋이 공존중)
+    -> MDN에서 미디어 UI에 관한 코드를 지원
+    -> 활동적x는 이제 사라짐
+    -> 유튜브도 현재 HTML5. 다만 실시간 통신에는 문제가 있는지 요샌 좀 품질이 떨어지는 거 같...
+    
+    Object
+    exe 파일, 자바 애플릿, 플래시 ... etc
+    -> 이걸 간접적으로 브라우저로 지원하기 위해 만든 태그
+    -> 현재에는 잘 안쓰이고 있긴 한데, 최근들어서 다시 쓰는 곳이 생김
+    -> 코드펜 같은 사이트 가보면 svg를 오브젝트로 불러오는 경우가 있음.
+    -> svg를 오브젝트로 불러서 플래시처럼 그림을 재생하는 형태.
+    
+    embed
+    윈도우에 가장 밀접한 태그
+    HTML4.1즈음 윈도우에서 explore와 미디어 플레이어를 엮을 태그를 표준화하기 위해 만듬.
+    -> 70~80%가 되는 독점이라 이 규격을 안쓸 수는 없었음.
+    -> 다른 브라우저들도 그래서 지원
+    -> 유튜브도 이 태그 지원했지 그러고보니.
+
+    HTML5 멀티미디어 스펙
+
+    <audio>: 오디오 재생을 할 때 쓰는 태그, 영상이 아닌 소리만 재생하고자 할 경우 사용할 수 있다.
+    오디오 태그에서는 자체적으로 지원되는 속성들이 존재한다.
+    autoplay: 오디오를 자동 재생한다. 다만 특정 조건을 만족할 경우 실행되며,
+     그렇지 못할 경우에는 autoplay를 활성화한다 하더라도 실행되지 않는다.
+    controls: 웹 화면에 조작할 수 있는 인터페이스를 보여준다.
+    loop: 오디오를 반복재생한다.
+    muted: 오디오를 재생하지만 소리가 나오지 않는다.
+    preload: 오디오를 재생하기 전 리소스 파일을 미리 다 내려받는다.
+    다운로드시 일부만 다운로드 할 것인지, 전부 다 받고 재생할 것인지, 아니면 아예 다운로드 하지 않다가 재생시에 다운로드할 수 있다.
+
+    <video>: 비디오 재생을 할 때 쓰는 태그. 영상을 재생할 경우 사용할 수 있으며 속성은 <audio>와 동일하다.
+    
+    poster: video에만 있는 속성으로 브라우저나 인터넷 문제로 재생이 어려울 경우 비디오 화면 대신 놓을 그림을 설정할 수 있다. 다만 브라우저마다 지원되는 경우도, 미지원되는 경우동 ㅣㅆ어 해설 속성 대신 css로 대체하는 것을 권장.
+
+
+-->
+
+    <audio autoplay controls>
+        <source src="./media/bgsound.mp3" type="mp3">
+    </audio>
+    <!--autoplay 원래는 되는 기능인데 요샌 막힘. - 크로미움에서 막음.
+    특정 조건이 발동되면 오토플레이가 됨. -->
+
+    <!--<video src="./media/flame.mp4" controls preload="auto" poster="./media/flame.jpg"></video>-->
+
+    <!--
+    video>playsinline <- 공식은 아닌데 공식인 것처럼 넣는 거임.
+    안드로이드 크롬 / ios 사파리 등 모바일에서 지원되고 있는 브라우저를 위한 것.
+    모바일에서 비디오를 자동재생하기 위해 쓰이는 옵션
+    정식 태그가 아니라 나중에 들어내야 할 수도 있음.
+    iOS에서 저전력이면 저 태그가 있는 영상을 아예 실행을 막아버림
+    -> iOS 정책상의 문제임.
+
+    Webgl과 3dmerge를 혼용하는 경우도 있고.
+
+    기법 자체는 여러개가 있음.
+-->
+
+    <!--
+    하위 선택자
+    부모 선택자 밑의 제시한 조건에 해당하는 클래스 모두.
+
+    자식 선택자
+    부모 선택자 바로 밑의 '직계' / 조건에 해당하는 클래스
+    밑단의 밑밑단 (손자) 클래스에는 해당 x
+
+    
+
+-->
+
+    <video controls preload="metadata" poster="media/flame-m.jpg">
+        <source src="media/beach-full.mp4" type="video/mp4">
+        <source src="media/Beach-o.ogv" type="video/ogv">
+        <source src="media/Beach-w.webm" type="video/webm">
+    </video>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		h1::before {
+			width: 5px;
+			content: "★";
+			background-color: violet;
+		}
+
+		/*h1 태그 앞에 별을 넣어줘! 배경색은 바이올렛!*/
+	</style>
+</head>
+
+<body>
+
+	<h1>안녕하세요!</h1>
+	<!-- 가상 요소
+	'내가 어떤 태그의 앞이나 뒤에 디자인에 쓰이는 불릿 같은걸 넣으려 하면,
+	쓸데없는 태그를 넣어서 정합성을 망가뜨리는 경우가 있음.
+	글 앞에 첨자를 넣어야 하는데, span을 넣어버리는 경우'
+
+	태그를 사용하기 위해 디자인을 넣고... 하는 과정이 더 추가가 됨.
+
+	하지만 위와 같이 virtual element를 넣으면 span을 선언했던 것마냥 사용할 수 있음.
+	불필요한 태그 사용을 줄이고, 필요한 것만 넣어서 깔끔하게 관리할 수 있음.
+	기본적인 용법임.
+
+	핸들링할 요소가 있다 -> span으로 일괄제어하기 쉽다면 그렇게 해도 됨
+	하지만 단순한 첨자 하나 추가하는 데에 span 하나만 넣는건 비효율.
+
+	기본적인 속성은 inline임. 여러 태그에서 이 before나 after를 쓸 수는 있는데,
+	얘는 block에서 쓰이는 건 안먹힘.
+
+	메모리제이션 / 트렌젝션 / 에어로 함수를 이용해서 콜백 처리
+
+	 -->
+</body>
+
+</html>

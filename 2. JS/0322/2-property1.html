@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //프로퍼티 이름 조합
+    /*
+    프로퍼티 이름을 변수 혹은 리터럴 데이터를 활용해 선언할 수 있는 방식
+    이방식을 사 용할 경우 연산을 통한 프로퍼티 선언도 가능하다
+    프로퍼티 선언을 통해 연속적이거나 규칙적인 형식 선언에도 사용이 가능하다.
+    */
+    let i = 0;
+const objl = {
+    key1: "value1",
+    ["key2"]: "value2",
+    ["k" + ++i]: "key1",
+    ["k" + ++i]: "key2",
+    ["k" + ++i]: "key3",
+    [makekey("key", 1)]: "my" + "key1",
+};
+
+console.log(objl.key2);
+console.log(objl.key3num1);
+console.log(objl.k1);
+console.log(objl.k2);
+console.log(objl.k3);
+console.log(objl.mykey1);
+
+function makekey(key,num){
+    return "my"+key+num;
+}
+</script>
+</html>

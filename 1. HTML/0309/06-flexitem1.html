@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        .flex-container {
+            display: flex;
+
+        }
+
+        .flex-item1 {
+            flex-basis: 0;
+        }
+
+
+        .flex-item2 {
+            /* width: 300px; */
+            min-width: 300px;
+            max-width: 400px;
+        }
+
+        .flex-item3 {
+            flex-basis: 300px;
+            width: 300px;
+            /*
+            width vs flex-basis라면 width가 우선한다.
+            */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="flex-item flex-item1">AAAAAAAAAAAAAAAAAAAAAAAAAAAA</div>
+        <div class="flex-item flex-item1">BBBBB</div>
+        <div class="flex-item flex-item1">CCCCCCCC</div>
+    </div>
+    <div class="flex-container">
+        <div class="flex-item flex-item2">AAAAAAAAAAAAAAAAAAAAAAAAAAAA</div>
+        <div class="flex-item flex-item2">BBBBB</div>
+        <div class="flex-item flex-item2">CCCCCCCC</div>
+    </div>
+    <div class="flex-container">
+        <div class="flex-item flex-item3">AAAAAAAAAAAAAAAAAAAAAAAAAAAA</div>
+        <div class="flex-item flex-item3">BBBBB</div>
+        <div class="flex-item flex-item3">CCCCCCCC</div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+</head>
+
+<body>
+    <!--
+    %는 부모 태그를 따라감. vm은 비율이라 좀 더 안정적일듯?.
+
+    source media를 쓰면 미디어쿼리를 여럿을 쓰는 거보단 더 단순하게 처리가 가능함.
+    -->
+    <source media="(max-width: 1400px)" srcset="img/shop-large.jpg">
+    <source media="(max-width: 1024px)" srcset="img/shop-medium.jpg">
+    <source media="(max-width: 760px)" srcset="img/shop-small.jpg">
+    <picture>
+        <img src="img/shop.jpg" alt="" stype="width:100%">
+    </picture>
+
+</body>
+
+</html>

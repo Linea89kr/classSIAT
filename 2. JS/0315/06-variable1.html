@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 변수 - variable
+      /*
+        - 리터럴 혹은 레퍼런스 타입의 데이터를 담아두는 곳
+        - 변수에는 반드시 하나의 값만을 담을 수 있으며 다른 값이 삽입될 경우 이전 값은 소멸한다.
+        - 변수는 프리미티브/넌 프리미티브 타입 모두 담는것이 가능하다.
+        - 자바스크립트에서 사용할 수 있는 변수 타입은 var/let/const 세가지 타입이 존재한다.
+        - 선언 방법 : var/let/const 변수명 = 데이터;
+      */
+      // 변수 명 작성시 주의사항
+      /*
+        - 변수명은 숫자로 시작할 수 없다.
+        - 변수명 첫글자는 $, _, 영문자만 가능하며 _의 경우 외부에서 쓸 수 없는 내장 변수로 보통 표기
+        - 대소문자 구분을 해야한다.
+        - 변수는 대문자가 아닌 되도록 소문자 명사형으로 시작할 것
+        - 변하지 않는 환경변수의 값을 담는 상수 변수는 대문자에 '_' 조합으로 표기
+        - 여러 단어가 조합되는 경우 낙타 표기법(camelcase)로 작성한다.
+        - 주의할 점 : 이미 정의된 예약어로 변수명을 사용할 수 없다.
+      */
+      var abc = "abc";
+      console.log(abc);
+      var abcDEF = 1234;
+      console.log(abcDEF);
+      var userName = "이름";
+      const IS_DELETE = true;
+      // var if = 1;
+    </script>
+  </body>
+</html>

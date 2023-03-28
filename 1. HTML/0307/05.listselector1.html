@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1>p:first-child {
+            background-color: yellow;
+        }
+
+        .div1>p:last-child {
+            background-color: yellowgreen;
+        }
+
+        .div2>p:nth-child(2) {
+            background-color: aqua;
+        }
+
+        .div2>p:nth-of-type(3) {
+            background-color: magenta;
+        }
+
+
+        .div3>p:nth-child(2) {
+            background-color: aqua;
+        }
+
+        .div3>p:nth-of-type(3) {
+            background-color: magenta;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+        리스팅 문서 요소 접근 가상 클래스
+        :root: 문서 안의 루트 요소에 스타일 적용
+        :nth-child(n): 부모 요소의 n번째 자식 요소에 스타일 적용
+        :nth-last-child(n): 부모 요소의 뒤로부터 n번째 자식 요소에 스타일 적용
+        :nth-of-type(n): 같은 유형의 요소중에서 n 번째 나타나는 요소에 스타일 적용
+        :nth-last-of-type(n): 같은 유형의 요소중에서 끝에서부터 n번째 나타나는 요소에 스타일 적용
+        :first-child: 첫번째 자식 요소에 스타일 적용
+        :last-child: 뒤에서 첫번째 자식 요소에 스타일 적용
+        :first-of-type: 형제 중에서 첫번째 요소에 스타일 적용
+        :last-of-type: 형제 중에서 뒤에서 첫번째 요소에 스타일 적용
+        :only-child: 자식 요소가 하나뿐인 요소에 스타일 적용
+        :only-of-child: 해당 요소가 하나 뿐인 요소에 스타일 적용
+
+
+        같은 태그 중에서 고른다: nth child
+        태그를 조회해서 2번째 태그를 고른다: nth-of-type
+        li나 테이블에 많이 쓰이는 이유. 
+    -->
+
+    <div class="div1">
+        <p>내용1</p>
+        <p>내용2</p>
+        <p>내용3</p>
+    </div>
+
+    <div class="div2">
+        <p>내용1</p>
+        <p>내용2</p>
+        <p>내용3</p>
+        <p>내용4</p>
+        <p>내용5</p>
+
+    </div>
+
+    <div class="div3">
+        <h2>제목1</h2>
+        <p>내용1</p>
+        <p>내용2</p>
+        <p>내용3</p>
+        <p>내용4</p>
+        <p>내용5</p>
+
+    </div>
+
+</body>
+
+</html>

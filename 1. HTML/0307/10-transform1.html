@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.div_origin {
+			width: 170px;
+			height: 128px;
+			border: 1px solid black;
+			float: left;
+			margin: 40px;
+		}
+
+		.movex:hover {
+			transform: translateX(50px);
+		}
+
+		.movey:hover {
+			transform: translateY(50px);
+		}
+
+		.movexy:hover {
+			transform: translate(10px, 20px);
+		}
+
+		.movez:hover {
+			transform: perspective(500px) translateZ(70px);
+		}
+
+		/*
+		3d 영역 500px 만들어주세요 -> perspective
+		z축으로 -50px 주세요 -> transform:translatez(n)
+		*/
+
+		.move3d:hover {
+			transform: perspective(500px) translate3d(50px, 50px, 100px);
+		}
+	</style>
+</head>
+
+<body>
+	<div name="div_origin">
+		<div class="movex"><img src="./img/galic.jpg" alt=""></div>
+		<div class="movey"><img src="./img/galic.jpg" alt=""></div>
+		<div class="movexy"><img src="./img/galic.jpg" alt=""></div>
+		<div class="movez"><img src="./img/galic.jpg" alt=""></div>
+		<div class="move3d"><img src="./img/galic.jpg" alt=""></div>
+	</div>
+</body>
+
+</html>

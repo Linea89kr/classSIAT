@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+        Grid
+            -기존의 flex의 배치에서 바둑판 식으로 영역에 대한 구분을 하여 배치를 좀 더 유동적으로 하기 위해 등장한 display 속성
+            - flex에서 단방향으로 배치가 되던 것에 반해 grid 는 가로 세로의 격자를 기준으로 배치가 이루어지며 영역을 잡아 배치 또한 가능하도록 만들어진, 가장 유연하게 설계된 display 속성이다.
+
+
+        grid 용어
+            - Grid Container: 그리드 블럭을 감싸는 컨테이너
+            - Grid item: 그리드 셸 안에 있는 각각의 요소
+            - Grid Track: 각 그리드의 칸
+            - Grid line: 그리드 셸과 셸 사이 혹은 셸의 바깥을 감싸고 있는 구분 선
+            - Grid number: 각 그리더 라인의 번호
+            - Grid gap: 각 그리드 셸 사이의 간격
+            - Grid area: grid 라인으로 둘러싸여 그리드에 배치될 아이템의 위치할 영역 보통 하나의 셸이 아닌 복수의 집합으로 이루어져있다.
+        
+        Grid row, column잡기 (grid-template-row, grid-template-colmn)
+        - 그리드의 각 격자의 개수 혹은 행렬을 잡기 위해 사용하는 속성
+        - Grid-template-row가 행, grid-template-column이 열을 잡는다.
+        각 행과 열을 잡아 그리드에 영역을 지정할 수 있으며, 그리드의 아이템은 기본적으로 한 셸에 한개의 아이템이 위치하게 된다.
+        - 그리드의 셸이 아이템보다 많다면 아이탬을 채우고 난 뒤의 남은 공간을 빈공간으로 둔다.
+        - 반면에 그리드의 셰링 아이템보다 적다면 아이템은 가로의 크기를 grid-template-column에 맞추고 세로크기는 컨텐츠에 맞추어 정렬한다.
+
+        fr(fraction)
+            -글이드의 셸에 들어갈 배수
+            사이즈가 동적으로 조정되는 셸의 경우 fr을 사용하여 배수만큼의 크기를 통해 조정이 가능하다.
+            다만 해당 사이즈를 동적으로 조정하는 것이 아니라 고정하기 위해서는 고정값을 쓰는 것이 좋다.
+
+            repeat(n, [px])
+            만약 fow나 column이 같으 크기로 반복이 된다면 repeat를 활용하여 크기에 대한 반복 지정이 가능하다.
+            n에는 반복할 숫자, px에는 크기를 나타내며 이곳에 re또한 위치가 가능하다.
+
+            minmax()
+            크기가 유동적으로 변하지만 반응형 웹의 조건에 따라 크기에 대한 제한을 일부 주고 싶을 경우 사용
+            max-width, min-width, max-height, min height 같이 크기에 대한 동적 조건과 동시에 범위를 주고자 할 경우 사용
+            minmax는 동적으로 크기를 세팅하고자 하는 grid 영역에 최적의 옵션이 되므로 많은 사람들이 사용한다.
+        -->
+</body>
+
+</html>

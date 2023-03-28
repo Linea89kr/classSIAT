@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 논리연산자
+      /*
+        - A가 참이고 B가 참이면 참
+        - 양변의 조건의 결과를 연산하여 결과를 출력하는 연산자
+        - and(&&) : 모든 조건이 참이면 참, 하나라도 거짓이면 거짓
+        - or(||) : 이 조건중 하나라도 참이면 참, 아니면 거짓
+        - not(!) : true를 false로, false를 true로 반전
+      */
+      console.log(true && true);
+      console.log(true && false);
+      console.log(true && true && true);
+      console.log(true && true && false);
+      console.log(false && false && false);
+
+      console.log("---------------------");
+      console.log(true || true);
+      console.log(true || false);
+      console.log(false || true || false);
+      console.log(false || false || false);
+
+      console.log("---------------------");
+      console.log(!true);
+      console.log(!false);
+    </script>
+  </body>
+</html>

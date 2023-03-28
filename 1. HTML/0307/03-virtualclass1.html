@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a:link {
+            color: coral;
+        }
+
+        /* 녀석이 안다녀왔다면 코랄색을 보여줘라 */
+
+        a:visited {
+            color: purple;
+        }
+
+        /* 녀석이 다녀왔다면 코랄색을 보여줘라 */
+        .div1 {
+            color: yellow;
+        }
+
+        .div1:hover {
+            text-shadow: black 2px 2px;
+        }
+
+        #txt:focus {
+            background-color: darkgreen;
+        }
+
+        .divif1:active {
+            background-color: cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+        가상 클래스
+        태그의 상태, 혹은 액션에 따라 디자인을 적용하고자 할 때 사용하는 선택자
+        :link - 방문하지 않은 링크
+        :visited - 이미 방문한 링크
+        :active - 대상 element가 이미 활성화 되어있을 시
+        :hover - 마우스 rollover할 시
+        :focus - 웹 element에 초점을 맞추어 놓았을 때 (?)
+        :enabled - element가 사용 가능할 때
+        :disabled - element를 사용할 수 없을 때
+        :checked - 라디오나 체크 박스에서 해당 항목을 선택했을 시
+    -->
+    <a href="http://framer.com">프레이머!</a>
+    <a href="http://pramer.html">프레이머!</a>
+    <div class="div1">
+        <h1>제목1</h1>
+    </div>
+    <div class="divif1">
+        <input type="text" id="txt">
+    </div>
+</body>
+
+</html>

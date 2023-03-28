@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let start = +prompt("스타트");
+      let end = +prompt("앤드");
+
+      let str = `<table border="1">`;
+
+      str += `<tr>`;
+      for (let i = start; i <= end; i++) {
+        str += `<th>${i}단</th>`;
+      }
+      str += `</tr>`;
+
+      for (let i = 1; i <= 9; i++) {
+        str += `<tr>`;
+        for (let j = start; j <= end; j++) {
+          str += `<td>${j}*${i}=${j * i}</td>`;
+        }
+        str += `</tr>`;
+      }
+
+      str += `</table>`;
+
+      document.write(str);
+    </script>
+  </body>
+</html>

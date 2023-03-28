@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 배열 밀림 확인하기
+    // const arr1 = [`a`, `b`, `c`, `d`, `e`];
+    // arr1.push(`f`); // [5] 주소값에 e 추가.
+    // console.dir(arr1);
+    // console.log(arr1.pop());
+    // console.log(arr1.shift());
+
+
+    // #2
+    // 배열 합치기
+    // const arr1 = [`a`, `b`, `c`];
+    // const arr2 = [`d`, `e`, `f`];
+
+    // const arr3 = arr1.concat(arr2);
+    // console.log(arr3);
+
+    //#3
+    // 배열 값 사이에 특정 문자열을 넣기
+    // const arr1 = [`a`, `b`, `c`];
+    // let str = arr1.join(`/`);
+    // console.log(str)
+    // console.log(arr1.reverse())
+
+    //#4
+    // unicode 순으로 정렬
+    // const arr1 = [5, 1, 4, 2, 3];
+    // arr.sort();
+    // console.log(arr1);
+
+    //#5
+    //배열 자르기
+    const arr1 = [1, 2, 3, 4, 5];
+    const arr2 = arr1.slice(0, 3); // a에서 b까지 이쁘게 자를 거야. * 주소값
+    const arr3 = [5, 4, 3, 2, 1];
+    const arr4 = arr3.slice(0, -1); // 이번엔 뒤에서부터 자를 거야.
+
+    console.log(arr2);
+    console.log(arr4);
+    console.log(arr4.slice(-3));
+
+    // #6
+    const arr5 = ['a', 'b', 'c', 'd'];
+    const arr6 = arr5.splice(1, 2) // 1에있는 index를 기준으로 '2'개
+    console.log(arr6)
+    console.log(arr5)
+
+    //splice= splice 하고 나면 '배열을 그대로 분리한다'
+
+
+</script>
+
+</html>

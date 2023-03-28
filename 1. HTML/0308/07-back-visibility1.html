@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            font-size: 60px;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+        }
+
+        .box {
+            background-color: aqua;
+            transform: rotateY(135deg);
+        }
+
+        /*
+        A: 면을 뒤집었을 때 앞면이 안보였으면 좋겠어.
+        */
+        #back1 {
+            backface-visibility: hidden;
+            /*
+            ???: 지워드렸습니다 ^^
+            A: 아예 앞면이 사라졌잖아!
+
+            door event
+            div 2개를 겹치게 해서 뒷면을 그리는 것.
+            한쪽이 flip 되어도 다른 한쪽이 보이게끔 hidden을 걸어버림.
+
+            2번 그리게 하느니 hover event가 주어졌을 때, 앞면은 hidden 처리해버리고,
+            반대편의 뒷면만 활성화.
+            웹이라 이런건 좀 더 편한듯?
+            */
+        }
+
+        #back2 {
+            backface-visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+    <!--div.container*2>div.box#back$>h1{back}-->
+    <div class="container">
+        <div class="box" id="back1">
+            <h1>back</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="box" id="back2">
+            <h1>back</h1>
+        </div>
+    </div>
+</body>
+
+</html>

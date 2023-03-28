@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 함수를 선언하는 방법
+      // 1. 함수 선언문
+      /*
+        - 함수 이름 앞에 function만 붙여서 선언하는 방식
+        - 보편적으로 es5 때부터 많이 사용되던 방식이다.
+        - 재사용이 가능한 코드를 만들 때 이 방식을 많이 사용하며 현재도 많이 사용되고 있는 방법 중 하나
+        - 다만 재선언을 일부로 막기 위해 기존의 함수 선언식 말고 익명 함수 선언식 앞에 const 변수를
+          붙여 사용하는 케이스가 적지 않게 많다.
+      */
+      // function funcA() {}
+      // 2. 기명 함수 표현식
+      /*
+        - 함수의 이름 앞에 변수를 사용하여 변수에 함수를 받아 사용하는 방식
+        - 함수에도 고유의 이름이 있으며 함수 안쪽에서 사용이 가능하다.
+        - 다만 기명 함수 표현식은 현재로서 포지션이 애매해 사람들이 잘 사용하지 않는다.
+      */
+      const funcB = function fnB(x, y) {
+        console.log(`${x}와 ${y}의 합은 ${x + y} 입니다.`);
+      };
+
+      funcB(3, 4);
+      // fnB(3, 4);
+
+      // 3. 익명 함수 표현식
+      /*
+        - 이름없는 함수 앞에 변수로 받아 사용하는 방식
+        - 원래 목적은 한번만 사용될 인스턴스 함수를 사용하고자 고안된 문법
+        - 이후 함수에 대한 재선언 및 재할당을 방지하기 위해 const가 들어오면서 익명 함수 표현식으로
+          함수를 많이 사용하게 됨
+        - 최근 들어 가장 많이 사용되고 있는 방식 중 하나.
+      */
+      const funcC = function (x, y) {
+        console.log(`${x}와 ${y}의 합은 ${x + y} 입니다`);
+      };
+
+      funcC(3, 4);
+    </script>
+  </body>
+</html>

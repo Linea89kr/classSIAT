@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            color: blue;
+        }
+
+        #t1 {
+            color: green !
+                /* !important*/
+            ;
+        }
+
+        .t2 {
+            color: violet;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- css 우선순위
+    스타일의 우선순위는 중요도, 명시도, 소스에서의 순서 3개가 기준이 됨.
+
+    중요도
+        사용자 스타일 시트 > 제작자 스타일 시트 > 기본 브라우저 시트
+    명시도
+        인라인 스타일 > id 스타일 > 클래스 스타일 > 그룹 스타일 > 전체 스타일
+
+    소스에서의 순서
+        항상 아래에 있는 스타일이 먼저 적용된다.
+            컴파일 방식이 다름.
+            코드는 보통 위쪽에서 메모리가 락을 걸어버림. 일반적인 언어임.
+            html이나 css에서는 우리가 동일 디자인이 있으면 덮어 씌워버림.
+            그래서 아래에 있는 스타일이 먼저 적용된다.
+            이건 JS도 똑같음.
+
+    important 남발 금지.
+    되도록이면 선택자를 통홰서, class를 주로 쓰고 id는 지양해라.
+
+    디자인은 상속된다. f12 눌러서 까면 다 나옴
+    CSS에서의 prefix
+    HTML5로 표준이 통합이 되긴 했지만 일부 기능이 동작하지 않는 경우도 있음.
+    버전이 낮을 수록 이런 일이 터짐.
+    각각의 브라우저마다 기능을 붙이기 위해 prefix를 붙이는 경우가 있음.
+    -webkit
+    -moz
+    -o-
+    요 셋만 알면 됨. ms는 얼마전에 미국갔음.
+    
+-->
+
+    <h1 style="color: red;">안녕하세요.</h1>
+    <h1 style="color: greenyellow;" id="t1" class="t2">만나서 반갑습니다.</h1>
+
+</body>
+
+</html>

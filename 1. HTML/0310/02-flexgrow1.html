@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        .flex-container {
+            display: flex;
+        }
+
+        .flex-item {
+            flex-grow: 1;
+            /* 쟝소:33.33%*/
+            /* 1은 비율을 의미. 1:1:1
+            
+            동등하게 균등배치를 하려면 grow를 쓰면 안되고, %를 쓰는게 옳음.*/
+        }
+
+        .flex-item:nth-child(2) {
+            flex-grow: 3;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="flex-container">
+        <div class="flex-item">AAAAAAAAAAAAAAAAAAA</div>
+        <div class="flex-item">BBBB</div>
+        <div class="flex-item">CCCCCCCCCCCC</div>
+    </div>
+</body>
+
+</html>

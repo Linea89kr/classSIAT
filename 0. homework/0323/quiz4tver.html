@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modal.button {
+            padding: 1rem 1.5rem;
+            border-radius: 2px;
+            font-weight: bold;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            padding: 1.5rem;
+            display: none;
+            background-color: white;
+            opacity: 0.7;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-inner {
+            max-width: 32rem;
+            padding: 1.5rem;
+            border-radius: 2px;
+            background-color: white;
+            box-shadow: 0 3px 0px black;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="modal-button">버튼 클릭</button>
+    <div class="modal" id="modal1">
+        <div class="modal-inner">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio odit vel iusto quibusdam nulla eveniet
+            aperiam ea ab assumenda! Molestiae nemo pariatur dolores placeat? Doloribus at vero accusamus ea nam.
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById(`modal-button`).addEventListener(`click`, function () {
+        document.getElementById(`modal`).style.display = "flex";
+    }, false)
+    document.getElementById(`modal1`).addEventListener(`click`, function (e) {
+        e.preventDefault(); // a 태그의링크이동, form 태그의전송을막아주는역할을한다.
+        e.stopPropagation(); // 실행이 되었을 때, 실제 이벤트에 대한 캡쳐링 +  버블링을 막는 것.
+        document.getElementById(`modal`).style.display = "none";
+    }, false)
+    document.getElementsByClassName(`modal-inner`)[0].addEventListener(`click`, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }, false)
+
+    // e는 환경변수. 이벤트가 일어났을 때에 대한 모든 상태값을 다 받아올 떄씀.
+    // e.target = this
+</script>
+
+</html>

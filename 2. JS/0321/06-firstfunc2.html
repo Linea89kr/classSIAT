@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 함수 파라미터에 함수를 넣을 시
+      /*
+      - 함수1(함수2()) : 함수2를 실행한 후 함수2의 return 값이 함수1의 파라미터 전달된다.
+      - 함수1(함수2) : 함수2 자체가 함수1의 파라미터로 전달된다.
+      - 함수1 안에서 함수2를 사용시
+        => function 함수1(파라미터1){ 파라미터1(); }
+    
+    */
+      // #1
+      // function funcA1(param1) {
+      // console.log(param1);
+      // console.dir(param1);
+      // param1(); // funcB1();
+      // }
+
+      // function funcB1() {
+      //   console.log("안녕하세요");
+      // }
+      // funcB1의 실행시점은 아래에서 호출이 일어날 때
+      // funcA1에서는 undefined 가 리턴
+      // funcA1(funcB1());
+
+      // funcB1은 실행안됨 funcA1에서는 funcB1의 구조만
+      // 리턴
+      // funcA1(funcB1);
+
+      // funcA1(funcB1);
+
+      // #2
+      // function funcA1(x) {
+      //   console.log(x);
+      // }
+
+      // let str = 123;
+      // funcA1(str);
+
+      // #3
+      // function funcA1(x) {
+      //   // console.log(x);
+      //   x();
+      // }
+      // let funcB1 = function () {
+      //   console.log("안녕하세요");
+      // };
+      // funcA1(funcB1);
+
+      // #4
+      // function funcA1(x) {
+      //   console.log(x);
+      // }
+      // function funcB1() {
+      //   console.log("안녕하세요");
+      // }
+      // funcA1(funcB1);
+
+      // #5
+      // function funcA1(x) {
+      // console.log(x());
+      // console.log(x);
+      // }
+      // function funcB1() {
+      //   return "안녕하세요";
+      // }
+      // funcA1(funcB1());
+
+      // #6
+      // function funcA1(x, y) {
+      //   console.log(x(y));
+      // }
+      // function funcB1(z) {
+      //   return z + 3;
+      // }
+      // funcA1(funcB1, 3);
+
+      function funcA1(x, y) {
+        return x(y);
+      }
+      function funcB1(z) {
+        return function () {
+          return 4 + z;
+        };
+      }
+      // console.log(funcA1(funcB1, 2));
+      const x1 = funcA1(funcB1, 2);
+      console.log(x1());
+    </script>
+  </body>
+</html>

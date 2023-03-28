@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="id"></div>
+    <script>
+      // 서버에서 날라온 데이터
+      const human = {
+        gender: "male",
+        // count: 1,
+      };
+
+      const el1 = document.createElement("input");
+      const el2 = document.createElement("div");
+
+      const el3 = document.createElement("h1");
+      const el4 = document.createElement("p");
+
+      const div1 = document.getElementById("id");
+      const app = human.gender === "male" ? human.count && el1 : el2;
+    </script>
+  </body>
+</html>

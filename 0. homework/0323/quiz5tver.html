@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab {
+            display: flex;
+            border: 1px solid white;
+            background-color: #fff;
+        }
+
+        .tab button {
+            background-color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tabcontent {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <button class="tablinks" id="tab1" onclick="clickTab(1);">탭메뉴1</button>
+        <button class="tablinks" id="tab2" onclick="clickTab(2);">탭메뉴2</button>
+        <button class="tablinks" id="tab3" onclick="clickTab(3);">탭메뉴3</button>
+    </div>
+    <!-- dataset / data-num"3" 이라는 기능이 있음. 나중에 찾아볼 것.
+    HTML에는 데이터만 있는 게 나음! 이라면 이 방식도 좋음.
+    function(){}.this.dataset.num ... 같이 하면 불러올 수 있음.
+-->
+    <div id="tab1-content" class="tabcontent">
+        <h1>탭메뉴1</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste veniam, repellat dolores eligendi illo quod ea
+            amet, dolor praesentium soluta enim neque, vel voluptates ipsam unde nesciunt blanditiis. Quo, commodi?</p>
+    </div>
+    <div id="tab2-content" class="tabcontent">
+        <h1>탭메뉴2</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste veniam, repellat dolores eligendi illo quod ea
+            amet, dolor praesentium soluta enim neque, vel voluptates ipsam unde nesciunt blanditiis. Quo, commodi?</p>
+    </div>
+    <div id="tab3-content" class="tabcontent">
+        <h1>탭메뉴3</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste veniam, repellat dolores eligendi illo quod ea
+            amet, dolor praesentium soluta enim neque, vel voluptates ipsam unde nesciunt blanditiis. Quo, commodi?</p>
+    </div>
+
+</body>
+<script>
+    //
+    function clickTab(num) {
+        const tabcontent = document.getElementsByClassName(`tabcontent`);
+        const tablinks = document.getElementsByClassName(`tablinks`);
+        for (let index = 0; index < tabcontent.length; index++) {
+            tabcontent[index].style.display = "none";
+            tablinks[index].style.backgroundColor = `#f1f1f1`;
+        }
+        document.getElementById(`tab${num}-content`).style.display = "block";
+        document.getElementById(`tab${num}`).style.backgroundColor = "#ccc";
+    }
+
+    // 이걸 여러번 반복해서 뿌리는 것도 방법. 근데 비효율적.
+    // document.getElementById(`tab`).addEventListener(`click`, function () {
+    //     const tabcontent = document.getElementsByClassName(`tabcontent`);
+    //     const tablinks = document.getElementsByClassName(`tablinks`);
+    //     for (let index = 0; index < tabcontent.length; index++) {
+    //         tabcontent[index].style.display = "none";
+    //         tablinks[index].style.backgroundColor = `#f1f1f1`;
+    //     }
+    // }, false)
+</script>
+
+</html>

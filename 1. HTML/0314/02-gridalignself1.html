@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/0310/default1.css">
+    <style>
+        .grid-container {
+            display: grid;
+            width: 450px;
+            height: 450px;
+            grid-template-columns: repeat(3, 100px);
+            grid-auto-rows: minmax(3, 100px);
+        }
+
+        /* 우선순위는 self > contents > items
+컨텐츠는 컨테이너 영향을 받으니 self > items 라는 거만 알고 있어도 될듯.
+items가 self를 이기지는 못함.*/
+
+        .grid-item:nth-child(1) {
+            align-self: start;
+
+        }
+
+        .grid-item:nth-child(1) {
+            align-self: end;
+
+        }
+
+        .grid-item:nth-child(3) {
+            align-self: center;
+
+        }
+
+        .grid-item:nth-child(4) {
+            justify-self: start;
+
+        }
+
+        .grid-item:nth-child(5) {
+            justify-self: center;
+
+        }
+
+        .grid-item:nth-child(6) {
+            justify-self: end;
+
+        }
+
+        .grid-item:nth-child(7) {
+            align-self: start;
+            justify-self: start;
+
+        }
+
+        .grid-item:nth-child(8) {
+            place-self: center center;
+
+        }
+
+        .grid-item:nth-child(9) {
+            justify-self: center;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+        <!-- <div class="grid-item">10</div>
+        <div class="grid-item">11</div>
+        <div class="grid-item">12</div>
+        <div class="grid-item">13</div>
+        <div class="grid-item">14</div> -->
+    </div>
+</body>
+
+</html>

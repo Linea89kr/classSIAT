@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="d1"></div>
+    <script>
+        const h11 = document.createElement(`h1`);
+        h11.textContent = `안녕하세요1`;
+        document.querySelector(`#d1`).append(h11);
+
+
+        const h12 = document.createElement(`h1`);
+        h12.textContent = `안녕하세요2`;
+        document.querySelector(`#d1`).append(h12);
+
+//prepend 난 부모 태그 기준 맨 앞쪽에 세울래
+//append 난 부모 태그 기준 맨 뒤쪽에 세울래
+
+        const h13 = document.createElement(`h1`);
+        h13.textContent = `안녕하세요3`;
+        document.querySelector(`#d1`).prepend(h13);
+        const h14 = document.createElement(`h1`);
+        h14.textContent = `안녕하세요4`;
+        document.querySelector(`#d1`).prepend(h14);
+    </script>
+    <!--
+    <div id="div1">안녕하세요 반갑습니다.      
+        <span>화이팅</span></div>
+    <div id="div2">안녕하세요 반갑습니다..      
+        <span>화이팅</span></div>
+</body>
+<script>
+
+let a1=document.querySelector(`#div1`).innertext
+let a2=document.querySelector(`#div2`).innerContent
+console.log(a1);
+console.log(a2);
+
+    // innercontent
+</script>
+-->
+</html>

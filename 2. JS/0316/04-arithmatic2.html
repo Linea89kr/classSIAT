@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 단항 양부호 연산
+      // let x = 3;
+      // let y = -x;
+      // console.log(y);
+
+      let x = "3";
+      let y = +x;
+      y = y + 1;
+      console.log(y);
+
+      let z = +"가";
+      console.log(z);
+
+      // 단항 부정
+      let a = "4";
+      let b = -a;
+      console.log(typeof a);
+      console.log(b);
+      console.log(typeof b);
+
+      // ex1
+      let c = +true;
+      console.log(c);
+
+      // ex2
+      let a1 = "4.331";
+      let a2 = -a1;
+      console.log(a2 + 1);
+
+      // ex3
+      let b1 = 54.1204;
+      let b2 = 32.1425;
+      b1 = b1 * 10000;
+      b2 = b2 * 10000;
+      console.log(b1, b2);
+      b1 = Number.parseInt(b1);
+      b2 = Number.parseInt(b2);
+      let b3 = b1 + b2;
+      b3 = b3 / 10000;
+      console.log(b3);
+    </script>
+  </body>
+</html>

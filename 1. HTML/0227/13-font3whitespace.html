@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .c1{white-space: normal;}
+        .c2{white-space: nowrap;}
+        .c3{white-space: pre;}
+        .c4{white-space: pre-line;}
+        .c5{white-space: pre-wrap;}
+    </style>
+</head>
+
+<body>
+
+    <!--
+        whitespaceing
+        텍스트에 함께 입력된 공백 및 개행을 어떻게 처리할 것인지 지정
+        normal: 기본값, 영속하는 공백을 하나로 처리하고 엔터 키 인식 안함
+        nowrap: 연속하는 공백을 하나로 처리하고 글이 화면 밖을 나갔을 시 개행 처리 불허, 엔터 키 인식 안함
+        보통 inline은 쭉 가다 창 크기에 부딛히면 개행함. -> 그걸 막는게 nowarp
+        pre: 연속하는 공백을 원본 그대로 표시하고 글이 화면 밖을 나갔을 시 개행 처리 불허, 엔터 키 인식 함
+        pre와 pre-line의 차이는?
+        연속 공백을 원본 그대로 / 하나로 취급하고 // 개행 처리 허가 / 불허
+        pre는 개행과 스페이스 공백을 다 받음.
+        pre-line: 연속하는 공백을 하나로 취급하고 글이 화면 밖을 나갔을 시 개행, 엔터 키 인식함
+        디자인 유지보다 글자가 중요하다 -> pre
+        아니다. 디자인이 더 중요 -> pre-line
+        pre-wrap: 연속하는 공백을 하나로 취급하고 글이 화면밖을 나갔을 시 개행, 엔터 키 인식 안함
+    -->
+    <p class="c1">Lorem ipsum dolor sit amet             consectetur adipisicing
+        elit. Quaerat pariatur quas
+        quo soluta nulla voluptate harum
+        ullam hic quod reiciendis? Enim natus, est sit rem illo animi iste veniam doloribus!</p>
+    <p class="c2">Lorem ipsum dolor sit amet             consectetur adipisicing
+        elit. Quaerat pariatur quas
+        quo soluta nulla voluptate harum
+        ullam hic quod reiciendis? Enim natus, est sit rem illo animi iste veniam doloribus!</p>
+    <p class="c3">Lorem ipsum dolor sit amet             consectetur adipisicing
+        elit. Quaerat pariatur quas
+        quo soluta nulla voluptate harum
+        ullam hic quod reiciendis? Enim natus, est sit rem illo animi iste veniam doloribus!</p>
+    <p class="c4">Lorem ipsum dolor sit amet             consectetur adipisicing
+        elit. Quaerat pariatur quas
+        quo soluta nulla voluptate harum
+        ullam hic quod reiciendis? Enim natus, est sit rem illo animi iste veniam doloribus!</p>
+    <p class="c5">Lorem ipsum dolor sit amet             consectetur adipisicing
+        elit. Quaerat pariatur quas
+        quo soluta nulla voluptate harum
+        ullam hic quod reiciendis? Enim natus, est sit rem illo animi iste veniam doloribus!</p>
+</body>
+
+</html>

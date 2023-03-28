@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #headerarea {
+            width: 800px;
+            padding: 0;
+            background-color: red;
+            color: white;
+        }
+
+        #bothside {
+            width: 800px;
+            padding: 0;
+        }
+
+        #asidearea {
+            width: 300px;
+            float: left;
+            padding: 0;
+            background-color: blue;
+            color: white;
+            height: 400px;
+        }
+
+        #contentarea {
+            position: relative;
+            width: 500px;
+            height: 400px;
+            float: right;
+            padding: 0;
+            background-color: yellow;
+
+        }
+
+        #contentarea>h1 {
+            width: 250px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            /*
+            옛날에는 이렇게 했지만 지금 쓰면 촌스러우니 따라하지 마세요
+            */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="headerarea">
+        <h3>header 영역</h3>
+    </div>
+    <div id="bothside">
+        <div id="asidearea">
+            <h1>aside 영역</h1>
+        </div>
+        <div id="contentarea">
+            <h1>contents 영역</h1>
+        </div>
+    </div>
+
+</body>
+
+</html>

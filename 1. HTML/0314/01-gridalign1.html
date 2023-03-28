@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/0310/default1.css">
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(100px, 200px));
+            grid-auto-rows: minmax(200px, auto);
+
+            /*grid cell을 기준으로 할 때는 요렇게 정렬할 수 있음.*/
+            /* align-items: stretch;
+            align-items: start; */
+            /* align-items: end; */
+            /* align-items: center; */
+
+            /* justify-items: stretch;
+            justify-items: start;
+            justify-items: end; */
+            /* justify-items: center; */
+
+            /* place-items: stretch center;
+            place-items: start end;
+            place-items: end start; */
+            /* place-items: center stretch; */
+
+            /* align-content: start; */
+            /* justify-content: start;
+            justify-content: center;
+            justify-content: end;
+            justify-content: space-around;
+            justify-content: space-between; */
+            /* justify-content: space-evenly; */
+
+            place-content: space-evenly start;
+
+            height: 80vh;
+            width: 80vw;
+        }
+
+        /* grid container를 기준으로 정렬할 경우::
+        */
+
+        .grid-item {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+        align-items, justify-items와 align-content, justify-contant의 차이점
+        align-items, justify-items은 start, end, stretch, center의 옵션만 갖고 있지만
+        align-content, justify-content는 여기에 더해 space-between, space-around, space-evenly
+        3가지의 옵션을 더 갖는다.
+        align-items, justify-items의 크기 기준은 아이템을 기준으로 정렬이 유지되지만
+        align-content, justify-content는 컨테이너에서 지정한 grid-template-rows, grid-template-columns가
+        기준이 된다.
+        고정값일 경우에는 고정값이 기준이 되지만, minmax로 지정시 우선 기준은 max, max 값이 auto인 경우 다음 기준은 min이 된다.
+    -->
+
+    <div class="grid-container">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+        <div class="grid-item">7</div>
+        <div class="grid-item">8</div>
+        <div class="grid-item">9</div>
+        <div class="grid-item">10</div>
+        <div class="grid-item">11</div>
+        <div class="grid-item">12</div>
+        <div class="grid-item">13</div>
+        <div class="grid-item">14</div>
+    </div>
+</body>
+
+</html>

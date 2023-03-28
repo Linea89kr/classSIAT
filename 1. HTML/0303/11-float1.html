@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1 {
+            width: 100px;
+            height: 100px;
+            background-color: #f00;
+            border: 1px solid black;
+            float: left;
+
+        }
+
+        .div2 {
+            width: 100px;
+            height: 100px;
+            background-color: #0f0;
+            border: 1px solid black;
+            float: left;
+        }
+
+        .div3 {
+            width: 100px;
+            height: 100px;
+            background-color: #00f;
+            border: 1px solid black;
+            float: right;
+        }
+
+        /* 옛날에는 float를 정렬하는 용도로도 쓰긴 했는데 이건 좀 사도.
+        요샌 flex나 grid로 다 함.*/
+        p {
+            clear: both;
+            /*글이 아래로 쏟아지는 걸 방지하기 위해 clear를 씀*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1"> </div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt nulla impedit labore et ratione obcaecati
+        blanditiis aspernatur recusandae itaque tenetur, laudantium numquam. Illum est necessitatibus debitis
+        asperiores placeat repudiandae consequuntur!</p>
+
+</body>
+
+</html>

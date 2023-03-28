@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    const arr1 = [];
+    arr1.__proto__.push(`a`);
+    console.dir(arr1);
+    // arr1.Prototype.a1 = 3;
+    arr1.__proto__.a1 = 3;
+    arr1.__proto__.funcA = function () {
+        console.log(`arr prototype function`)
+    }
+    console.log(arr1.a1)
+
+
+    // const obj1 = { a: 123 }
+    // const obj2 = { a: 456 }
+    // const obj3 = { a: 987 }
+
+    // obj1.o3 = obj3;
+    // obj2.o3 = obj3; // 주소값.
+    // obj3.c = "abc";
+    // console.log(obj1.o3.c)
+    // console.log(obj2.o3.c)
+    // console.dir(obj1) // a, c는 주소값.
+    // console.dir(obj2)
+</script>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="#">
+      <!-- (input:text#v$[value="" name="v$"]*2)+button[type="button"]{연산} -->
+      <input type="text" name="v1" id="v1" value="" />
+      <input type="text" name="v2" id="v2" value="" />
+      <!-- button#btn$[type="button"]*4 -->
+      <button id="btn1" class="btn" param="1" type="button">더하기</button>
+      <button id="btn2" class="btn" param="2" type="button">빼기</button>
+      <button id="btn3" class="btn" param="3" type="button">곱하기</button>
+      <button id="btn4" class="btn" param="4" type="button">나누기</button>
+    </form>
+    <script>
+      let v1 = document.querySelector("#v1");
+      let v2 = document.querySelector("#v2");
+
+      for (let index = 0; index < 4; index++) {
+        document
+          .querySelectorAll(".btn")
+          [index].addEventListener("click", function (e) {
+            let v = e.target.getAttribute("param");
+            let result = 0;
+            if (v == "1") {
+              result = v1 + v2;
+            } else if (v == "2") {
+              result = v1 - v2;
+            } else if (v == "3") {
+              result = v1 * v2;
+            } else {
+              result = v1 / v2;
+            }
+            alert(result);
+          });
+      }
+
+      // document.querySelector("#btn1").addEventListener("click", function () {
+      //   let v1Value = +v1.value;
+      //   let v2Value = +v2.value;
+      //   alert(`${v1Value + v2Value}`);
+      // });
+      // document.querySelector("#btn2").addEventListener("click", function () {
+      //   let v1Value = +v1.value;
+      //   let v2Value = +v2.value;
+      //   alert(`${v1Value - v2Value}`);
+      // });
+      // document.querySelector("#btn3").addEventListener("click", function () {
+      //   let v1Value = +v1.value;
+      //   let v2Value = +v2.value;
+      //   alert(`${v1Value * v2Value}`);
+      // });
+      // document.querySelector("#btn4").addEventListener("click", function () {
+      //   let v1Value = +v1.value;
+      //   let v2Value = +v2.value;
+      //   alert(`${v1Value / v2Value}`);
+      // });
+    </script>
+  </body>
+</html>

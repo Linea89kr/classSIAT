@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="/0310/default.css"> -->
+    <style>
+        /*css 넣기 전에 브라우저에 맞게 초기화 했는지 확인.*/
+
+        /*
+        디폴트 css를 만들어보자.
+        
+        */
+        * {
+            margin: 0;
+            padding: 0;
+            /*
+            box-sizing: border-box;
+            쓰면 좋지만 지금 당장은 안씀! 필요할 때 객체 들어가서 쓸 것*/
+        }
+
+        body {
+            /*
+            *로 지정 했는데 왜 다시 지정하죠?
+            -> 모든 속성이 다 상속되는 건 아님.
+            */
+            background-color: white;
+            font-family: '맑은 고딕', serif;
+            /* 보통 아무것도 안넣었을 땐 serif로 씁니다. by 강사님 
+            구조를 잡고 디자인 할 것*/
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        nav a:link,
+        a:visited {
+            color: white;
+        }
+
+        nav a:active {
+            color: palegreen;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+        }
+
+        /*
+        h1 h2도 스마호~PC까지의 규격으로 가기에는 비율이 너무 천차만별이 되었음
+        h1 - title h2 - subtitle로 삼는 상징성.
+        h1~h2는 기본적으로 px로 지정되어 있음.
+        비율 조정하려면 rem으로 한번 바꿔줘야 함.
+        */
+        h2 {
+            font-size: 1.3rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 2.5;
+        }
+
+        li {
+            font-size: 1rem;
+            line-height: 2;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column
+        }
+
+        .navmenu {
+            display: flex;
+        }
+
+        /*모바일 - 760px*/
+        #container {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        header {
+            background: url(img/header.jpg) center no-repeat;
+            background-size: cover;
+            height: 300px;
+            width: 100%;
+            margin: 0;
+        }
+
+        header nav {
+            height: 50px;
+            background-color: black;
+        }
+
+        header .nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 10px;
+        }
+
+        header nav ul li {
+            display: inline-block;
+            color: white;
+            font-family: '맑은 고딕', '돋움';
+            font-size: 0.8rem;
+            margin: 5px 15px;
+        }
+
+        main {
+            margin: 0;
+            padding: 0;
+            width: 100%
+        }
+
+        main section {
+            margin: 0;
+            padding: 15px 5% 10px 5%;
+            position: relative;
+        }
+
+        main section :nth-child(even) {
+            background-color: #eee;
+        }
+
+        .page-title {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            padding: 30px 50px;
+
+        }
+
+        .page-title {
+            margin-bottom: 30px;
+        }
+
+        .content {
+            margin: 80px auto 10px;
+            box-sizing: border-box;
+            width: 90%;
+            padding: 20px
+        }
+
+        .content ol {
+            margin-top: 20px;
+        }
+
+        .photo {
+            display: none;
+        }
+
+        footer {
+            position: relative;
+            width: 100%;
+            height: 100px;
+            background-color: black;
+            color: white;
+        }
+
+        footer p {
+            font-size: 1.5rem;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        /*태블릿*/
+        @media(min-width:760px) {
+            header {
+                height: 400px;
+            }
+
+            #intro,
+            #map {
+                box-sizing: border-box;
+                width: 50%;
+                height: 400px;
+                float: left;
+                margin: 0;
+                border: 1px dotted white;
+            }
+
+            #intro .text p {
+                font-size: 1.0rem;
+            }
+
+            #choice {
+                clear: both;
+            }
+        }
+
+        @media(min-width:1024px) {
+            #container {
+                width: 995px;
+                margin: 0 auto;
+                border: 1px solid white
+            }
+
+            header {
+                height: 500px;
+            }
+
+            #intro,
+            #map,
+            #choice {
+                clear: both;
+                position: relative;
+                width: 100%;
+                height: 420px;
+                padding: 15px 2% 10px 5%;
+            }
+
+            .content {
+                margin: 80px auto 10px;
+                width: 90%;
+                padding: 20px;
+            }
+
+            .photo {
+                width: 42%;
+                display: block;
+            }
+
+            .photo>img {
+                width: 100%;
+                max-width: 320px;
+                height: auto;
+                margin-bottom: 30px;
+            }
+
+            .text {
+                width: 42%
+            }
+
+            #intro .photo #map .photo {
+                float: left;
+                margin-right: 5%;
+            }
+
+            #intro .text #map .text {
+                float: left;
+            }
+
+            #choice .photo {
+                float: right;
+                margin-right: 5%;
+            }
+
+            #choice .text {
+                float: left;
+            }
+
+            footer {
+                clear: both;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav class="navmenu">
+                <ul>
+                    <li><a href="카페 소개"></a></li>
+                    <li><a href="오시는 길"></a></li>
+                    <li><a href="이 달의 추천"></a></li>
+                </ul>
+                <!-- flex direction으로 가로로 먹이기.-->
+                <!-- 스타일 지워서 dot 없애고 -->
+                <!-- body에 장난을 치진 말기 -->
+                <!-- P태그로 이걸 넣긴 했는데 ul>li로 다시 만들어보기 -->
+                <!-- 커피 그림은 header로 넣기.
+                슬라이드 이벤트 같은 거 들어가면 관리 힘듬. -->
+                <!--
+                    웹 구조 짤 때 확인할 것들:
+                    1. 모든 요소가 다 있는가?
+                    2. 배치를 depth 단위로 나누기.
+                    3. div 같은 블럭태그 쓰는 걸 아끼지 말기
+                 -->
+            </nav>
+        </header>
+        <main>
+            <section>
+                <div class="page-title">
+                    <hi>카페 소개</hi>
+                </div>
+                <div class="contents">
+                    <div class="photo">
+                        <img src="./img/coffee.jpg" alt="">
+                    </div>
+                    <div class="text">
+                        <p>영업 시간 : 오전 9시 ~ 밤 10시</p>
+                        <p>휴무 : 매주 수요일<i><small>(수요일이 공휴일일 경우 수요일 영업, 다음 날 휴무)</small></i></p>
+                        <!--
+                            정석 루트 : 장점 / 디자인 사양 변경이 오면 빠르게 대응할 수 있다.
+                            <p>휴무 : 매주 수요일<span><i>(수요일이 공휴일일 경우 수요일 영업, 다음 날 휴무)</i></span></p>
+                        -->
+                        <!--
+                            비정석 루트 : 지금은 디자인 사양 변경이 딱히 없으니 / 하지만 마검이 마검인 것에는 이유가 있음.
+                            <p>휴무 : 매주 수요일<i><small>(수요일이 공휴일일 경우 수요일 영업, 다음 날 휴무)</small></i></p>
+                        -->
+                        <!--
+                            하이어라키가 너무 복잡하면 시맨틱을 섞어 쓰기 (헤더나 푸터 빼고.)
+                            그리고 이건 임시방편이라 결국 컴포넌트로 묶어야 함.
+                            id를 넣는 방법도 있음. id를 표식삼아서 쓰는 기법도 있음. 남발하지는 말고.
+                        -->
+                    </div>
+                </div>
+            </section>
+            <section id="map">
+                <div class="page-title">
+                    <h1>오시는 길</h1>
+                </div>
+                <div class="content">
+                    <img src="./img/map.jpg" alt="this is a map image">
+                </div>
+                <div class="text">
+                    <p>서귀포시 인덕면 사계리 OOOO-OOO</p>
+                    <p>제주 올레 10코스 산방산 근처</p>
+                </div>
+            </section>
+            <section id="choice">
+                <div class="page-title">
+                    <h1>이 달의 추천</h1>
+                </div>
+                <div class="content">
+                    <!-- 
+                        이쪽은 그림과 글 레이아웃이 반대임.
+                        grid에서 동적 배치라는 게 있음.
+                        컨테이너에 다 던지고 gird에게 맡기면 동적배치로 끝낼 수 있음.
+                        지금이야 요소에 넣는다고 하는 것.
+                    -->
+
+                    <div class="photo">
+                        <img src="./img/ice.jpg" alt="" style="border: 1px solid white; border-radius: 50%;">
+                        <!--간단하게 하기위해 인라인 스타일로 지정함.-->
+                    </div>
+                    <div class="text">
+                        <h2>핸드드립 아이스커피</h2>
+                        <ol>
+                            <li>1인분 기준으로 서버에 각 얼음 5조각(한조각의 20cc) 넣고 추출을 시작한다.</li>
+                            <li>평상시 보다 원두의 양은 2배 정도(20g)와 추출액은 얼음 포함해서 200cc까지 내린다.</li>
+                            <li>아이스 잔에 얼음 6~7개 섞어서 시원하게 마신다.</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>My times with coffee</p>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="num" id="num">
+    <button type="button" id="btn">생성</button>
+    <ul id="list"></ul>
+</body>
+<script>
+    let cnt = 1;
+    document.getElementById(`btn`).addEventListener(`click`, function () {
+        const list = document.getElementById(`list`);
+        let num = +document.getElementById(`num`).value;
+        for (let index = 0; index < num; index++) {
+            let li = document.createElement(`li`);
+            let text = document.createTextNode(`텍스트${cnt + index}`);
+            li.append(text);
+            list.append(li);
+
+        }
+        cnt += num; // 추가로 계속 밑에 이어서 넣어줘야 하기 때문에 넣어줌.
+    })
+
+</script>
+
+</html>

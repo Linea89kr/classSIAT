@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing: border-box; */
+        }
+
+        body {
+            background-color: white;
+            font-family: '맑은 고딕', 'serif';
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        nav a:link,
+        a:visited {
+            color: white;
+        }
+
+        nav a:active {
+            color: yellow;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            /* line-height: 2; */
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            /* line-height: 2; */
+        }
+
+        p {
+            font-size: 1.0rem;
+            line-height: 2;
+        }
+
+        #container {
+            width: 995px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+        }
+
+        header {
+            width: 100%;
+            height: 500px;
+            margin: 0;
+            background: url("img/header.jpg") center no-repeat;
+            background-size: cover;
+        }
+
+        header ul {
+            height: 50px;
+            background-color: black;
+            list-style: none;
+            margin: 0;
+            padding: 0.5rem;
+        }
+
+        header ul li {
+            display: inline-flex;
+            color: white;
+            font-family: "맑은 고딕", "돋움", serif;
+            font-size: 0.8rem;
+            margin: 0.6rem 2rem;
+        }
+
+        main {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main section {
+            display: flex;
+            width: 100%;
+            padding: 15px 5% 10px 5%;
+        }
+
+        main section:nth-child(even) {
+            background-color: #eee;
+        }
+
+        #flex-item-main1 #flex-item-main2 #flex-item-main3 {
+            clear: both;
+            position: relative;
+            width: 100%;
+            height: 420px;
+            padding: 7rem 2% 3rem 5%;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 80px auto 10px;
+            width: 90%;
+            padding: 20px;
+        }
+
+        .photo {
+            display: block;
+        }
+
+        .photo>img {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            margin-bottom: 30px;
+        }
+
+        .text {
+            width: 42%;
+        }
+
+
+        .flex-item-footer {
+            display: flex;
+            flex-direction: row;
+            background-color: black;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            min-height: 5vh;
+        }
+
+        /* 테블릿 */
+        @media (max-width: 1024px) {
+            #container {
+                width: 100%;
+            }
+
+            header {
+                height: 400px;
+            }
+
+            .photo {
+                display: none;
+            }
+
+            main {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            #flex-item-main1,
+            #flex-item-main2,
+            #flex-item-main3 {
+                flex: 1 auto;
+                width: 50%;
+                height: 400px;
+            }
+
+            .text {
+                width: 90%;
+            }
+        }
+
+        /* 스마트폰 */
+        @media (max-width: 760px) {
+            header {
+                height: 300px;
+            }
+
+            main {
+                flex-direction: column;
+            }
+
+            #flex-item-main1,
+            #flex-item-main2,
+            #flex-item-main3 {
+                width: 100%;
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <ul>
+                <li><a link="https//google.com">카페 소개</a></li>
+                <li><a link="https://google.com">오시는 길</a></li>
+                <li><a link="https://google.com">이 달의 추천</a></li>
+            </ul>
+        </header>
+    </div>
+
+    <main>
+        <section class="flex-item-main1">
+            <div class="page-title">
+                <h1><b>카페 소개</b></h1>
+            </div>
+            <div class="content">
+                <div class="photo">
+                    <img src="./img/coffee.jpg" alt="Take some coffee bruh.">
+                </div>
+                <div class="text">
+                    <p>영업 시간 : 오전 5시 ~ 밤 10시</p>
+                    <p>휴무: 매주 수요일 <small><i>(수요일이 공휴일일 경우, 수요일 영업, 다음 날 휴무)</i></small></p>
+                </div>
+            </div>
+        </section>
+        <section class="flex-item-main2">
+            <div class="page-title">
+                <h1><b>오시는 길</b></h1>
+            </div>
+            <div class="content">
+                <div class="photo">
+                    <img src="./img/map.jpg" alt="bruh, you can find in a map like this.">
+                </div>
+                <div class="text">
+                    <p>서귀포시 인덕면 사계리 oooo-ooo</p>
+                    <p>제주 올레 10코스 산방산 근처</p>
+                </div>
+            </div>
+        </section>
+        <section class="flex-item-main3">
+            <div class="page-title">
+                <h1><b>이 달의 추천</b></h1>
+            </div>
+            <div class="content">
+                <div class="text">
+                    <h2>핸드드립 아이스커피</h2>
+                    <ol>
+                        <li>1인분 기준으로 서버에 각얼음 5조각(한조각의 20cc) 넣고 추출을 시작한다.</li>
+                        <li>평상시 보다 원두의 양은 2배 정도 (20g)와 추출액은 얼음 포함해서 200cc까지 내린다.</li>
+                        <li>아이스 잔에 얼음 6~7개 섞어서 시원하게 마신다.</li>
+                    </ol>
+                </div>
+                <div class="photo">
+                    <img src="./img/ice.jpg" alt="Have a cup of tea?">
+                </div>
+            </div>
+        </section>
+    </main>
+    </div>
+</body>
+<footer>
+    <div class="flex-item-footer">
+        <p>My times with coffee</p>
+    </div>
+</footer>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .p1 {
+            font-size: 16px;
+        }
+
+        .p2 {
+            font-size: 150%;
+        }
+
+        .p3 {
+            font-size: 1rem;
+        }
+
+        .p4 {
+            font-size: 1em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--
+        폰트 단위도 보통 픽셀에서 시작함. px.
+        그러나 너무 px가 작아서 나온 게
+        pt, ex, rem, em...
+        주로 쓰이는 건 em, rem.
+        초창기 모바일 웹은 반응형으로 나온 게 아님
+        작은 해상도다보니 자글자글할 수도 있고, 무엇보다도 이미지나 폰트를 늘이거나 줄이는 경우 발생
+        컴에서 보여준 건 그대로 보여주되 일정 비율 스케일링은 적용하면 되는 거 아니야?
+        -> 모바일 / 타블렛에서 쓰이는 글자 크기가 제각각 다르니 이걸 동적 변환할 수 있는 단위를 만들자
+        -> EM, REM.
+        돌다 M을 단위로 만듬. M이 가장 넓고 크니까.
+        px보다는 em이나 rem으로 글자크기를 설정하는 경우가 많음.
+        그렇게 해야 웹에서도 볼 수 있고 모바일에서도 볼 수 있기 때문.
+
+        em, rem은 대문자 M으로 지정
+        em은 내 바로 상위의 부모 클래스의 폰트 사이즈의 M을 따라감.
+        rem은 무조건 body의 폰트 사이즈의 M를 따라감.
+
+        브라우저 내부에는 1rem을 기본으로 잡음.
+        문제는 rem은 최상위로 감. (=디폴트.)
+
+
+    -->
+    <p class="p1">가나다라마바사</p>
+    <p class="p2">가나다라마바사</p>
+    <div class="div1" style="font-size: 10px;">
+        <p class="p3">가나다라마바사</p>
+    </div>
+    <div class="div2">
+        <p class="p4" style="font-size: 10px;">가나다라마바사</p>
+    </div>
+    <p class="p5">가나다라마바사</p>
+</body>
+
+</html>

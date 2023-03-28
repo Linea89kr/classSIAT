@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        for ~in 계산법.
+        {}
+        객체의 운동과 운동관리, 미음의 쓰레기쓰가 증가한다
+
+        객체의 모든 키 값을 순회할 수 있지만 해당 키 값을 조회할 경우
+        object[key]값을 활용하여 접근해야 한다.
+
+        in
+        객체 안에 확장 key값이 있는지 확인할 때 쓰는 명령어
+        최근에는 || 논리 연산자를 통해 있을 때 없을 때의 분기문을 더 자주 사용하며
+        이후 나오는 nullable연산자를 더 잘 활용하는 편이다.
+
+        with
+        객체의 앞에 붙은 객체명을 소거하고 싶을 경우 사용하는 명령어
+
+        delete
+        객체 안의 속성을 지울 때 사용하는 연산자
+    -->
+</body>
+<script>
+    const obj1 = {
+        name: `him`,
+        age: `17`,
+        major: `league`
+    };
+
+    for(let v in obj1){
+        console.log(v);// 이건 보통 도는 느낌.
+        console.log(obj1[v]) //
+    }
+</script>
+</html>

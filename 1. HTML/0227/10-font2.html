@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            font-weight: bold;
+        }
+
+        p.text2 {
+            font-variant: normal;
+            font-weight: lighter;
+            /*font-variation을 겹쳐서 쓰면 variant가 우선.
+            variant가 우선, uppercase 같은 건 나중.
+            아마 variant가 강제를 하는 것으로 추정.*/
+        }
+
+        p.text3 {
+            color: crimson;
+            font-style: italic;
+        }
+
+        .text4 {
+            text-decoration: underline;
+            /*double은 크롬에서 지원 안됨.*/
+        }
+
+        .text5 {
+            text-decoration: line-through;
+
+        }
+
+        .text6 {
+            text-transform: none;
+        }
+    </style>
+</head>
+
+<body>
+    <p>font test text1</p>
+    <p class="text2">font test text2</p>
+    <p class="text3">font test text3</p>
+    <p class="text4">font test text3</p>
+    <p class="text5">나무위키 꺼라</p>
+    <p class="text6">abcDefGhij</p>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="default1.css">
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(100px, 200px));
+      grid-auto-rows: minmax(200px, auto);
+      /* 그리드 셀을 기준으로 정렬 */
+      /* 그리드에서 세로배치 */
+      /* align-items: stretch; */
+      /* align-items: start; */
+      /* align-items: end; */
+      /* align-items: center; */
+      /* 그리드에서 가로배치 */
+      /* justify-items: stretch; */
+      /* justify-items: start; */
+      /* justify-items: end; */
+      /* justify-items: center; */
+      /* 세로가로 배치 */
+      /* place-items: start end; */
+      /* 그리드 컨테이너를 기준으로 정렬 */
+      /* 그리드 컨테이너 세로배치 */
+      /* align-content: stretch; */
+      /* align-content: start; */
+      /* align-content: end; */
+      /* align-content: center; */
+      /* align-content: space-between; */
+      /* align-content: space-around; */
+      /* align-content: space-evenly; */
+      /* justify-content: start; */
+      place-content: space-evenly start;
+      height : 80vh;
+      width : 80vw;
+    }
+  </style>
+</head>
+<body>
+  <!-- 
+    align-items, justify-items 와 align-content, justify-content의 차이점
+    - align-items와 justify-items는 start, end, stretch, center의 옵션만 가지고 있지만
+      align-content와 justify-content는 여기에 더해 space-between, space-around, space-evenly
+      세가지의 옵션을 더 가진다.
+    - align-items와 justify-items의 크기 기준은 아이템을 기준으로 정렬이 되지만 align-content
+      와 justify-content는 컨테이너에서 지정한 grid-template-rows, grid-template-columns가
+      기준이 된다.
+    - 고정값일 경우는 고정값이 기준이 되지만 minmax 로 지정시 우선 기준은 max, max값이 auto일 경우
+      다음 기준은 min값이 된다.
+
+   -->
+  <!-- div.grid-container>div.grid-item{$}*14 -->
+  <div class="grid-container">
+    <div class="grid-item">1</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item">3</div>
+    <div class="grid-item">4</div>
+    <div class="grid-item">5</div>
+    <div class="grid-item">6</div>
+    <div class="grid-item">7</div>
+    <div class="grid-item">8</div>
+    <div class="grid-item">9</div>
+    <!-- <div class="grid-item">10</div>
+    <div class="grid-item">11</div>
+    <div class="grid-item">12</div>
+    <div class="grid-item">13</div>
+    <div class="grid-item">14</div> -->
+  </div>
+</body>
+</html>

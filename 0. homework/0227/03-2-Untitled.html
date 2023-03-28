@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 대충 그리드만 써도 웹에 이쁘게 배치하는 게 가능
+div 넣고 그리드 떄려박으면 알아서 정리 되니 요새는 이게 선호됨
+반응형 웹의 final 버전.
+grid와 float? 이것만 익히면 배치가 쉬워짐 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div-grid {
+            display: grid;
+            grid-template-columns: 60px 300px;
+            grid-template-rows: 60px 60px 60px 60px;
+            /*grid-template-rows: repeat("60px");*/
+            /*반복적으로 60px를 넣어주세요*/
+            /*간혹 이 repeat가 안먹힐 때가 있음.
+                -> 브라우저에서 지원이 안될 떄가 있음.
+                grid의 최대 약점은 브라우저 버전에 따라 갈림.
+                나온지 3년이 채 안되었고, 지원이 되고 안되고 하는 경우가 있음.
+                근데 지금은 어지간하면 될텐데?*/
+            align-items: center;
+            /*세로 정렬*/
+            justify-items: center;
+            /*가로 정렬 */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>예약 정보</h1>
+    <!-- <p><label for="rname">이 름</label><input type="text" name="" id="rname"></p>
+
+        <br>
+        <p><label for="phone">휴 대 폰</label><input type="tel" name="" id="phone"></p>
+        <br>
+        <p><label for="email">이 메 일</label><input type="text" name="" id="email"></p>
+     -->
+    <div id="div-grid">
+        <label for="rname">이 름</label><input type="text" name="" id="rname">
+        <label for="phone">휴대폰</label><input type="tel" name="" id="phone">
+        <label for="email">이메일</label><input type="text" name="" id="email">
+        <button>예약하기</button>
+    </div>
+</body>
+
+</html>

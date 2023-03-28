@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+        버튼
+        HTML 4버전에서도 Input 타입을 통해 버튼을 만들었다.
+        버튼은 각각 submit, reset, image, buttion 4개의 타입으로 지원되었다.
+        HTML5가 들어오고 버튼이라는 태그가 새로 생겨나면서 기존의 input 타입을 통해 지원하는 버튼은 button 태그로 대체되었다.
+        button 태그 역시 타입을 갖고 있으면 submit, reset, button이라는 3개의 타입을 사용할 수 있다.
+
+        버튼별 속성
+        submit: form과 action에 지정된 경로로 input 데이터들과 함께 전송할 경우 사용하는 버튼
+        reset: form 태그 내의 input 데이터들을 초기화 시키는 버튼
+        button: 아무런 기능도 하지 않는 일반 버튼.
+    -->
+    <form action="./01-homework1.html" method="get">
+        <input type="text" name="txt" id="txt"><br>
+        <input type="submit" value="전송">
+        <input type="reset" value="리셋">
+        <input type="button" value="버튼">
+        <input type="image" src="../0221/img/easyspub.jpg" alt="">
+        <br>
+        <button type="submit">전송</button>
+        <button type="reset">리셋</button>
+        <button type="button">버튼</button>
+        <button type="button">
+            <img src="../0221/img/easyspub.jpg" alt="" />
+            <!-- 위에 있던 버튼+이미지가 버튼>이미지로 바뀜.-->
+            <!-- 개발자 입장에서 그림에다 기능을 넣는 걸 싫어함.
+            input 타입에 이미지를 넣는 경우는 좀 애매함.
+        
+        라벨에 라디오버튼을 붙여서 JS로 기능 막는건 되나요?
+        input은 되는데 button으로는 안됨.
+    
+        버튼에 그림을 넣었으면.
+            1. 버튼을 선언한 뒤 이미지 태그에 id 박고 JS로 기능제어 < 이게 정석
+            2. 이미지를 선언한 뒤 이미지를 눌렀을 때 기능만 나타나게. < 짜치기
+            로직의 차이. 이미지 태그로 버튼 로직을 만들면 이미지 태그 상으로는 '이게 뭔 기능을 하는지 알 수가 없음'
+            차라리 CSS로 버튼 디자인하는게 더 낫지 -> 버튼으로 놓으면 2번 일을 안함.
+        -->
+        </button>
+    </form>
+</body>
+
+</html>

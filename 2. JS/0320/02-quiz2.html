@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="#">
+      <!-- (input:text#v$[value="" name="v$"]*2)+button[type="button"]{연산} -->
+      <input type="text" name="v1" id="v1" value="" />
+      <input type="text" name="v2" id="v2" value="" />
+      <button type="button" id="btn1">연산</button>
+    </form>
+    <script>
+      let v1 = document.querySelector("#v1");
+      let v2 = document.querySelector("#v2");
+      document.querySelector("#btn1").addEventListener("click", function () {
+        let v1Value = v1.value;
+        let v2Value = v2.value;
+        alert(
+          `${v1Value > v2Value ? "크다" : v1Value < v2Value ? "작다" : "같다"}`
+        );
+      });
+    </script>
+  </body>
+</html>

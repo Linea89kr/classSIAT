@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 템플릿 리터럴
+      /*
+        - ex6에서 등장한 새로운 문자열 선언 방식
+        - 백틱(`)이라는 기호를 써서 사용할 수 있다.
+        - 기존의 "",''와의 차이점은 개행 문자열도 출력이 가능하다는 점이 다르다.
+        - 변수의 내용을 문자열에 출력할 때 '+'기호를 사용하여 [연결] 하였으나 템플릿 리터럴을 사용
+          함으로써 ${변수명}을 통한 삽입이 가능하다.
+        - 또한 ${} 안에서 연산수행도 가능해 함축적으로 문자열을 포워딩 할 때 사용하는 아주 많이
+          사용되는 문자열 형태
+      */
+
+      let str1 = "안녕하세요.반갑습니다";
+      let str2 = `안녕하세요
+      반갑습니다`;
+      console.log(str1);
+      console.log(str2);
+      let str3 = "김근형";
+      console.log("제 이름은 " + str3 + "입니다.");
+      let lit1 = 1;
+      let lit2 = 2;
+      console.log(lit1 + "더하기 " + lit2 + "는 " + (lit1 + lit2) + "입니다.");
+      console.log(`${lit1}더하기 ${lit2}는 ${lit1 + lit2}입니다.`);
+      console.log(typeof (lit1 + ""));
+    </script>
+  </body>
+</html>

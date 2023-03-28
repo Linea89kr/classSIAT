@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+    컬러 코드: 16진수. 1~10 + A~F
+    #684 > #668844 근사치로 잡아줌.
+    대충 근사치만 잡아줘도 컬러 영역을 알 수 있다.
+
+    색상 표기 방법
+    웹에서는 색상을 크게 2가지로 표시할 수 있다.
+    RGB(Red, Green, Blue), HSL(Hue Saturation Light)
+
+    RGB
+    두자리수씩 끊어쓰기: ex)#ff8800
+    한자리수씩 끊어쓰기: ex)#f80
+    rgb 함수 이용하기: (n.nn.nnn)
+
+    white: 0.0.0
+    black: 255.255.255
+    red: 255.0.0
+    green: 0.255.0
+    blue: 0.0.255
+
+    HSL
+    색조, 채도, 밝기: 3개의 숫자로 표시
+    hsl은 hsl 함수를 통해서만 나타낼 수 있다.
+    투명도까지 나타내기 위해서는 hsla 함수를 사용 가능
+
+    웹에서는 회색 계열을 주로 씀.
+-->
+    <h1 style="color: #6f8a40;">색상테스트1-1</h1>
+    <h1 style="color: #684;">색상테스트1-2</h1>
+    <h1 style="color: #777777">색상테스트2-1</h1>
+    <h1 style="color: #777">색상테스트2-2</h1>
+    <!-- 3개만 넣어도 사실 똑같음. 하지만 보통 6자리 씀. -->
+    <h1 style="color:red;">이것은 빨간색</h1>
+    <h1 style="color:rgb(255, 0, 0); opacity: 0.3;">이것도 빨간색</h1>
+    <!--OPACITY는 수동으로 줄 때는 쓰지만 뭐 엄청 쓰지는 않을듯?-->
+    <h1 style="color:rgba(255, 0, 0, 0.3)">나는 RGBA 빨간색이지롱</h1>
+    <!--알파값. 0~1. RGB보다는 RGBA를 사용.-->
+    <h1 style="color:hsl(240, 100%, 75%)">이건 HSL이지롱</h1>
+    <!-- 색상: color:hsl(0~360) 0~360까지 빨주노초파남보가 대충 30도 간격으로 늘어서 있음. -->
+
+    <h1 style="color:hsla(240, 100%, 75%, 0.5)">이건 알파도 들어가지롱</h1>
+    <!--
+        생각했던 색상보다 탁하게 나오는 경우가 있음. 사진을 쓴다거나...
+        div를 먹인 뒤에 블러처리한 걸 덧댐.
+        이렇게 주로 먹이곤 하는데 주로 색감을 살리며 강조할 때 씀.
+        간혹 브라우저에서 지원하는 색상의 차이가 나는 경우도 있음.
+    -->
+</body>
+
+</html>

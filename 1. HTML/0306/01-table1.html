@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 500px;
+            height: 400px;
+            border-spacing: 20px;
+            empty-cells: hide;
+            /* 이친구는 hide 하면 꽉찬 화면*/
+        }
+
+        table,
+        tr,
+        td {
+            border: 1px solid black;
+        }
+
+        .tr1 .td1 {
+            vertical-align: top;
+        }
+
+        .tr1 .td2 {
+            vertical-align: middle;
+        }
+
+        .tr1 .td3 {
+            vertical-align: bottom;
+        }
+
+        .tr2 td {
+            text-align: center;
+        }
+
+        .tr2 .td1 {
+            vertical-align: top;
+        }
+
+        .tr2 .td2 {
+            vertical-align: middle;
+        }
+
+        .tr2 .td3 {
+            vertical-align: bottom;
+        }
+
+        /* 자식 선택자: 부모선택자 > 자식선택자
+        부모 선택자 바로 아래에 위치한 자식 선택자에 디자인을 입힌다.
+        내 바로 아래 블럭의 함수.
+        자손 선택자: 부모선택자 자식선택자
+        부모선택자 하위에 위치한 모든 자식 선택자에 디자인을 입힌다.
+        내 하위에 있는 모든 뎁스의 태그*/
+    </style>
+</head>
+
+<body>
+    <table id="tb">
+        <tr class="tr1">
+            <td class="td1">내용1</td>
+            <td class="td2">내용2</td>
+            <td class="td3">내용3</td>
+        </tr>
+        <tr class="tr2">
+            <td class="td1">내용1</td>
+            <td class="td2">내용2</td>
+            <td class="td3">내용3</td>
+        </tr>
+        <tr class="tr3">
+            <td class="td1">내용1</td>
+            <td class="td2">내용2</td>
+
+        </tr>
+    </table>
+</body>
+
+</html>

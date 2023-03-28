@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1 {
+            width: 300px;
+            height: 200px;
+            border: 10px dotted black;
+            background-color: yellowgreen;
+            padding: 20px;
+            /*안쪽 여백을 20픽셀 주세요.*/
+            background-clip: content-box;
+            /*border-box: 테두리 영역까지
+        padding-box: 안쪽 여백 영역까지
+        content-box:컨텐츠 영역까지*/
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+        배경 관련 속성
+        background-color: 배경 관련 색상을 지정할 때 사용
+        background-clip: 배경 이미지나 배경색을 어디까지 지정할 지 정하는 옵션
+        background-image(중요): 배경 이미지를 채울 때 쓰는 속성. 자주 사용함.
+        background-repeat: 배경 이미지를 사용 시 해당 이미지를 얼마나 반복할지 지정할 경우 사용
+        background-size: 배경 이미지의 크기를 지정할 때 사용
+        background-position: 배경 이미지를 한번만 표시할 경우 배경 이미지를 어디에 배치할 지 지정할 때 사용.
+        background-origin: 배경 이미지의 위치 기준을 정하는 옵션
+        background-attachment: 배경 이미지 스크롤 고정 여부
+    -->
+    <div class="div1">
+        이것은 컨텐츠입니다
+    </div>
+
+</html>

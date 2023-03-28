@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            /* 이친구는 가로 정렬 */
+            flex-wrap: wrap;
+            width: 60vw;
+            /* width로 영역 설정하기. width니까 vw*/
+            height: 60vh;
+            /* align-content: center; */
+            /* align-content: space-around;
+            align-content: space-between; */
+            align-content: space-evenly;
+            /* justify-content: flex-start;
+            justify-content: end;
+            justify-content: center; */
+
+            /* align-items: stretch; 
+            이게 기본형*/
+            /* align-items: flex-start; */
+            /* 이친구는 세로 */
+            align-items: baseline;
+            /* 안에 있는 컨텐츠 기준으로 객체 좌표를 변경 */
+
+
+            /*fiex-direction과 달리 배치 변경은 안됨
+            direction에 따라 start와 end가 바뀜
+
+            justify-content: space-between;
+            양끝에 객체를 벽에 붙인다
+            justify-content: space-around;
+            가운데 아이템을 중심으로 균등하게 빈칸을 할당. 
+            justify-content: space-evenly;
+            공백을 중심으로 균등하게 간격을 주어서 사이를 줄 때와 같음.
+
+            justify-content는 기준이 무엇인지 확인해볼 것.
+            around와 evenly는 똑같은 크기의 객체들이 여럿 있을 시에 분간이 어려움.
+            between은 충분한 여백이 생겼을 때 쓰기 좋음.
+            안그러면 32:9 비율에서 썼다간 끝단의 객체 둘의 거리가 완전 벌어지는 걸 볼 수 있음.
+            이건 상하정리도 된다!
+
+            justfy-content: 지금 방향에서 가장 끝점에 정렬할래요
+            flex-direction: 축을 바꾼다!*/
+
+            flex-basis: content;
+            /* flex-direction이 row 일 때는 너비, column일 때는 높이
+            기본 크기를 결정
+            flex-grow
+            flex 아이템을 basis를 제외한 나머지 영역이 여백일 시, 규정한 영역 비율만큼 나눈다 
+            flex-shrink
+            flex 아이템이 basis에서 규정한 크기보다 작아질 수 있는지를 규정
+            이 셋은 한몸이다 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="flex-item">AAAAAAAAAAAAA</div>
+        <div class="flex-item">BBBBBB</div>
+        <div class="flex-item">CCCCCCCCCC</div>
+        <div class="flex-item">CCCCCCCCCC</div>
+        <div class="flex-item">CCCCCCCCCC</div>
+        <div class="flex-item">CCCCCCCCCC</div>
+        <div class="flex-item" style="padding:20px 10px 5px ;">CCCCCCCCCC</div>
+        <div class="flex-item" style="font-size: 3rem;">CCCCCCCCCC</div>
+        <div class="flex-item" style="margin-top: 1rem;">CCCCCCCCCC</div>
+        <div class="flex-item">CCCCCCCCCC</div>
+    </div>
+</body>
+
+</html>

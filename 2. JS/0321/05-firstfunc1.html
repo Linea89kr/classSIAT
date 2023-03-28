@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 일급함수(first class function)
+      /*
+      - 일급함수는 함수가 특정 조건을 만족할 경우 이를 지칭하기 위해 만들어진 용어
+      - 일급함수가 되기 위한 조건은 아래와 같다.
+        => 변수나 배열의 요소, 객체의 프로퍼티 등에 함수를 할당 가능하다
+        => 함수에 함수를 인자로 전달 가능하다
+        => 함수에서 함수 리턴이 가능하다.
+        => 동적으로 프로퍼티를 함수에 생성 및 할당 가능하다
+    
+    */
+      // 함수에 함수를 인자로 전달 가능하다
+      function funcA(x) {
+        // x();
+        console.log(x);
+      }
+
+      function funcB() {
+        console.log("이것은 funcA안에서 실행된 funcB입니다.");
+        return 7;
+      }
+
+      funcA(funcB);
+
+      setTimeout(function () {
+        console.log("안녕하세요");
+      }, 5000);
+
+      // 함수에서 함수 리턴이 가능하다.
+
+      // function funcC() {
+      //   return function () {
+      //     console.log("이것은 funcC에서 return된 함수입니다.");
+      //   };
+      // }
+
+      // const funcD = funcC();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #flex-container {
+            background-color: rgb(233, 233, 233);
+            height: 50px;
+            box-shadow: 0 8px 32px 0 rgb(233, 233, 233);
+            text-align: left;
+            justify-items: center;
+            display: flex;
+        }
+
+        #flex-item1 {
+            display: inline-block;
+            border: none
+        }
+
+        #flex-item1:hover {
+            background-color: #ffffff;
+            color: #7f56c5;
+            border: 1px solid #7f56c5;
+        }
+
+        #flex-item2 {
+            display: inline-block;
+            border: none
+        }
+
+        #flex-item2:hover {
+            background-color: #ffffff;
+            color: #7f56c5;
+            border: 1px solid #7f56c5;
+        }
+
+        #flex-item3 {
+            display: inline-block;
+            border: none
+
+        }
+
+        #flex-item3:hover {
+            background-color: #ffffff;
+            color: #7f56c5;
+            border: 1px solid #7f56c5;
+        }
+
+        #footbox {
+            width: 100%;
+            height: 100px;
+            border: 1px solid #bbbbbb;
+        }
+    </style>
+</head>
+<body>
+
+<div id="flex-container">
+    <button class="tab_item active" id="flex-item1">탭메뉴1</button>
+    <button class="tab_item" id="flex-item2">탭메뉴2</button>
+    <button class="tab_item" id="flex-item3">탭메뉴3</button>
+</div>
+<div id="footbox">
+    <div class="tab_inner active" id="textarea1">1번 탭</div>
+    <div class="tab_inner" id="textarea2">2번 탭</div>
+    <div class="tab_inner" id="textarea3">3번 탭</div>
+</div>
+<script>
+    const tabItem = document.querySelectorAll('.tab_item')
+    const tabInner = document.querySelectorAll('.tab_inner')
+
+    tabItem.forEach((tab, idx) => {
+        tab.addEventListener('click', function () {
+            tabInner.forEach((inner) => {
+                inner.classList.remove('active')
+            })
+
+            tabItem.forEach((item) => {
+                item.classList.remove('active')
+            })
+
+            tabItem[idx].classList.add('active')
+            tabInner[idx].classList.add('active')
+        })
+    })
+</script>
+</body>
+</html>

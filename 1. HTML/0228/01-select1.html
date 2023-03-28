@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--
+      select
+      - 사용자들이 제한된 선택지를 통해 값을 입력하기를 원할 경우
+        해당 입력창에 강력한 드라이브를 걸 때 사용하는 인터페이스
+      - 여러개의 데이터 선택지를 줄 수 있지만 선택지가 많아질 경우
+        해당 태그를 권장하지는 않는다.
+      - select 태그 안에는 option이라는 태그를 주어 선택지를 태그로
+        나열할 수 있다.
+      - select 에도 name이란 속성이 있어 submit 버튼을 통해 전송을
+        할 경우 select의 name 속성의 이름으로 데이터가 전송된다.
+      - multiple : 단수개가 아닌 다수개의 데이터를 선택할 경우 
+        사용할 수 있는 옵션. 다만 창이 위 아래로 늘어나기 때문에 size라는
+        옵션을 사용하여 줄일 수 있지만 인터페이스가 이쁘게 나오지 않으므로
+        해당 옵션을 잘 선택하지는 않는다.
+      
+      datalist
+      - input 태그에 select와 같은 선택지를 사용할 경우 사용할 수 있는 태그
+      - 다만 표준 태그가 아니기 때문에 지원이 안되는 브라우저가 있다.
+      - 크로스 브라우징을 통해 해당 옵션이 모든 브라우저에서 보여야 한다면 별도의
+        개발이 필요하다.
+      - datalist는 기존의 input과 select 옵션을 같이 사용할 경우 사용할 수 있다.
+
+    -->
+    <h1>전공학과</h1>
+    <input type="file" name="" id="" multiple />
+    <select name="class" id="class">
+      <optgroup label="공과대학">
+        <option value="archi">건축공학과</option>
+        <option value="machine" selected>기계공학과</option>
+        <option value="indy">산업공학과</option>
+      </optgroup>
+      <optgroup label="인문대학">
+        <option value="economy">경제학과</option>
+        <option value="jung">정치학과</option>
+        <option value="inmun">인문학과</option>
+      </optgroup>
+    </select>
+    <hr />
+    <input type="search" name="sel1" id="sel1" list="choice" />
+    <datalist id="choice">
+      <option value="당귀">dang</option>
+      <option value="nok" label="nok2">녹용</option>
+      <option value="dung" label="dung2">덩쿨</option>
+    </datalist>
+  </body>
+</html>

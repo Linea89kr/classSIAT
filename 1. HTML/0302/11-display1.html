@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .span1 {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+            /*display: block;*/
+            /*display: inline-block;*/
+            /*display: none; 숨기거나 배치에도 쓰임. 암튼 많이 쓰임.*/
+            /* 반응형 웹 만들 때 또 나옴.
+            */
+            display: flex;
+        }
+
+        .span2 {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black;
+            /*display: block;*/
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+        display 속성(중요!!!)
+        해당 태그의 속성을 바꾸고자 할 경우 사용하는 속성
+        인라인을 블록, 블록을 인라인 속성으로 바꿀 수 있다.
+        최근 반응형 웹의 영향으로 게시판 모양을 다이나믹하게 변형할 때 해당 display 속성을 사용.
+
+    -->
+    <span class="span1">스팬태그1</span>
+    <span class="span2">스팬태그2</span>
+</body>
+
+</html>

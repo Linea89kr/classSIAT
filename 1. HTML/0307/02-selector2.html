@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a[alt] {
+            color: red;
+        }
+
+        /* alt가 있으면*/
+
+        a[href="aaa.html"] {
+            color: darkorange;
+        }
+
+        /* aaa.html이면*/
+
+        a[href^="b"] {
+            color: darkgreen;
+        }
+
+        /*b로 시작하면*/
+
+        a[href$="c"] {
+            color: aqua;
+        }
+
+        /*c로 끝나면*/
+
+        a[href*="o"] {
+            color: brown;
+        }
+
+        /*o가 포함되어 있으면*/
+    </style>
+</head>
+
+<body>
+    <a href="" alt="aaa">링크1</a>
+    <a href="aaa.html">링크2</a>
+    <a href="bbb.html">링크3</a>
+    <a href="ccc.html">링크4</a>
+    <a href="ooo.html">링크5</a>
+</body>
+
+</html>

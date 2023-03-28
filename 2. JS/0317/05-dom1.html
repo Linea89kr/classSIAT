@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 
+      웹 브라우저의 랜더링 순서
+      - 1. 브라우저에서 먼저 html 페이지를 읽는다.
+      - 2. 파싱단계에서 html과 css파싱을 통해 브라우저에 표시할 객체와 디자인을 구성한다.
+      - 3. html 요소들 각각에 대한 오브젝트들을 만든다.
+      - 4. 자바스크립트를 통해 해당 오브젝트에 이벤트 및 이펙트를 건다
+
+      * 주의할 점
+      - 자바스크립트는 먼저 생성된 요소에는 접근이 가능하지만 자바스크립트 로직 이후에
+        생성된 요소에는 접근이 불가능하므로 반드시 요소가 자바스크립트의 로직보다 위에 있어야 한다.
+      
+      DOM(Document Object Model)
+      - 문서 객체 모델이라고도 부르며 HTML 문서의 요소에 접근 혹은 해당 자원을 사용하기 위한
+        자바스크립트 인터페이스 모델이다.
+      - DOM은 문서의 구조화된 표현을 제공하여 자바스크립트로부터의 핸들링이 가능하도록 해당
+        인터페이스를 지원하고 뿐만이 아니라 구조, 스타일, 내용에 대한 변경도 가능하게 만들어준다.
+      - DOM은 구조화된 node와 property, method를 가지고 있으며 이를 사용자가 프로그래밍을 통해
+        사용이 가능하다.
+      
+      DOM 용어 정리
+      - node : HTML 문서를 구성하는 모든 요소를 의미
+      - element : html 문서 중에 실제 태그를 element라 부른다.
+      - content : elememt 안에 들어 있는 내용
+      - attribute : element에 들어있는 추가적인 속성
+
+      DOM 에 접근하는 방법
+      - document.getElementsByTagName : 해당 태그의 이름의 요소를 모두 선택함
+      - document.getElementById : 해당 아이디의 요소를 선택함
+      - document.getElementsByClassName : 해당 클래스의 요소를 모두 선택함
+      - document.getElementsByName : 해당 name 속성값을 가지는 요소를 모두 선택함
+      - document.querySelector(선택자) : 해당 선택자로 선택되는 요소를 선택함
+      - document.querySelectorAll(선택자) : 해당 선택자로 선택되는 모든 요소를 선택함
+
+      input의 value에 접근하는 방법
+      - document.getElementById("input1").value => 값을 넣거나 변수에 값을 전달 가능함
+
+      이벤트를 주는 방법
+      - element.addEventListener("줄 이벤트", [동작을 정의하는 콜백 함수], false);
+
+      스타일을 주는 방법
+      - element.style.[styleName] = '먹일 스타일 값';
+        => styleName은 camelcase형태로 바꿔서 접근; ex) background-color => backgroundColor
+    -->
+    <div>안녕하세요</div>
+    <script>
+      document.getElementsByTagName("div")[0].style.color = "red";
+    </script>
+    <div class="cls1">반갑습니다</div>
+    <div class="cls1">반갑습니다</div>
+    <script>
+      document.getElementsByClassName("cls1")[1].style.color = "blue";
+    </script>
+    <div id="id1">어서오세요</div>
+    <script>
+      document.getElementById("id1").textContent = "어서오세요오오오오오오";
+    </script>
+    <div id="id2">이것은 es6 접근법입니다.</div>
+    <script>
+      document.querySelector("#id2").style.color = "green";
+    </script>
+    <div class="cls3">이것은 es6 복수개의 엘리먼트 접근법입니다.</div>
+    <script>
+      document.querySelectorAll(".cls3")[0].style.color = "brown";
+    </script>
+  </body>
+</html>

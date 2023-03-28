@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container>ul>li>ul>li {
+            color: blue;
+        }
+
+        .container li {
+            text-decoration: underline;
+        }
+
+        .item1+li {
+            color: rosybrown;
+        }
+
+        .div1 {
+            display: none;
+        }
+
+        .item32:hover+.div1 {
+            display: block;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        .container2 .li2~li {
+            color: darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+        하위 선택자
+        사용법: [selector] [selector]
+        선택자와 선택자 사이에 스페이스를 두어 해당 선택자 아래에 위치한 다른 선택자에 디자인을 적용할 시 사용
+        선택자는 옆에 몇개든 사용할 수 있다.
+        ex) [selector] [selector] [selector] ...
+
+        자식 선택자
+        사용법: [selector] > [selector]
+        선택자와 선택자 사이에 '>'를 두어 선택자 바로 아래 depth에 위치한
+        다른 선택자에 디자인을 적용할 때 사용
+        위의 하위 선택자와 다른 점은 바로 아래에 속해 있는 요소가 아니면 디자인이 적용되지 않는다
+        (직계 1대에만 한정. 손자는 적용 안됨)
+        자식선택자 또한 몇개든 사용 가능하다.
+        ex) [selector] > [selector] > [selector] > ...
+        
+        두 선택자는 대표적인 연계 선택자
+        디자인이 한 블럭 혹은 컴포넌트 단위로 움직일 경우 적은 class, id 선택자로 디자인을 할 수 있다는 점이 장점이다.
+        다만 너무 큰 블럭에 무분별하게 사용할 경우 재사용성이 떨어질 수 있으므로 항상 디자인에 대한 컴포넌트를 고려햐여 사용하는 것을 추천함.
+        memo: 생각해보니 >는 cmd에서 바로 아래 디렉토리로 가세요 명령어네?
+
+        재사용성을 염두에 두고 구조를 짤 것.
+
+        header등으로 영역을 나눴다면 그 아래 블럭을 저 선택자로 제어.
+        section 등은 색깔에 집중하는 경우가 많음.
+        div > body > main > section > div.. 정도로 해서 제어하는 경우가 괜찮음.
+
+        인접 형제 선택자
+        사용법: [selector] + [selector]
+        자신의 바로 아래 위치한 요소에 디자인을 적용하고자 할 때 활용
+        바로 인접해있지 않을 경우, 디자인 적용은 되지 않는다.
+        형제 선택자 또한 몇 개든 사용이 가능하다. ex) [selector] + [selector] + [selector] ...
+
+        형제 선택자
+        사용법: [selector]~[selector]
+        자신과 같은 depth에 위치한, 아래에 있는 모든 요소에 디자인을 적용하고자 할 경우 사용
+        자신보다 위에 위치한 태그는 대상이 되지 않는다.
+    -->
+
+    <div class="container">
+        <ul>
+            <li class="item1">내용1</li>
+            <li>내용2</li>
+            <li class="item3">내용3
+                <ul>
+                    <li>내용3-1</li>
+                    <li class="item32">내용3-2</li>
+                    <div class="div1" style="display: fixed;">안녕하세요</div>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container2">
+        <ul>
+            <li class="li1">내용1</li>
+            <li class="li2">내용2</li>
+            <li class="li3">내용3</li>
+            <li class="li4">내용4</li>
+        </ul>
+    </div>
+</body>
+
+</html>

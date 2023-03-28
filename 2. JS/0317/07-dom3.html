@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" name="txt1" id="txt1" value="123" />
+    <button id="btn1">버튼</button>
+    <p id="p1">1234</p>
+    <script>
+      // #1
+      // document.getElementById("btn1").onclick = function () {
+      //   let txt1 = document.querySelector("#txt1");
+      //   let value1 = txt1.value;
+      //   alert(value1);
+      // };
+      // #2
+      document.getElementById("btn1").addEventListener("click", function () {
+        let txt1 = document.querySelector("#txt1");
+        let value1 = txt1.value;
+        alert(value1);
+        let txt2 = document.getElementById("p1").textContent;
+        alert(txt2);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./default.css">
+    <style>
+        .div1 {
+            width: auto;
+            height: 490px;
+            background-image: url(./img/shop-large.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        @media (max-width: 1400px) {
+            .div1 {
+                background-image: url(./img/shop-medium.jpg);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .div1 {
+                background-image: url(./img/shop-small.jpg);
+            }
+        }
+
+        /*
+        미디어쿼리는 간편하지만 쓸 수록 쿼리가 늘어나고, 쓸데없는 쿼리가 늘어남.
+        */
+    </style>
+</head>
+
+<body>
+    <div class="div1"></div>
+</body>
+
+</html>

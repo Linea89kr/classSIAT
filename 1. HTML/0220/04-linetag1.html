@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- 목록을 만드는 태그
+        ul: 순서가 없는 목록을 만들 때 쓰는 태그
+        ol: 순서가 있는 목록을 만들 때 쓰는 태그
+        dl: 시작 태그
+        dl 태그를 제외한 ul, ol 태그는 안에 반드시 li 태그를 가진다
+        각 목록에 대한 내용은 li 태그를 통해 구현한다
+
+        각 태그의 속성
+        type: 숫자/문자의 종류
+        start: 시작 번호 (ul는 지원 안 함)
+        reverse: 번호를 역순으로 표시 (ul는 지원 안 함)
+
+
+        메뉴, 리스트 등에 쓰이기 때문에 굉장히 많이 쓰는 태그.
+        dl은 많이 안쓰고, ul, ol등을 많이 쓰고, ul을 가장 많이 씀.
+        -->
+        <ul type="square">
+            <li> 첫번째 항목
+                <ul> 
+                <li>1-1 항목</li>
+                <li>1-2 항목</li>
+                <li>1-2 항목</li>
+            </ul>
+            <li>두번째 항목</li>
+            <li>세번째 항목</li>
+        </ul>
+        <ol type="a" reversed="8">
+            <li>첫번째 항목
+                <ol>
+                    <li>2-1-1 항목</li>
+                    <li>2-1-2 항목</li>
+                    <li>2-1-3 항목</li>
+                </ol>
+            </li>
+            <li>두번째 항목</li>
+            <li>세번째 항목</li>
+        </ol>
+        <ol type="I">
+            <li>첫번째 항목
+                <ul>
+                    <li>3-1-1 항목</li>
+                    <li>3-1-2 항목</li>
+                    <li>3-1-3 항목</li>
+                </ul>
+            </li>
+            <li>두번째 항목</li>
+            <li>세번째 항목</li>
+        </ol>
+        <dl>
+            <dt>날다람쥐</dt>
+            <dd>이 동물은 귀엽습니다</dd>
+        </dl>
+    </body>
+</html>

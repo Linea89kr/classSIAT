@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 240px;
+            border: 1px solid black;
+        }
+
+        .div1 {
+            background-image: linear-gradient(45deg, #f00, #fff);
+        }
+
+        .div2 {
+            background-image: linear-gradient(-45deg, #0f0, #fff);
+        }
+
+        .div3 {
+            background-image: linear-gradient(to bottom, blue, white);
+        }
+
+        .div4 {
+            background-image: linear-gradient(to bottom, blue, white 50%, blue);
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+지금은 HTML5.2로 올라오면서 맞춰졌지만,
+일부 버전업이 안된 브라우저는 기능이 안먹히는 경우도 존재
+그런 경우는 prefix를 보아야 함 / MDN가면 태그 호환성 확인 가능
+ -->
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div class="div3"></div>
+    <div class="div4"></div>
+
+</body>
+
+</html>

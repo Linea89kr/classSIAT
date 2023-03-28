@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" method="get">
+    <input type="text" name="txt1" id="txt1">
+    <button id="btn" type="button">가위바위보</button>
+    <div id="div1"></div>
+</form>
+</body>
+<p id="p1"></p>
+<script>
+    // 
+    // document.querySelector(`#btn`).onclick=function(){}
+    document.querySelector(`#btn`).addEventListener(`click`, function(){
+        let val1 = +document.querySelector("#txt1").value;
+        let val2 = Math.floor(Math.random()*(3-1+1))+1;
+
+        if(val1 === (val2 % 3) + 1) {
+        // (val1 == 1 && val2 == 1)||
+        // (val1 == 2 && val2 == 1)||
+        // (val1 == 3 && val2 == 2)
+        document.querySelector(`#div1`).innerHTML = `<h1>이겼습니다</h1>`;
+       }else if (val1 == val2) {
+        document.querySelector(`#div1`).innerHTML = `<h1>비겼습니다</h1>`;
+       }else{
+        document.querySelector(`#div1`).innerHTML = `<h1>졌습니다</h1>`;
+       }
+       document.querySelector(
+        `#p1`
+       ).textContent = `나: ${val1} 컴: ${val2}`;
+       document.querySelector(`#txt1`).value="";     
+    });
+/*
+onclick = 클릭을 할때 발생하는 이벤트
+=> document의 addEventListener("click",function(){}); 
+*/
+</script>
+</html>

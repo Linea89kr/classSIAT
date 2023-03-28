@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+
+    <style>
+        #div1 {
+            height: 200px;
+            width: 200px;
+            background-image: url(./pic1.jpg);
+            /*
+            "url(`/pic.jpg`)"
+
+            */
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <!-- <button id="btn1" type="button">버튼1!</button>
+<button id="btn2" type="button">버튼2!</button>
+<button id="btn3" type="button">버튼3!</button> -->
+
+    <button id="btn1" type="button" onclick="changeimg(`pic1.jpg`)">버튼1!</button>
+    <button id="btn2" type="button" onclick="changeimg(`pic2.jpg`)">버튼2!</button>
+    <button id="btn3" type="button" onclick="changeimg(`pic3.jpg`)">버튼3!</button>
+</body>
+<script>
+    function changeimg(div1) {
+        document.getelementbyid(`pic`).style.backgroundImage = `url("./${pic1}")`
+    }
+
+    /*
+        let clickit1 = document.getElementById("btn1");
+        let clickit2 = document.getElementById("btn2");
+        let clickit3 = document.getElementById("btn3");
+    
+        let changeimg1 = function changeit1() {
+            let v1 = document.getElementById(`div1`);
+            v1.style.backgroundImage = `url("./pic1.jpg")`;
+        };
+    
+        let changeimg2 = function changeit2() {
+            let v1 = document.getElementById(`div1`);
+            v1.style.backgroundImage = `url("./pic2.jpg")`;
+        };
+    
+        let changeimg3 = function changeit3() {
+            let v1 = document.getElementById(`div1`);
+            v1.style.backgroundImage = `url("./pic3.jpg")`;
+        };
+    
+        clickit1.addEventListener(`click`, changeimg1, false);
+        clickit2.addEventListener(`click`, changeimg2, false);
+        clickit3.addEventListener(`click`, changeimg3, false);*/
+</script>
+
+</html>

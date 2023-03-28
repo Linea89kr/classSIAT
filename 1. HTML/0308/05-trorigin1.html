@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .origin {
+            width: 160px;
+            height: 240px;
+            border: 1px solid #000;
+            float: left;
+            margin: 100px;
+        }
+
+        .origin img {
+            transform: rotateZ(45deg)
+        }
+
+        .roc1 img {
+            transform-origin: left top;
+        }
+
+        .roc2 img {
+            transform-origin: left bottom;
+        }
+
+        .roc3 img {
+            transform-origin: right top;
+        }
+
+        .roc4 img {
+            transform-origin: right bottom;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="origin">
+        <div class="roc1"><img src="/0308/img/rose.jpg" alt=""></div>
+    </div>
+    <div class="origin">
+        <div class="roc2"><img src="/0308/img/rose.jpg" alt=""></div>
+    </div>
+    <div class="origin">
+        <div class="roc3"><img src="/0308/img/rose.jpg" alt=""></div>
+    </div>
+    <div class="origin">
+        <div class="roc4"><img src="/0308/img/rose.jpg" alt=""></div>
+    </div>
+</body>
+
+</html>

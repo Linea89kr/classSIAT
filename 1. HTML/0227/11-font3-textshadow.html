@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test1 {
+            text-shadow: 1px 1px #abf;
+        }
+
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            color: orange;
+            text-shadow: 5px 5px 0 black;
+        }
+
+        .shadows {
+            color: orange;
+            text-shadow: 5px 5px 10px green;
+            /*텍스트 쉐도우는 문법 에러 틀리면 디자인 적용 안됨.*/
+        }
+
+        .shadow3 {
+            color: orange;
+            text-shadow: -5px -5px 0 black;
+        }
+
+        p {
+            text-shadow: 0px 12px #c2a;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HTML5</h1>
+    <h3 class="test1">텍스트 쉐도우용 글자</h3>
+    <p class="test1">프린터 출력 테스트</p>
+    <p class="shadows">HTML5</p>
+    <p class="shadows">HTML5</p>
+    <p class="shadows">HTML5</p>
+    <p class="shadow3">HTML5</p>
+    <!--
+        text-shadow
+        기본적인 동작은 그림자 효과를 추가하여 텍스트를 좀 더 입체적으로 보이게 하는 효과를 줄 경우 사용한다.
+        다만 기본적인 동작만으로 사람들이 사용하는 것이 아니라, 글자에 특수한 효과를 주고자 할 경우 사용할 수 있으며 일종의 고인물 옵션
+        본인이 색의 조합에 자신이 있다면 사용하는 것을 권장하지만 많은 연습을 필요로 함.
+
+        text-shadow 사용방법
+        사용방법: h-shadow, v-shadow, blur, color
+        h-shadow 그림자의 기본 가로 offset 거리
+        v-shadow 그림자의 기본 세로 offset 거리
+        blur 그림자가 번지는 정도
+        color 그림자 색상 지정
+        참고로 위의 옵션은 중첩 사용이 가능하다.
+    -->
+</body>
+
+</html>

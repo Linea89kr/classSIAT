@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h3>문제</h3>
+        <label for="chk">답1</label><input type="checkbox" name="chk" id="chk1" value="1"></input><br>
+        <label for="chk">답2</label><input type="checkbox" name="chk" id="chk2" value="2"></input><br>
+        <label for="chk">답3</label><input type="checkbox" name="chk" id="chk3" value="3"></input><br>
+        <label for="chk">답4</label><input type="checkbox" name="chk" id="chk4" value="4"></input><br>
+        <label for="chk">답5</label><input type="checkbox" name="chk" id="chk5" value="5"></input><br>
+    </div>
+    <button type=button id="btn">채점합시다!</button>
+    <div id="output"></div>
+    <script>
+        document.querySelector(`#btn`).addEventListener(`click`, function () {
+            //     const chk = document.querySelectorAll(`input[name="chk"]`);
+            //     let ans1 = false;
+            //     let ans2 = false;
+            //     let ans3 = false;
+            //     let ans4 = false;
+            //     let ans5 = false;
+            //     for (let index = 0; index < chk.length; index++) {
+            //         if (chk[index].checked) {
+            //             if (chk[index].value == 1)
+            //                 ans1 = true;
+            //             else if (chk[index].value == 2) {
+            //                 ans2 = true;
+            //             } else if (chk[index].value == 3) {
+            //                 ans3 = true;
+            //             } else if (chk[index].value == 4) {
+            //                 ans4 = true;
+            //             } else if (chk[index].value == 5) {
+            //                 ans5 = true;
+            //             }
+            //         }
+            //     }
+            //     if ((!ans1) && (!ans2) && (ans3) && (!ans4) && (ans5)) {
+            //         document.getElementById(`output`).innerHTML = `<h1>정답입니다</h1>`;
+            //     } else {
+            //         document.getElementById(`output`).innerHTML = `<h1>오답입니다</h1>`;
+            //     }
+            //
+
+            const chk = document.querySelectorAll(`input[name="chk"]`);
+            let result = `01001`
+            let val = ""; //초기화
+            for (let index = 0; index < chk.length; index++) {
+                if (chk[index].checked) {
+                    val += "1";
+                } else {
+                    val += "0";
+                }
+            }
+            if (result == val) {
+                document.getelementbyid(`output`).innerHTML = `<h1>정답입니다.</h1>`;
+            } else {
+                document.getelementbyid(`output`).innerHTML = `<h1>오답입니다.</h1>`;
+            }
+        })
+    </script>
+</body>
+
+
+</html>

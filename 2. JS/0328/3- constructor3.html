@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <button id="trigger">삽입</button>
+</body>
+<script>
+    function funcA(el, event, target) {
+        this.el = document.createElement(el);
+
+
+        // 이벤트에 들어가는 메서드를 이렇게 쓰는건 좋은 건 아니거든.
+        this.init = function () {
+            this.el.textContent = `실행`;
+            this.el.addEventListener(`click`, function () {
+                event();
+            }
+            )
+        }
+        document.getElementById(target).append(this.el);
+
+    }
+    document.getElementById(`trigger`).addEventListener(`click`,
+        function () {
+            const obj1 = new funcA(`button`,
+                function () { alert(`안녕하세요`); }, `div1`);
+            obj1.init();
+        }
+    );
+
+</script>
+
+</html>

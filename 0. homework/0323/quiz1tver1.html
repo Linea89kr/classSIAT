@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div {
+            height: 200px;
+            width: 200px;
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<div id="div" class="div"></div>
+<button id="btn1" onclick="changeColor(`red`)" type="button">버튼1!</button>
+<button id="btn2" onclick="changeColor(`blue`)" type="button">버튼2!</button>
+<button id="btn3" onclick="changeColor(`green`)" type="button">버튼3!</button>
+</body>
+<script>
+    function changeColor(str) {
+        document.getElementsByClassName(`div`)[0].style.backgroundColor = str;
+    }
+
+
+// let clickit1 = document.getElementById("btn1");
+    // let clickit2 = document.getElementById("btn2");
+    // let clickit3 = document.getElementById("btn3");
+
+    // let changecolor1 = function changecolorred() {
+    //     let v1 = document.getElementById(`div1`)
+    //     v1.style.backgroundColor = `red`;
+    // }
+
+    // let changecolor2 = function changecolorblue() {
+    //     let v1 = document.getElementById(`div1`)
+    //     v1.style.backgroundColor = `blue`;
+    // }
+
+    // let changecolor3 = function changecolorgreen() {
+    //     let v1 = document.getElementById(`div1`)
+    //     v1.style.backgroundColor = `green`;
+    // }
+    // // chlickit에 i 부여하고 for 돌려서 함수 안에 addeventlistenser 돌리라는 거였네...
+
+    // clickit1.addEventListener(`click`, changecolor1, false)
+    // clickit2.addEventListener(`click`, changecolor2, false)
+    // clickit3.addEventListener(`click`, changecolor3, false)
+
+</script>
+
+</html>

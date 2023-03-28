@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tr1 {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            border: 1px solid #000;
+            transition-property: width, height, background-color;
+            /* transition-duration: 1s, 0s, 2s, 1.8s; */
+            transition: all 1s cubic-bezier(0.68, 0.31, 0.6, 2.7) 1s;
+            /* 가장 끝의 2s 가 delay*/
+        }
+
+        .tr1:hover {
+            width: 200px;
+            height: 100px;
+            background-color: #f00;
+            /* 각 항목 시간을 다르게 주려면 나열하면 됨.
+            한칸 더 나열하면 Delay*/
+            /* transition-timing-function: linear; */
+        }
+    </style>
+</head>
+
+<div class="tr1"></div>
+
+
+<body>
+
+    <!--
+    팝업레이어. bg를 기준으로 객체들을 어떻게 스타일링할지
+    transition은 어차피 >>간단한<< 것만 할 수 있음.
+    기존에 flash에서 쓰던 가벼운 폰트 애니메이션 같은 걸 대체.
+
+    transition: 간단한 애니메이션을 만들 때 사용할 수 있는 속성
+    transition-property: CSS 속성중 어떤 속성에 트랜지션을 적용할지 선택
+    -> none (없음), all (전부 다), [속성 이름] (특정 속성에만)
+    transition-duration: transition이 진행되는 진행 시간 (ex. 1s -> 1초)
+    transition-timing-function: transition 효과ㅢ 속도 및 변화의 크기를 지정
+    linear: 시작에서 끝까지 일정한 속도 (등속)
+    ease: 처음에는 천천히, 중간은 빠르게, 중간~끝 사이도 천천히
+    ease-in: 처음을 빠르게
+    ease-out: 끝을 빠르게
+    ease-in-out: 느리게 시작, 느리게 끝
+    cubic-bezier(0, 0, 0): 타이밍을 직접 정의
+    transition-delay: transition 효과 이전에 딜레이를 줌. 단위는 sec.
+    transition: 위의 모든 효과를 하나의 속성에 전부 몰아 사용할 때 사용
+    transition: [property], [duration] , [timing-function], [(이 표시는 생략가능의 표시), [delay]]
+    ex) transition: all 1s linear
+
+    transform: element에 변화를 주고자 할 경우 사용. 3d 지원을 통한 변형이 가능하다.
+    3D 변형을 위해서는 반드시 perspective 속성을 주어 2차원 평면을 (0, 0, 0)로 변환해주어야 한다.
+    perspective: 3차원 변형시 z축의 화면 곡안을 얼마나 할당 할 것인지 적용할 때 사용.
+    관련 속성의 크기가 커질 수 록 더 많은 공간에 원근감을 위한 공간을 할당할 수 있다.
+
+    transform
+    translate: 객체를 이동시키고자 할 때 사용. xyz 한꺼번에 이동값을 줄 수 있음.
+    xy만 변경하려는 경우 translate, z까지 주려면 translate3d를 사용.
+    scale: element의 크기를 키우거나 줄일 때 사용하는 속성. translate와 마찬가지지만 z축은 rotate를 통해 회전하지 않으면 변화를 육안으로 확인할 수 없다.
+    rotate: element 오브젝트를 회전시킬 때 사용. z축 회전은 rotate를 쓰면 되지만 기본적으로 perspective 옵션이 활성화 되어 있어야 사용 가능.
+    xyz및 3d형태로 회전이 가능하다.
+    skew: 유일하게 2차원 평면 변환만 있는 속성 xy축으로 요소를 뒤튼다.
+
+    transform 부가 속성
+    transform.origin: 변형되는 기분점을 지정할 때 사용한다. 기본은 center, 백분율, 키워드
+    절대값 전부 사용이 가능하다.
+    perspective.origin: 원근을 전혀 다른 시야에서 접근하여 보는 효과를 줄 경우 사용.
+    transform-style: 3d 변형 안에 3d 변형이 있을 경우 해당 변형의 축을 다른 축 기준으로 고정할 때 사용, 보통 여러가지 transform을 연쇄적으로 적용할 시 사용.
+    backface.visibility: element가 뒤집어졌을 시 뒷면을 아예 안보이도록 할 경우에 사용. 기본 값은 visibile이며 hidden으로 처리하여 elemment가 뒤집힐 경우, 뒷면이 보이지 않으며, 오브젝트 자체가 사라지는 효과를 가져온다.
+
+    transition은 bgcolor, font-size 등등 각종 요소에 적용 가능.
+-->
+</body>
+
+</html>

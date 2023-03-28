@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    const obj1 = {
+        name: `내이름`,
+        address: `집주소`,
+        number: 48965
+    }
+    console.dir(obj1)
+
+    // 생성자 함수
+    function Person1() {
+        this.name = `고길동`
+        this.address = `쌍문동`
+        this.number = 35973
+    }
+
+    const obj2 = new Person1()
+    console.dir(obj2)
+
+
+    function Person2(name, address, number) {
+        this.name = name
+        this.address = address
+        this.number = number
+    }
+
+    const obj3 = new Person2(`마이콜`, `서울어딘가`, 89521)
+    console.log(obj3)
+
+
+</script>
+
+</html>

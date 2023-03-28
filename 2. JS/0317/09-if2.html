@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // if : 조건이 참일 경우 해당 로직 실행 아닐경우 로직 스킵
+      if (5 < 3) {
+        alert("5는 3보다 큽니다");
+        if (6 > 3) {
+          alert("6이 3보다 큽니다");
+        }
+      } else {
+        alert("5는 3보다 작습니다");
+      }
+
+      // if(/*아이디가 조건에 맞는지*/){
+      //   if(/*비밀번호가 조건에 맞는지*/){
+      //     // 전송
+      //   }
+      // }
+      let score = 88;
+
+      // if (score > 90) {
+      //   console.log("a");
+      // } else {
+      //   if (score <= 90 && score > 80) {
+      //     console.log("b");
+      //   }
+      // }
+      if (score > 90) {
+        console.log("a");
+      } else if (score <= 90 && score > 80) {
+        // } else if (90 > score >= 80) {
+        console.log("b");
+      } else {
+        console.log("f");
+      }
+    </script>
+  </body>
+</html>

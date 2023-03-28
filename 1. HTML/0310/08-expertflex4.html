@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        .flex-container {
+            display: flex;
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        .flex-item {
+            width: 150px;
+        }
+
+        .flex-item:last-child {
+            margin-left: auto;
+            /*남는 공간에 auto 값이 할당이 됨.
+            만약 margin:auto로 놓으면 양쪽에 나란히 균등하게 들어감.
+            left, right 둘 다 auto가 걸리기 때문.*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+    </div>
+
+</body>
+
+</html>

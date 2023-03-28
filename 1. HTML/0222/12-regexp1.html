@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="./01-homework1.html" method="get">
+        <ul>
+            <li>
+                <!--한글 3글자만 입력받아야.-->
+                <label for="name">이름 : </label>
+                <input type="text" name="name" id="name" pattern="[가-힣]{3}" required title="이름은 반드시 한글 3글자로 작성해야 합니다.">
+                <!-- pattern="[가-힣]{3}이라면 3글자만.
+                    pattern="[가-힣][3,4]로 한다면 3글자~4글자로 지정됨.
+                pattern="[A-Za-z가-힣]"
+                ![A-Za-z]
+                -->
+            </li>
+            <li>
+                <label for="hak">학번 : </label>
+                <input type="text" name="hak" id="hak" required pattern="\d{10}" title="숫자를 10개 입력하세요.">
+                <!-- [0-9]{10} -> \d{10} 이렇게도 가능 -->
+            </li>
+            <li></li>
+            <li></li>
+            <li><button>전송</button></li>
+        </ul>
+    </form>
+</body>
+
+</html>

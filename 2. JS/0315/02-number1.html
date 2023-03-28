@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log(1);
+      console.log(0);
+      console.log(-12345);
+      console.log(1234);
+      console.log(9999999999);
+      console.log(999999999999999999999);
+      console.log(12.1234);
+      console.log(0.000000000000000000012345567);
+      // 16진수 8진수
+      console.log(0x10); // 16진수
+      console.log(010); // 8진수
+      // 지수 표기법
+      console.log(5e5); // 5*(10^5)
+      console.log(5e-5); // 5*(10^-5)
+      // infinity
+      console.log(1 / 0);
+      console.log(-1 / 0);
+      console.log(isFinite(1 / 0));
+      console.log(isFinite("a"));
+      console.log(isFinite(1));
+      console.log(Infinity == Infinity - 10);
+      // NaN(Not a Number)
+      console.log(0 / 0);
+      console.log("a" / 0);
+      console.log("a" - 3);
+      console.log(isNaN("a"));
+      console.log(isNaN(0));
+      console.log(NaN == NaN);
+    </script>
+  </body>
+</html>

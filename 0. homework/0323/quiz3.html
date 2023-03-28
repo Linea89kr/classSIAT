@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1 {
+            height: 100px;
+            width: 100px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<button id="btn1" type="button">버튼1!</button>
+<button id="btn2" type="button">버튼2!</button>
+</body>
+<script>
+    let clickit1 = document.getElementById("btn1");
+    let clickit2 = document.getElementById("btn2");
+    let clickit3 = document.getElementById("btn3");
+
+    let changesq1 = function changeit1() {
+        let v1 = document.getElementById(`div1`);
+        v1.style.height = `100px`;
+        v1.style.width = `100px`;
+    };
+
+    let changesq2 = function changeit2() {
+        let v1 = document.getElementById(`div1`);
+        v1.style.height = `0px`;
+        v1.style.width = `0px`;
+    };
+
+
+    clickit1.addEventListener(`click`, changesq1, false);
+    clickit2.addEventListener(`click`, changesq2, false);
+
+</script>
+</html>

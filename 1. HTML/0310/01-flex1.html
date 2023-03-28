@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+        미디어 쿼리
+        실제 조건에 따라 다른 css를 적용하고자 할 경우 사용하는 쿼리
+        보통은 브라우저의 가로 길이를 기준으로 정렬한다.
+        형식: media screen and (max-width/min-width:[화면길이])
+
+        flex
+        반응형 웹등에서 블럭 태그들을 유동적으로 배치할 경우 사용하는 display 방식
+        유동형 배치이기 때문에 어떤 화면에도 반응할 수 있는 블럭 배치를 만들 수 있는 장점을 가짐.
+        flex 속성은 flex-container 속성과 flex-item 속성으로 크게 2가지로 나눌 수 있다.
+
+        flex-container 속성
+        flex-direction: flex 아이템이 배치되는 축의 방향을 설정한다.
+        -> row: 좌에서 우로 배치
+        -> row-reverse: 우에서 좌로
+        ->colmn: 위에서 아래로 배치
+        -> colmn-reverse: 아래에서 위로
+        
+        flex-wrap: flex의 item이 부모 영역을 벗어났을 경우 줄바꿈 처리를 어떻게 할지에 대한 속성
+        -> nowrap: 개행을 하지 않는다
+        -> wrap: 넘어갔을 시 아래로 개행 처리
+        -> wrap-reverse: 넘어갔을 시 위로 개행 처리
+
+        justify-contant: flex-contant의 y축을 기준으로 정렬하는 옵션
+        -> flex-start: flex-container의 시작지점을 기준으로 정렬
+        -> flex-end: flex-container의 끝지점을 기준으로 정렬
+        -> center: 중앙 정렬
+        -> space-between: 아이템 사이에 균일한 간격을 만들어 정렬
+        -> space-around: 아이템 둘레에 균일한 간격을 만들어 정렬
+        -> space-evenly: 아이템 사이 및 양 끝에 균일한 간격을 만들어 정렬
+
+        align-items: flex-container의 x축을 기준으로 정렬하는 옵션
+        -> stretch: flex-container의 위에서 아래 끝까지 아이템을 늘려 정렬 (기본)
+        -> flex-start: flex container의 위를 기준으로 배치
+        -> flex-end: clex container의 아래를 기준으로 배치
+        -> center: 중앙을 기준으로 배치
+        -> baseline: 컨텐츠를 기준으로 아래 기록선을 잡아 배치
+        
+        align-contents: flex-container의 x축을 기준으로 정렬하는 옵션
+        align-items와의 차이점이라면 복수의 행, 혹은 열을 갖고 있는 flex-container일 경우
+        align-item는 해당 아이템과의 경계를 침범하여 정렬하지 않지만, align-contant는 해당 아이템과의 경계를 넘어 정렬이 이루어진다.
+        -> 옵션은 jstify-contant와 동일 (축만 y에서 x로 바뀜.)
+
+        flex-direction이 colmn이 되면 위에 쓴 축이 다 반전. 
+    -->
+</body>
+
+</html>

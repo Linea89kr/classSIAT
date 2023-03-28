@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>전공학과</h1>
+    <input type="file" name="" id="" multiple>
+    <select name="class" id="class">
+        <optgroup label="공과대학">
+            <option value="area">건축공학과</option>
+            <option value="machinea" selected>기계공학과</option>
+            <option value="indy">산업공학과</option>
+        </optgroup>
+        <optgroup label="인문대학">
+            <option value="economy">경제학과</option>
+            <option value="politics">정치학과</option>
+            <option value="indy">문예창작학과</option>
+        </optgroup>
+        <br>
+
+        <input type="search" name="sell" id="sell" list="choice"> </input>
+        <datalist id="choice">
+            <option value="dang">당귀</option>
+            <option value="nok">녹용</option>
+            <option value="dung">덩쿨</option>
+        </datalist>
+    </select>
+    <!--input 대신 select로 정부기관에서 떄운 적도 많음.
+    검수가 포멀하지도 않았고 patturn을 쓰곤 했음.
+    지금도 옛날 방식을 그대로 쓰는 곳도 있음.
+    하지만 이게 왕도는 아님.
+    select의 옵션
+    multiple: 복수선택. 그냥 쓰면 보기가 이쁘지 않아서 size로 노출할 수량을 조절함.
+    multiple은 보기에 불편하니 자주 안쓰이긴 함.
+    오히려 input:file에서 더 많이 쓰긴 함.
+    단 별로 안이뻐서 input:file을 자주 쓰진 않음.
+
+    selected: 디폴트로 놓을 옵션에 옵션 추가 가능. 일종의 플래그 역할인가.
+
+    value를 한글로 적었을 때 깨지는 것
+    1. 파일 형식이 UTF-8이 아닐 경우
+    2. 클라랑 서버에서 인코딩 방식이 달라서 깨질 때 / 지금은 UTF-8로 통일됨.
+    3. 툴 자체에서 파일에 개별적으로 인코딩 타입을 지정하는 경우가 있음. 이런 경우에는 깨질 수 있음.
+
+
+
+    select 태그
+    여러개의 데이터 선택자를 쓸 수 있지만 선택지가 많아질 경우 해당 태그를 권장하지는 않는다.
+    select 태그 안에는 option이라는 태그를 주어 선택지를 태그로 나열할 수 있다.
+
+    select에도 name이란 속성이 있어 submit 버튼을 통해 전송을 할 경우 select의 name 속성의 이름으로 데이터가 전송된다.
+
+    multiple: 단수개가 아닌 다수개의 데이터를 선택할 경우
+    사용할 수 있는 옵션, 다만, 창이 위 아래로 늘어나기 때문에 size 라는 옵션을 사용하여 줄일 수 있지만 인터페이스가 이쁘게 나오지 않으므로 해당 옵션을 잘 사용하지는 않는다.
+
+    datalist
+    input 태그에 select와 같은 선택지를 사용할 경우 사용할 수 있는 태그
+    다만 표준 태그가 아니기 때문에 지원이 안되는 브라우저가 있다.
+    크로스 브라우징을 통해 해당 옵션이 모든 브라우저에서 보여야 한다면
+    별도의 개발이 필요하다.
+    datalist는 기존의 input과 select 옵션을 같이 사용할 경우 사용할 수 있다.
+
+-->
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const pen = {
+        body: "노란색",
+        ink: 30,
+        toggle: function () {
+          console.log("펜의 심을 넣어다 뺐다 한다.");
+        },
+        write: function () {
+          console.log("글씨를 쓴다.");
+        },
+      };
+
+      console.log(pen.body);
+      console.log(pen.ink);
+      pen.toggle();
+      pen.write();
+    </script>
+  </body>
+</html>

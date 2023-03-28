@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .redfont {
+            color: red;
+        }
+
+        .bluefont {
+            color: blue;
+        }
+
+        /* h2이면서 클래스가 bluefont인 애한테만 뭘 먹이고 싶다. And 조건.*/
+        /*ID 라면 h2#idname*/
+        /*redfont: 클래스로 묶어서 일괄로 처리할 때.
+        bluefont: 클래스는 일괄로 묶었지만, 태그 처리단에서 서로 다르게 분류할 때.*/
+        h2.bluefont {
+            font-weight: bold;
+        }
+
+        p {
+            white-space: pre-wrap;
+        }
+
+        span {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>블루베리에 관한 연구</h1>
+    <h2 class="bluefont">블루베리의 항산화 효능</h2>
+    <p class="bluefont">블루베리는 항산화제인 안토시아닌과 폴리페놀을 다량 포함하고 있습니다.</p>
+    <p>메사추세츠 보스턴에 있는 <span class="redfont">USDA 노화에 관한 인류 영양 연구센터 (the USDA Human Nutrition Research Center on
+            Aging)</span> 의 자료에 의하면
+        블루베리는 과일중에서 가장 항산화 작용이 뛰어난 과일이라고 합니다.</p>
+    <p><span class="redfont">USDA 노화에 관한 인류 영양 연구센터 (the USDA Human Nutrition Research Center on Aging)</span> 신경과학자들은
+        쥐들에게 블루베리를 먹임으로써
+        노화에 대한 인지능력의 손실을 예방해 준다는 사실을 발견했습니다.</p>
+</body>
+
+</html>

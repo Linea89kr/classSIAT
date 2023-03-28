@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+        input: 사용자들이 입력을 할 수 있는 인터페이스를 제공하는 태그
+        input 태그는 반드시 form 태그 안에 있어야 하며 type 속성을 통해
+        input 태그가 지원하는 인터페이스가 바뀐다.
+        type 속성을 통해 input 태그에 어떤 값을 입력할 지 지정할 수 있다.
+        input은 value라는 속성이 있어 value 속성에 값을 넣을 경우
+        임의의 값이 지원이 가능하다. 단, 선택형 input의 경우 해당 input의 값이 지정될 뿐, 그 값이 실제 서버 데이터로 넘어가는 값이 되지 않는다.
+        ex) radio, heckbox
+        input 태그에는 사용자의 인터페이스 용도가 아닌 개발자의 편의 떄문에 사용하게 되는 input 또한 존재한다. ex)hidden
+        참고: input 태그가 javascript의 고도화로 인해 핸들링되는 값에 대한
+        자유로운 포맷 변환이 가능해지면서 최근에는 form 없이 input 태그를 사용하는 경우도 늘고 있다.
+        하지만 원칙적으로는 form 태그 안에 input 태그를 사용하는 것이 맞으며, 가급적이면 이 포맷을 거치는 것을 권장한다.
+
+        엘리먼츠에 들어가는 공통 중요 속성
+        id: 고유한 하나의 값을 가지는 속성, 단수개의 값만을 가질 수 있으며 반드시 문서에서 유일한 단 하나의 값만이 존재해야 한다.
+        class: 복수개의 공통 값을 가질 수 있으며 중복이 허용되고, 디자인의 재활용에 많이 사용되며 복수의 태그에 접근 시 사용되기도 한다.
+    -->
+    <form action="">
+        <input type="hidden" name="" value="aaaaa"><br>
+        <input type="text" name="" id="" value="bbbbb"> <br>
+    </form>
+</body>
+
+</html>

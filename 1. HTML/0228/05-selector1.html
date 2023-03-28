@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        /* border: 1px solid blue; */
+        margin: 0; /*바깥쪽 여백*/
+        padding: 0; /*안쪽 여백*/
+      }
+      h1 {
+        color: red;
+      }
+      .p1 {
+        font-size: 2rem;
+      }
+      #id1 {
+        border: 2px dotted red;
+      }
+      h1,
+      .p1 {
+        border: 2px dotted blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      전체선택자 : 모든 태그에 공통 디자인을 먹일 때 사용
+                  사용방법 => *
+      태그 선택자 : 특정 태그에 디자인을 먹일 때 사용
+                  사용방법 => [태그명]
+      클래스 선택자 : 태그 속성에 class에 들어있는 이름을 기준으로 디자인을
+                     적용할 때 사용 사용방법 => .[클래스명]
+      아이디 선택자 : 태그 속성에 id에 들어있는 이름을 기준으로 디자인을
+                     적용할 때 사용 사용방법 => #[아이디명]
+      그룹 선택자 : 위에 선택자들을 복수개 선택할 때 사용
+                   사용방법 => [선택자1], [선택자2]
+    -->
+    <div>
+      <h1>안녕하세요</h1>
+      <p class="p1">이번 시간에는 css에 대해서 배우겠습니다</p>
+      <h3 id="id1">궁금하신 점은 실습을 통해 같이 알아보죠</h3>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        color: blue;
+      }
+      #t1 {
+        /* color: green; */
+      }
+      .t3 {
+        color: gray;
+      }
+      .t2 {
+        color: violet;
+        color: coral;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+    css 우선순위
+    - 스타일의 우선순위는 중요도, 명시도, 소스에서의 순서 3개가 기준이 된다.
+    
+    중요도
+    - 사용자 스타일 시트 > 제작자 스타일 시트 > 기본 브라우저 시트
+
+    명시도
+    - 인라인 스타일 > id 스타일 > 클래스 스타일 > 태그 스타일 > 전체 스타일
+
+    소스에서의 순서
+    - 항상 아래 있는 스타일이 가장 큰 우선순위를 가진다.
+    - 이에 대항하기 위해 !important 키워드를 사용
+  -->
+    <h1 style="color: red">안녕하세요</h1>
+    <h1 id="t1" class="t2 t3">반갑습니다</h1>
+  </body>
+</html>

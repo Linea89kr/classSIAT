@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // global 환경에서의 this
+    console.log(this) // window
+
+    // function 안에서의 this
+    function funcA() {
+        console.log(this);
+    }
+    funcA(); // window
+
+    // object 안에서의 this
+    let a = {
+        a1: 123,
+        b1: "abcd",
+        c1() {
+            console.log(this); // a를 가리킴.
+            console.log(this.a1) // a1을 가리킴
+        }
+    }
+    a.c1(); // a를 가리킴
+
+    let b = {
+        a1: 456,
+        b1: "data",
+        c1: {
+            a2: 789,
+            b2: "hijk",
+            c2() {
+                console.log(this)
+                console.log(b) // 부모객체의 값을 어떻게 부르지?
+            },
+            d1: this
+        }
+    }
+    b.c1.c2(); // c1이라는 프로퍼티를 호출함.
+
+    // 메서드 안에 함수를 불러오는 경우
+
+    let c = {
+        a1: 987,
+        b1() {
+            const obj = this; // this를 넣기 위한 좌표 역할.
+            function b2() {
+                console.log(this);
+                console.log(obj);
+            }
+            b2();
+            console.dir(b2); // 스코프가 셋.
+        }
+    }
+    c.b1(); // window를 호출
+    console.dir(c.b1);
+    /*
+    메서드 안에서 내부함수를 실행할 때 this를 넣어두면 this는 window를 가리킴.
+    작동 방식이 다름.
+    이 경우에는 반드시 this를 가리키기 위해서 상위의 변수를 this로 받아줘야 함.
+
+    this가 실행이 되는 순간 this를 찾아야 하는데 없으니 위로 오르다 오르다 window를 호출하게 됨.
+    */
+
+</script>
+
+</html>

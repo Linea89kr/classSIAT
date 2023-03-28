@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header1 {
+            background-color: aqua;
+        }
+
+        .h11 {
+            color: blue;
+        }
+
+        .h12 {
+            color: red;
+        }
+
+        .background222 {
+            background-color: blue;
+        }
+
+        .background22 {
+            color: white
+        }
+
+        .div1 {
+            width: 300px;
+            height: 100px;
+            background-color: rgba(0, 0, 255, 0.2);
+            /*다크모드라 브라우저랑 보이는게 다른 건가?;*/
+            border: 1px solid blue;
+        }
+
+        .h22 {
+            color: blue;
+        }
+
+        .h33 {
+            color: chartreuse;
+        }
+
+        .div2 {
+            background-image: url(/0302/img/galic.jpg);
+            background-repeat: no-repeat;
+            background-position: right center;
+        }
+
+        /*
+        img {
+            float: right;
+            margin-right: 10px;
+        }*/
+
+        .div3 {
+            background-image: url(/0302/img/apple-bg.jpg);
+            width: 800px;
+            height: 600px;
+            background-repeat: no-repeat;
+            box-sizing: border-box;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .div333 {
+            background-color: rgba(255, 255, 255, 0.4);
+            width: 720px;
+            margin-left: 50px;
+            margin-top: -100px;
+            text-align: center;
+            box-sizing: border-box;
+            padding-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="header1 h11">종류</h1>
+    <h1 class="h11">과일</h1>
+    <ul>
+        <li>사과</li>
+        <li>파일애플</li>
+        <li>오렌지</li>
+        <li>바나나</li>
+    </ul>
+
+    <!-- 클래스는 재사용성을 고려 / 좀 절제되서 쓰면 좋음
+    부트스트랩이나 테일윈드 같이 디자인 프레임워크의 경우,
+    스타일들을 대신 제작해주는 경우가 있음
+    클래스로 운용되는 경우가 꽤 있으므로 이들은 마구 써도 꽤 괜찮은 케이스
+    즉, 너무 클래스를 객체에 맞춰서 생성하지 말라는 이야기 -->
+
+    <h1 class="h12">언어의 종류</h1>
+    <ul>
+        <li class="h12">C언어</li>
+        <li>Java</li>
+        <li>HTML</li>
+        <li class="h12">CSS</li>
+    </ul>
+    <h3>HTML5 참고 사이트</h3>
+    <p>아래 링크의 파란 글씨는 다음 사이트로 연결됩니다.</p>
+    <ul>
+        <!--li 들여쓰기 어떻게 하지?-->
+        <li class="background222 background22">HTML 표준안 사이트</li>
+        <li class="h11">튜토리얼과 아티클</li>
+        <li class="h11">HTML 지원 여부 체크</li>
+    </ul>
+    <br>
+    <div class="div1">
+        <h6><b>웹 디자인 트랜드를 따라잡는 비법 대 공개!</b></h6>
+        <br>
+    </div>
+    <br>
+    <div class="div2">
+        <h1 class="h22">세계 10대 슈퍼 푸드</h1>
+        <h2 class="h33">마늘(Garlic)</h2>
+        <!-- <h6>일해백리는 마늘의 별명이다. 한가지 해가 있고 백가지 이로움이 있다. 그 한가지 해란, 아린 맛으로 위에 부담을 주는 것이다.
+            마늘 특유의 아린 맛은 </h6>
+        <h6 style="color:red">알리신</h6>
+        <h6>이라는 성분 때문이다.</h6> -->
+        <p>일해백리는 마늘의 별명이다. 한가지 해가 있고 백가지 이로움이 있다. 그 한가지 해란, 아린 맛으로 위에 부담을 주는 것이다.</p>
+        <p>마늘 특유의 아린 맛은 <span class="h12">알리신</span>이라는 성분 때문이다.</p>
+
+    </div>
+    <br>
+    <div class="div3"></div>
+    <div class="div333">
+        <h2>하루 한 알의 사과는 의사를 멀리한다</h2>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+        }
+
+        .container {
+            border: 1px solid #000;
+            perspective: 300px;
+            margin-top: 100;
+            margin-left: 100px;
+            float: left;
+        }
+
+        .box1 {
+            background-color: #82cbd8;
+            transform: rotatey(45deg);
+            transform-origin: left top;
+        }
+
+        .box2 {
+            background-color: #0d6097;
+            transform-origin: left top;
+            transform: rotateX(45deg);
+
+        }
+
+        #tr-style1 {
+            transform-style: flat;
+            /*기준점 x*/
+        }
+
+        #tr-style2 {
+            transform-style: preserve-3d;
+            /* 이 클래스 밑에 있는 블럭 기준으로, 하위의 요소들의 기준점을 맞춘다.
+            
+            perspective: 3D 공간만 만듬
+            transform-style:flat :
+            transform-style:preserve-3d; 지금 돈 상태를 기준으로 축을 적용.
+            box2는 x축으로 돌아가있는 상태.
+
+            여기서 축을 한번 더 돈다! 라고 할 때 상위 클래스의 정보를 상속받는지 아닌지의 차이 같은데.
+            이건 물어봐야겠다.
+            */
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <!--
+        더블 3d 패턴
+        포트폴리오용으로 쓰는 경우가 있는데,
+        패턴이 겹치고 겹치면 난이도가 급상승하게 됨.
+
+        box1: 축을 이동하며 rotate를 걸어야 함
+        동시에 box2의 축도 이동하며 rotate를 걸어야 함.
+    -->
+    <!--div.container*2>div.box1#tr:style$>div.box2-->
+    <div class="container">
+        <div class="box1" id="tr-style1">
+            <div class="box2"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="box1" id="tr-style2">
+            <div class="box2"></div>
+        </div>
+    </div>
+</body>
+
+</html>

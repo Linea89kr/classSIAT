@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" id="txt1">
+        <button type="button" id="btn1">연산!</button>
+    </form>
+    <div id="div1"></div>
+</body>
+<script>
+    document.querySelector("#btn1").onclick = function (){
+        let val1 = document.querySelector(`#txt1`).value;
+        let str = "";
+        if(val1>0){
+            str="양수입니다.";
+        } else if (val1<0){
+            str="음수입니다";
+        } else{
+            str=`0입니다`;
+        }
+        document.querySelector(`#div1`).innerHTML = `<h1>${str}</h1>`
+        document.querySelector(`#txt1`).value = "";
+    }
+</script>
+</html>

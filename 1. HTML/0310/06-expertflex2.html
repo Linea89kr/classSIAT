@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="default.css">
+    <style>
+        .flex-container {
+            display: flex;
+        }
+
+        .flex-item:nth-child(1) {
+            width: 150px;
+            flex-shrink: 0;
+        }
+
+        .flex-item:nth-child(2) {
+            flex: 1;
+        }
+
+        .flex-item:nth-child(3) {
+            width: 200px;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- fixed flex  -->
+    <!-- 양 옆에 메뉴바가 있고, 가운데에 메인 내용이 있는 경우.
+    이걸 media query로 조정하려 하면 어그러짐.
+
+     -->
+
+    <!-- div.flex-container>div.flex-item*3 -->
+    <div class="flex-container">
+        <div class="flex-item">Lorem ipsum dolor, sit amet consectetur </div>
+        <div class="flex-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nam earum inventore
+            labore explicabo molestias molestiae, consequatur expedita necessitatibus obcaecati illum reiciendis unde?
+            Rerum praesentium ullam accusamus assumenda necessitatibus laborum?</div>
+        <div class="flex-item">Lorem ipsum dolor sit amet</div>
+    </div>
+</body>
+
+</html>

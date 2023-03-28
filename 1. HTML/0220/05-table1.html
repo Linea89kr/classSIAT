@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            table, tr, td {
+                border : 1px solid black;
+                border-collapse: collapse;
+            }
+            table{
+                width:100%;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 테이블 태그
+        기존 html4에서는 간혹 화면을 구성하는 태그로 쓰였지만,
+        현재는 게시판 목록을 만드는 용도처럼 원래 용도로 사용한다
+        테이블에서는 행을 row라고 부르고 열을 colum이라 부른다
+        테이블 태그는 <table>이라는 태그가 가장 상위에 위치하게 되고
+        행을 <tr>로 각각의 칸인 셀을 <td>로 나타낸다
+        제목이 있는 태그는 <th> 로 강조 표시를 줄 수 있다
+        html5 오면서 달라진 점
+        추가적인 태그로 <tbody>, <thead>, <tfoot>등이 등장함
+        테이블의 각 위치를 고정하기 위한 용도로 사용
+        이후 테이블 내용의 크롤링 및 위치를 고정시킬 경우 이 태그를 사용하게 되며
+        반응형 웹이 나온 이후 준 표준으로 자리잡음 
+    
+    피겨 캡션은 자동 정렬이 되지는 않음. 쓸 경우는 따로 잡아줘야 함.
+    border는 표준은 아님. CSS로 보더를 입히는 방식을 더 많이 씀.
+    border나 CSS로 입힌 것도 사실 원리는 같음.-->
+
+<figure>
+    <figcaption>테이블 제목</figcaption>
+    <!-- 피겨캡션이 HTML5에서 등장했고, 캡션이 4에서 등장 -->
+        <table border="1">
+            <!-- <caption>테이블 제목</caption> -->
+            <!-- 캡션은 현업에서 최대한 안쓰려 함. 얘는 디자인을 바꾸려면 CSS를 한참 먹여줘야 함
+            + 크롤링 돌리면 제목이 안뜸. + 얘는 HTML4에서 들어갔던 녀석임. -->
+            <tr>
+                <th>제목1</th>
+                <th>제목2</th>
+                <th>제목3</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+        </table>
+    </figure>
+    </body>
+</html>

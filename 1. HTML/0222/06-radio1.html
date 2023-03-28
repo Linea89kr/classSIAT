@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+        여러 개의 항목이 나열된 input - radio, checkbox
+        radio와 checkbox 타입은 여러개의 항목 중 한개, 혹은 복수개를 선택하도록 만들어진 input 타입이다.
+        같은 카테고리 안에 있는 radio나 checkbox의 경우 name을 동일하게 가져가야 하며 그렇지 않을 경우 독립적인 radio 혹은 checkbox라 판단함으로 주의할 것
+        radio나 checkbox의 input중 하나 혹은 복수개를 선택하고 전송을 부를 경우 해당 값이 name=value 형태로 서버에 전송한다.
+        checked: 페이지 시작 전 미리 체크하고 싶은 항목이 있는 경우 해당 속성을 사용할 수 있다.
+        이걸 안만들어두면 시작부터 라디오버튼에 아무것도 없는 상태로 출력됨.
+        radio는 반드시 value 값을 각 객체 마다 들고 있어야 함. 아니면 데이터 전송이 안됨.
+
+        자바라면 저 형태를 리스트에 넣어서 리턴함.
+
+-->
+    <form action="./01-homework1.html">
+        <input type="radio" name="rd" id="rd1" checked="rd1" value="1"><br>
+        <input type="radio" name="rd" id="rd2" value="2"><br>
+        <input type="radio" name="rd" id="rd3" value="3"><br>
+        <input type="radio" name="rd" id="rd4" value="4"><br>
+        <input type="radio" name="rd" id="rd5" value="5"><br>
+        <hr>
+        <!--(input:checkbox#ch$[name="ch" value="$"]+br)*4-->
+        <input type="checkbox" name="cb1" id="cb1" value="1"><br>
+        <input type="checkbox" name="cb2" id="cb2" value="2"><br>
+        <input type="checkbox" name="cb3" id="cb3" value="3"><br>
+        <input type="checkbox" name="cb4" id="cb4" value="4"><br>
+        <button>전송</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+        input 태그를 설명하는 label
+        label는 input 태그를 접근하기 위한 편의를 위헤 만들어진 태그
+        보통 input 태그를 설명하는 태그로 사람들이 잘 쓰는 경우가 많다.
+        label 태그는 for를 통해서 input 태그와 매핑시키는 방식과
+        input 태그를 label이 감싸는 형식의 2가지 작성 기법이 존재한다.
+        label은 radio 버튼과 매핑시 효과가 증폭되므로 사람들이 이경우 radio 버튼과 같이 활용되는 경우가 많다.
+        형식: radil>input or radio[for="id"]
+    -->
+
+    <form action="#" method="get">
+        <label>텍스트1 : <input type="text" name="txt1" id="txt1" autocomplete="off"/></label><br>
+        <label for="txt2">텍스트2</label>
+        <Input type="text" name="txt2" id="txt2" autocomplete="false"/>
+        <!-- autocomplete: 자동완성 기능 끄기.-->
+        <label for="txt3">텍스트3 : <input type="text" name="txt3" id="txt3"/></label><br>
+        <!--5.2에서는 for도 쓰고 input에 따로 선언하면 안되었음.-->
+        <button>전송</button>
+    </form>
+</body>
+</html>

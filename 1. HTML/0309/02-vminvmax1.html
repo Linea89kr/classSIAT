@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .div1 {
+            width: 25vw;
+            height: 300px;
+            border: 1px solid #000;
+            background-color: red;
+        }
+
+        @media screen and (max-width:1024px) {
+            .div1 {
+                width: 30vx;
+                background-color: green;
+            }
+        }
+
+        @media(max-width:780px) {
+            .div1 {
+                width: 100vw;
+                background-color: blue;
+            }
+        }
+
+        /*1760, 1024, 780, 540*/
+
+        /*bottom up 방식과 top down 방식.
+        큰 해상도에서 내려갈지, 작은 해상도를 기준으로 큰 해상도도 고려하며 설계할지.*/
+    </style>
+</head>
+
+<body>
+
+    <div class="div1"></div>
+</body>
+
+</html>

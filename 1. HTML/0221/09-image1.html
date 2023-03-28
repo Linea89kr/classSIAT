@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            display:block;
+        }
+        /* 인라인을 블럭으로 바꾸는 CSS
+        지금은 플렉스나 그리드로 사용. 이것도 잘 쓰진 않음. */
+
+        .image1 {
+            border: 5px solid black
+        }
+        /* 클래스를 만들기: 이름표 발급. 난 특정한 이미지에 이르믈 부르고 걔에게만 특별한 걸 줄 거야.
+        id도 있긴 한데 요새는 class를 더 많이 씀.*/
+    </style>
+</head>
+<body>
+    <img src="./img/road.jpg" alt="" class="image1"/>
+    <img src="./img/road.jpg" alt="" width="200" height="150" />
+    <!--
+        잘만 사용하면 괜찮은데 img 태그를 그냥 사용하지는 않음.
+        <div> 밑에 img를 넣는다거나 하는 방식으로 씀.
+        img 단독으로는 잘 안 씀.
+        이미지는 대표적인 inline 태그. 좌에서 우로 이어짐.
+        인라인 태그는 가장 높이가 높은 것을 기준으로 자리가 잡힘.
+        큰 거에 맞춰서 정렬을 이룸. inline의 경우 베이스 라인에 맞춰서 정렬.
+
+    -->
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 함수
+      /*
+        - 기능을 묶어 관리할 수 있게 만든 기능의 단위
+        - 특별한 목적의 작업을 재사용성을 고려하여 설계된 독립적인 기능 블록
+        - 함수는 재사용성이 뛰어나 다른곳에서 해당 함수를 여러번 호출하여 사용이 가능하다.
+        - 자바스크립트에서는 하나의 타입으로 인식됨
+        - 함수의 성질은 리턴값과 파라미터에 의해 결정된다.
+        - 함수는 파라미터의 유무에 따라 값을 몇개까지 받을 수 있는지 결정이 가능하다.
+        - 함수는 리턴값의 유무에 따라 호출한 곳에서 값을 받아올 수 있는지 결정이 가능하다.
+      */
+
+      // 함수1 - 가장 기본적인 형태
+      function funcA() {
+        console.log("안녕하세요");
+      }
+
+      funcA();
+
+      // 함수2 - 값을 받는 형태
+      function funcB(x) {
+        console.log(`x는 ${x}`);
+      }
+
+      funcB(3);
+
+      // 함수3 - 값을 받는 형태2
+      function funcC(x, y) {
+        console.log(`${x} 더하기 ${y}는 ${x + y} 입니다.`);
+      }
+
+      funcC(3, 5);
+
+      let a = 1;
+      let b = 2;
+      funcC(a, b);
+
+      // 함수4 - 리턴
+      function funcD() {
+        return 10;
+        console.log("asdf");
+      }
+
+      let val1 = funcD();
+      console.log(`받아온 값은 ${val1}`);
+
+      // 함수5
+      function funcE(x, y, o) {
+        switch (o) {
+          case 1:
+            return x + y;
+          case 2:
+            return x - y;
+          case 3:
+            return x * y;
+          default:
+            return x / y;
+        }
+      }
+    </script>
+  </body>
+</html>
