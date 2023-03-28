@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+      .btn {
+        width: 50px;
+        height: 50px;
+        color: black;
+        background-color: #eee;
+        border: none;
+      }
+      .btn:hover {
+        color: white;
+        background-color: rgba(14, 14, 14, 0.6);
+        border: none;
+      }
+      .btn.active {
+        color: white;
+        background-color: rgba(14, 14, 14, 0.6);
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button class="btn active">1</button>
+      <button class="btn">2</button>
+      <button class="btn">3</button>
+      <button class="btn">4</button>
+      <button class="btn">5</button>
+    </div>
+  </body>
+  <script>
+    /*
+     * 여기서부턴 의사코드 좀 만들어야겠다.
+     * 네비게이션 메뉴 만들기
+     * 시작전: 1번에 고정
+     * 다른 번호를 누르면
+     * 이전 번호의 스타일이 사라지고
+     * 지금 눌린 번호에 스타일이 부여
+     *
+     * 온클릭 5개 다 걸어버리고 일일이 del add 하는 로직을 만들어야 하나.
+     *
+     * */
+
+    const btnList = document.querySelectorAll(`button`);
+    btnList.forEach((btn) => {
+      btn.addEventListener(`click`, () => {
+        btnList.forEach();
+        // document.querySelector(`active`).classList.remove(`active`)
+        // btn.classList.add(`active`);
+      });
+    });
+  </script>
+</html>

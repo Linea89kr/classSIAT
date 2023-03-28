@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .myStyle {
+            width: 100%;
+            padding: 25px;
+            background-color: coral;
+            color: white;
+            font-size: 25px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div id="btnz">
+    <button id="btn1" onclick="addFunction()">디자인 삽입</button>
+    <button id="btn2" onclick="removeFunction()">디자인 삭제</button>
+</div>
+<div id="myDiv1">This is DIV Element</div>
+</body>
+<script>
+function addFunction(){
+    let clsName = document.getElementById(`myDiv1`)
+
+    clsName.classList.toggle(`myStyle`,true)
+}
+function removeFunction(){
+    let clsName=document.getElementById(`myDiv1`)
+    clsName.classList.toggle(`myStyle`,false)
+
+}
+
+</script>
+</html>

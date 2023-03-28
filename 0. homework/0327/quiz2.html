@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .myStyle {
+            width: 100%;
+            padding: 25px;
+            background-color: coral;
+            color: white;
+            font-size: 25px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div id="myDiv1">This is DIV Element</div>
+<button id="btn1" onclick="toggleFunc()">클래스 토글</button>
+</body>
+<script>
+    function toggleFunc() {
+        let info1 = document.getElementById(`myDiv1`)
+            info1.classList.toggle(`myStyle`)
+    }
+</script>
+</html>
