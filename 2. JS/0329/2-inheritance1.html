@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 생성자 함수 방식
+    function Person(name, age) {
+        this.name = name || `이름? 몰라요~`;
+        this.age = age || `나이? 몰라요~`
+    }
+    Person.prototype.getName = function () {
+        return this.name;
+    }
+    Person.prototype.getAge = function () {
+        return this.age;
+    }
+
+    //생성자 함수 방식은 상속받을 프로퍼티를 똑같이 선언해주어야 한다.
+    //그래서 name, age를 똑같이 적은 것.
+    function Employee(name, age, position) {
+        this.name = name || `이름? 몰라요~`;
+        this.age = age || `나이? 몰라요~`;
+        this.position = position || `직책? 몰라요~`;
+    }
+
+    Employee.prototype = new Person();
+    Employee.prototype.constructor = Employee;
+
+
+    Employee.prototype.getPosition = function () {
+        return this.position;
+    }
+</script>
+
+</html>

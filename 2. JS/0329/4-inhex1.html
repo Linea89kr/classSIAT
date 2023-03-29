@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    //console.dir(Image)
+
+    class ExtendsImage extends Image {
+        constructor() {
+            super();
+        }
+        setPropert(image) {
+            this.src = image.src;
+            this.alt = image.alt;
+            this.title = image.title;
+        }
+    }
+    let imgobj = new ExtendsImage();
+    let properties = {
+        src: "./img/sydney.png",
+        alt: `시드니의 오페라하우스 입니다.`,
+        title: `오페라 하우스`
+    }
+    imgobj.setPropert(properties);
+    document.body.append(imgobj);
+</script>
+
+</html>
