@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .accordion {
+            color: #444;
+            background-color: #ccc;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            font-size: 15px;
+            transition: 0.4;
+        }
+
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .panel {
+            padding: 0 10px;
+            background-color: #fff;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.8s linear;
+        }
+
+        /* .panel.pactive {
+            background-color: #fff;
+        } */
+    </style>
+</head>
+
+<body>
+    <button class="accordion">Section 1</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur nemo pariatur nulla soluta libero,
+            nostrum provident perspiciatis culpa ea optio sapiente accusantium asperiores laudantium at, error quaerat
+            voluptate nesciunt sint!</p>
+    </div>
+    <button class="accordion">Section 2</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur nemo pariatur nulla soluta libero,
+            nostrum provident perspiciatis culpa ea optio sapiente accusantium asperiores laudantium at, error quaerat
+            voluptate nesciunt sint!</p>
+    </div>
+    <button class="accordion">Section 3</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur nemo pariatur nulla soluta libero,
+            nostrum provident perspiciatis culpa ea optio sapiente accusantium asperiores laudantium at, error quaerat
+            voluptate nesciunt sint!</p>
+    </div>
+</body>
+<script>
+    const accs = document.getElementsByClassName(`accordion`);
+    // const panels = document.getElementsByClassName(`panel`);
+    for (let index = 0; index < accs.length; index++) {
+        accs[index].addEventListener(`click`, function (e) {
+            e.target.classList.toggle(`active`);
+            // panels[index].classList.toggle(`pactive`);
+            // if (panels[index].style.maxheight) {
+            //     panels[index].style.maxheight = null;
+            // } else {
+            //     panels[index].style.maxheight = panels[index].scrollHeight + `px`;
+            // }
+            if (e.target.nextElementSibling.style.maxHeight) {
+                e.target.nextElementSibling.style.maxHeight = null;
+            } else {
+                e.target.nextElementSibling.style.maxHeight = e.target.nextElementSibling.scrollHeight + `px`;
+            }
+        })
+    }
+</script>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .tab {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+            width: 320px;
+            background-color: #f1f1f1;
+        }
+
+        .tab button {
+            background-color: inherit;
+            /* 부모쪽 값을 그대로 상속.*/
+            color: #000;
+            padding: 22px 16px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 17px;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tab button:active {
+            background-color: #ccc;
+
+        }
+
+        .tabContents {
+            padding: 0px 12px;
+            border: 1px solid #ccc;
+            flex: 1;
+            border-left: none;
+            /* 왼쪽 테두리 제거 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="tab">
+            <button class="tablinks" onclick="opencity(this,`Seoul`)">서울</button>
+            <button class="tablinks" onclick="opencity(this,`Daegu`)">대구</button>
+            <button class="tablinks" onclick="opencity(this,`Pusan`)">부산</button>
+        </div>
+        <div id="Seoul" class="tabContents">
+            <h3>Seoul</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam beatae assumenda voluptas numquam quis
+                praesentium nulla veritatis, cum officiis fugit eveniet maxime aut hic harum. Qui praesentium culpa
+                omnis
+                impedit.</p>
+        </div>
+        <div id="Daegu" class="tabContents">
+            <h3>Daegu</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam beatae assumenda voluptas numquam quis
+                praesentium nulla veritatis, cum officiis fugit eveniet maxime aut hic harum. Qui praesentium culpa
+                omnis
+                impedit.</p>
+        </div>
+        <div id="Pusan" class="tabContents">
+            <h3>Pusan</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam beatae assumenda voluptas numquam quis
+                praesentium nulla veritatis, cum officiis fugit eveniet maxime aut hic harum. Qui praesentium culpa
+                omnis
+                impedit.</p>
+        </div>
+    </div>
+</body>
+<script>
+    function opencity(obj, cityName) {
+        const tabcontents = document.getElementsByClassName(`tabContents`);
+        const tablinks = document.getElementsByClassName(`tablinks`);
+        for (let index = 0; index < tabcontents.length; index++) {
+            tabcontents[index].style.display = `none`;
+            tablinks[index].classList.remove(`active`);
+        }
+        /*
+        * class이름의 active를 for 돌릴 때 지워주고
+        * * 0~2까지 display를 전부 none으로 바꾼다
+        * * classList에서 active가 있으면 지워준다.
+        * 이걸 0~2까지 순회하며 진행한다.
+        */
+        document.getElementById(cityName).style.display = `block`;
+        obj.classList.add(`active`) // 0값을 클릭.
+        /*
+        * cityname은 opencity(this,`daegu`)
+        * div id=daegu를 호출함.
+        * cityname은 daegu로 잡힌다.
+        * 해당 div의 display를 block으로 바꿈
+        * 대구에 상응하는 tab 클래스 아이디에 active를 넣어준다.
+        * 
+        * 
+        */
+    }
+    document.getElementsByClassName(`tablinks`)[0].click();
+</script>
+
+</html>
