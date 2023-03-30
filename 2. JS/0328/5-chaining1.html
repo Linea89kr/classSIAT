@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    // 프로토타입 체이닝
+    /*
+    프로토타입은 해당 객체의 아이덴티티를 나타낸다.
+    생성자 함수에서는 각 객체 생성 시 생성된 객체가 참조할 프로토타입을 prototype이라는 곳에서
+    제공하고 있으며 각 객체는 생성자에 해당 prototype에 있는 객체를 기반으로 [[prototype]]을
+    참조한다
+    객체에서 찾는 프로퍼티가 없을 경우 [[prototype]]을 참조하며 해당 프로퍼티가 있는지를 찾기 위해
+    최종적으로 [[prototype]]에 모든 객체를 검사할 시 해당 프로파티가 없으면 undefined를 출력한다.
+    하지만 객체에서 없는 프로퍼티가 [[prototype]]에 존재할 경우 해당 값을 호출하게 되는데
+    이처럼 객체에서의 [[prototype]]을 찾아 올라가며 프로퍼티를 감시하는 이러한 동작을 프토토타입 체이닝이라 한다.
+    프로토타입 체이닝 시 값이 이미 이전 프로토타입 혹은 해당 객체에 존재할 경우 해당 값을 호출하고
+    더이상 찾지 않고 종료하며 그 상위의 [[prototype]] 송성이 있다 하더라도 해당 값의 호출은 하지 않는다.
+    다만 내가 필요한 대상이 상위의 [[prototype]]에 있는 프로퍼티일 경우 경로의 명시를 따른다.
+    (ex. __proto__.__proto__)
+    
+    */
+
+    function SthObj(a, b) {
+        this.a = a;
+        this.b = b;
+        this.c = 10; // 만약 SthObj에 c를 넣는다면?
+    }
+    SthObj.prototype.c = 3;
+    Object.prototype.d = 4;
+
+    const obj1 = new SthObj(1, 2);
+    console.log(obj1.c) // SthObj의 prototype
+    console.log(obj1.d) // Object의 prototype
+    console.log(obj1.e) // 끝까지 올라가봤는데 없어요! (undefined)
+    console.log(obj1.__proto__.c) // Obj1의 프로토타입에 있는 c 값
+    console.log(obj1.__proto__.__proto__.e) // obj1의 프로토타입 안의 하나 더 아래 depth의 프로토타입
+    console.log(obj1) // c=10을 검증하기 위한 콘솔 명령어 (c는 SthObj에 10이라 씌어져 있음.)
+
+    /*
+    [[prototype]] 원형 객체의 프로토타입
+    __proto__: 바로 위에 친구에 접근하기 위한 접근자.
+    prototype: 생성자 함수에서 주는 프로퍼티
+    */
+
+</script>
+
+</html>

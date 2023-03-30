@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function class1() {
+        this.a = 123;
+        this.b = `abc`;
+    }
+    class1.prototype.funcA = function () {
+        console.log(`hello!`)
+    }
+
+
+    class Class2 {
+        c1 = 3; // 객체로 들어가는 변수
+        static c2 = 33; // 프로토타입으로 들어가는 변수
+        constructor() {
+            this.a = 123;
+            this.b = `abc`
+        }
+        funcA() {
+            console.log(`HELLO!`)
+        }
+        funcB() {
+            console.log(`BYE!`)
+        }
+    }
+
+    const obj2 = new Class2();
+    console.dir(obj2) // 클래스로 메서드를 부르면 메서드는 프로토타입으로 감.
+
+
+    class Class3 {
+        constructor(a, b) {
+            this.a = a;
+            this.b = b;
+        }
+        funcA() {
+            console.log(`a:${this.a}`)
+        }
+        funcB() {
+            console.log(`b:${this.b}`)
+        }
+    }
+
+    const obj3 = new Class3(3, 4);
+    console.dir(obj3);
+    obj3.funcA();
+    obj3.funcB();
+
+
+    class CustomButton extends HTMLElement {
+        connectedCallback() {
+            const button1 = document.createElement(`button`);
+            button1.textContent = `버튼`;
+            this.append(button1);
+        }
+
+    }
+</script>
+
+</html>
