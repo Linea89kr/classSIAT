@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <template id="temp1">
+        <style>
+            h1 {
+                color: red;
+            }
+        </style>
+        <h1>hello</h1>
+        <p>안녕하슈 이건 탬플릿이여</p>
+    </template>
+    <div id="div1">
+        <custom-temp></custom-temp>
+    </div>
+</body>
+<script>
+    // 일반
+    // div1.append(temp1.content.cloneNode(true));
+    // ShadowDOM
+    // div1.attachShadow({ mode: `open` })
+    // div1.shadowRoot.append(temp1.content.cloneNode(true));
+    // div만 복사할 거라면 false로 해도 되고
+    // div 밑의 h1이나 p까지 복사하려면 true를 가져와야 함.
+    // 탬플릿 + ShadowDOM + 컴포넌트
+    class CustomTemp extends HTMLElement {
+        connectedCallback() {
+            this.attachShadow({ mode: `open` })
+            this.shadowRoot.append(temp1.content.cloneNode(true))
+        }
+    }
+    customElements.define(`custom-temp`, CustomTemp)
+</script>
+
+</html>

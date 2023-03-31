@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            color: blue
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sample">
+        <!-- <p id="p1">안녕하세요</p> -->
+    </div>
+</body>
+<script>
+    document.querySelector(".sample").attachShadow({ mode: `open` })
+    // 검문소 설치. 이 밑으로는 shadow의 영역이라 document.getelementById... 같은 형태로는 못가져옴.
+    // p1.style.color = "red";
+    const h1 = document.createElement(`h1`)
+    h1.textContent = "hi"
+    document.querySelector(".sample").shadowRoot.innerHTML =
+        `<style>
+            h1{
+                color:red}
+        </style>
+        <p>"오늘도 좋은 하루"</p>`
+    document.querySelector(".sample").shadowRoot.prepend(h1);
+    //Document의
+    //sample이라는 클래스 명을 갖는 것을 찾아서
+    //shadowRoot안에
+    // 첫번째 객체로 h1 객체를 넣어라.
+
+
+</script>
+
+</html>

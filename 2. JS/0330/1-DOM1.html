@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">
+        <!-- 코드 다 짠 뒤 커스텀 엘리먼트 기입-->
+        <custom-ti aaa="123"></custom-ti>
+    </div>
+
+</body>
+<script>
+    // console.dir(div1)
+
+    //클래스 명세 정의
+    class CustomTextInput extends HTMLElement {
+        connectedCallback() { // customtag로 불러와지고, 처음 그려지기 시작할 때 함수를 호출.
+            // 랜더링 = 메타데이터 (키와 값) 이걸 읽어서 화면에 뿌려주는 것.
+            let p1 = document.createElement("p");
+            p1.textContent = "Hello webcomponent!"
+            this.append(p1);
+            let button1 = document.createElement("button");
+            button1.textContent = "버튼1"
+            this.append(button1)
+        }
+    }
+
+    // 만든 엘리먼트 실행
+    customElements.define("custom-ti", CustomTextInput)
+</script>
+
+</html>

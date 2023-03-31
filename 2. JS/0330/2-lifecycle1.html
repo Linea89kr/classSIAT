@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <custom-elem title="Hello"></custom-elem>
+    <div>
+        <button id="change-wc">변경</button><br>
+        <button id="delete-wc">제거</button><br>
+    </div>
+</body>
+<script>
+    /*
+    커스텀 엘리먼트
+    * 기존에 사용하던 요소들의 조합을 하나의 태그로 캡슐화 시켜 재사용 하는 기능
+    * 실제 기존에 없던 엘리먼츠를 만들어 사용하기 위해 사용되는 HTML API에서 제공되는 기능 중 하나
+    * 웹 컴포넌트는 캡슐화가 쉽고 네이티브 엘리먼츠 형태의 기존 엘리먼츠를 사용하므로 성능 자체가
+    * 기존 자바스크립트를 활용한 엘리먼트 생성보다 성능이 뛰어나다.
+
+    컴포넌트 방식
+    * 기존의 엘리먼츠 생성 방식은 화면을 그대로 태그의 css로 디자인 되어 생성하는 방식이었지만 이 방식의 경우에는
+    * * 작성 시간이 너무 길고 관리가 어려우며 재사용성이 떨어지는 단점이 있다.
+    컴포넌트 방식은 CSS, HTML, JavaScript를 하나의 모듈 단위로 묶어 사용하는 방식을 이야기하며 기존에 일일이 만들던 방식과는
+    * * 달리 모듈 단위로 만든 다음 페이지에서 조립하는 형태로 해당 방식을 사용할 수 있다는 장점이 있다.
+    * 최근 프론트앤드 프래임워크(react, vue, svelte) 같은 곳에서 이와 같은 방식을 통해 웹을 개방함으로써 웹에 대한 개발 속도가
+    * * 비약적으로 상승하고, 관리가 쉬워진다는 장점을 가지고 있다.
+    * 바닐라 자바 스크립트에서는 기존의 프론트앤드 프레임워크의 이러한 컴포넌트 방식의 개발을 채용해 최근 다시
+    * * 퓨어 자바스크립트 형태의 개발 방식으로 개발하려는 움직임이 일어나고 있으며 Github 같은 사이트에서 이와 같은
+    * * 바닐라 자바스크립트의 웹 컴포넌트 형태의 개발을 사용하고 있다.
+    * 컴포넌트 방식의 장점: 캡슐화, 확장성, 결합성, 재사용성
+
+    바닐라 자바 스크립트의 컴포넌트 방식을 알아야 하는 이유
+    * 상호운용성: 컴포넌트는 프레임워크를 넘어 다른 기술 스택의 프로젝트에서도 동작함
+    * 수명: 기본 자바스크립트에서 제공하는 스펙이다보니 긴 수명을 갖게 되고 새 기술에 구애받지 않음
+    * 가용성: 컴포넌트가 의존성 없이 어디에서든 동작하기 때문에 도입에 대한 장벽이 상당히 낮아짐
+
+    Web Component 구성
+    * Custom Element: 사용저정의 Element 및 해당 동작을 정의할 수 있는 모듈 셋
+    * Shadow DOM: 메인 Document로 부터 독립적으로 랜더링되는 캡슐화된 Dom Tre eElement
+    * HTML Templete: 웹 컴포넌트에 작성되는 마크업 템플릿
+
+    Web Componant를 작성하기 위한 구성 요소
+    * CustomElement:  웹 컴포넌트를 등록할 수 있는 Window 속성. window에서 제공되는 함수
+    * => customElement.define([태그명],[element class])
+    * HTMLElement: 커스텀 엘리먼트의 동작 및 내용을 정의하기 위해 사용되는 클래스
+    * => HTMLElement를 상속받은 커스텀 클래스를 위해 define 메서드에 등록하여 사용한다.
+    * => 커스텀 클래스는 반드시 HTMLElement를 상속받아야 하며, 생성자는 파라미터를 받을 수 없다.
+
+    HTMLElement Class 라이프 사이클 메서드
+    * 순서: connectedCallback -> attributeChangeCallback -> disconnectedCallback
+    * connectedCallback: 커스텀 엘리먼트가 추가될 때 실행되는 콜백 메서드
+    * * => 해당 콜백메서드가 실행될 때 커스텀 태그에 있는 하위 태그, 혹은 속성들을 통해 해당 태그를 초기화 할 수 있다.
+    * * => 경우에 따라서는 해당 메서드에 이벤트를 걸어 랜더링 되는 요소들에 이벤트를 먹일 수 있지만 이벤트가 많아지거나
+    * * * 복잡해질 경우 이벤트 스크립트를 분리하여 모듈 형태로 별도 지정하는 것이 좋다.
+    * attributeChangeCallback: 속성값에 대한 변경, 추가, 삭제가 일어날 경우 실행되는 콜백 메서드. 해당 메서드는
+    * * 커스텀 엘리먼트의 속성에 변화가 생길 경우 실행되며 속성에 대한 감지는 observedAttribute() 메서드를 통해 감지할 속성을
+    * * * 정의할 수 있다.
+    * * => static get observedAttribute(): 해당 태그에서 감지할 속성을 지정할 때 쓰는 getter 메서드이며 메서드의 리턴 값으로
+    * * * 속성 명의 배열을 리턴한다.
+    * disconnectedCallback: 엘리먼트가 해당 DOM 오브젝트에서의 연결이 해제, 즉 삭제되거나 연결이 끊길 경우 실행되는
+    * * 콜백 메서드.
+
+    컴포넌트 개발 가이드라인
+    * 컴포넌트 형식 개발을 할 경우 크게 3가지를 고려해야하며 요소, 디자인, 고유 이벤트는 컴포넌트 하나에 종속된다.
+    * 그렇기에 위의 3가지 는 하나로 묶어 사용이 되며, 만약 외부의 변경으로 인해 컴포넌트 자체에 변경이 일어날 경우
+    * * 컴포넌트 개발에 대한 실패로 이어진다.
+    * 컴포넌트는 외부에 변경이 있어도 수정되는 일이 없도록 확장성이 높고 재상요성이 높게 구현이 되어야 하며 이 경우를
+    * * 신경쓰지 않은 경우 프로젝트의 실패 혹은 제품의 관리 실패로 이어진다.
+    * 컴포넌트 개발 시 보통 두가지 형태로 개발이 진행되는데
+    * * 1. 이벤트, 디자인, 템프릿 요소로 각각의 구성에 맞춰 폴더에 넣은 후 관리하는 방식과
+    * * 2 컴포넌트 단위로 폴더를 작성해 관리하는 방식이 있으며 보통 전자보다는 후자를 많이 선택해 사용한다.
+    * 컴포넌트는 어떤 프로젝트에서든 재사용이 가능한 형태로 개발이 되어야 한다. (항상 재사용성에 유의할 것.)
+    */
+
+
+    document.getElementById(`change-wc`).addEventListener(`click`, function () {
+        document.getElementsByTagName("custom-elem")[0].setAttribute("title", "Hi");
+    });
+
+    document.getElementById(`delete-wc`).addEventListener(`click`, function () {
+        document.getElementsByTagName(`custom-elem`)[0].remove();
+        // document.querySelector("custon-elem").remove();
+    });
+
+    class CustomElem extends HTMLElement {
+        constructor() {
+            super();
+        }
+        connectedCallback() {
+            this.render();
+            console.log(`랜더가 되었습니다.`);
+        }
+
+        attributeChangedCallback(attrName, oldVal, newVal) {
+            this.render();
+            console.log(`attributeChangedCallback이 호출되었다!`);
+            console.log(`attrname : ${attrName}, oldVal : ${oldVal}, newVal : ${newVal}`);
+
+        }
+        static get observedAttributes() {
+            return [`title`, `att`]
+        }
+        // get title() {
+        //     return this.getAttribute(`title`)
+        // }
+        disconnectedCallback() {
+            alert(`bye-bye`);
+            console.log(`disconnectedCallback이 호출되었음.`);
+        }
+        render() {
+            this.innerHTML = `<h1>${this.title}</h1>`;
+        }
+    }
+    customElements.define("custom-elem", CustomElem);
+</script>
+
+</html>
