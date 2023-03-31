@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #murmur {
+            font-weight: bold;
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="list1">
+        <li>불고기</li>
+        <li>김치</li>
+        <li>감자전</li>
+        <li>호박전</li>
+        <li>육전</li>
+        <li>파래무침</li>
+    </ul>
+    <button id="btn1">오름착순 정렬!</button>
+    <br>
+    <p id="murmur">아 새벽에 급 배고파지네...</p>
+</body>
+<script>
+    btn1.onclick = function () {
+        const list = list1.children; // 리스트 형태로 받아옴.
+        // list.array.sort()
+        // Array.from(list).sort
+        // // Array.prototype.sort.bind(list,)
+        // console.dir(list)
+        // list로 받아오면 유사배열객체
+
+        Array.from(list).sort(function (a, b) {
+            return a.textContent.localeCompare(b.textContent)
+        }).forEach(function (li) {
+            list1.append(li);
+        })
+    }
+</script>
+
+</html>

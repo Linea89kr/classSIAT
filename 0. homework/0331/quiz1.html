@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            box-sizing: border-box;
+            padding: 16px;
+            width: 100%;
+            background-color: red;
+            color: white;
+        }
+
+        .closebtn {
+            float: right;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .closebtn:hover {
+            color: black;
+        }
+
+        span {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="closebtn">
+        <span>&times;</span>
+        <p>이 버튼은 누르면 사라집니다.</p>
+    </div>
+</body>
+<script>
+    const div1 = document.querySelector(`div`);
+    const closeBtn1 = document.querySelector(".closebtn");
+
+    closeBtn1.addEventListener("click", (e) => {
+        div1.style.display = "none";
+        // this.parentElement.removeElement();
+        // div1.remove(); 가장 간단한 방법!
+    });
+    // X 누르면 꺼지게 하기.
+</script>
+
+</html>

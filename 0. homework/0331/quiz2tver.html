@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+            padding: 1rem;
+
+            text-align: center;
+            list-style: none;
+
+            font-size: 1.5rem;
+            border: 1px solid black;
+        }
+
+        #btnlist {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        #theinput1 {
+            margin-top: 0.3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="ul1">
+        <li><label for="cbx1">아이템1</label><input id="cbx1" name="c1" type="checkbox"></li>
+        <li><label for="cbx2">아이템2</label><input id="cbx2" name="c1" type="checkbox"></li>
+        <li><label for="cbx3">아이템3</label><input id="cbx3" name="c1" type="checkbox"></li>
+        <li><label for="cbx4">아이템4</label><input id="cbx4" name="c1" type="checkbox"></li>
+        <li><label for="cbx5">아이템5</label><input id="cbx5" name="c1" type="checkbox"></li>
+    </ul>
+    <ul id="ul2">
+        <li><label for="cbx6">아이템6</label><input id="cbx6" name="c1" type="checkbox"></li>
+        <li><label for="cbx7">아이템7</label><input id="cbx7" name="c1" type="checkbox"></li>
+        <li><label for="cbx8">아이템8</label><input id="cbx8" name="c1" type="checkbox"></li>
+        <li><label for="cbx9">아이템9</label><input id="cbx9" name="c1" type="checkbox"></li>
+        <li><label for="cbx10">아이템10</label><input id="cbx10" name="c1" type="checkbox"></li>
+    </ul>
+    <div id="btnlist">
+        <button id="btn1" type="button">ul1 위에서 ul2 위로</button>
+        <button id="btn2" type="button">ul1 위에서 ul2 아래로</button>
+        <button id="btn3" type="button">ul1 아래에서 ul2위로</button>
+        <button id="btn4" type="button">ul1 아래에서 ul1 아래로</button>
+        <button id="btn5" type="button">ul2 위에서 ul1 위로</button>
+        <button id="btn6" type="button">ul2 위에서 ul1 아래로</button>
+        <button id="btn7" type="button">ul2 아래에서 ul1 위로</button>
+        <button id="btn8" type="button">ul2 아래에서 ul1 아래로</button>
+        <button id="del1" type="button">삭제</button>
+        <button id="fix1" type="button">수정</button>
+        <button id="init1" type="button">초기화</button>
+    </div>
+    <div id="inputdiv1">
+        <input id="theinput1" placeholder="값을 입력하세요" type="text">
+    </div>
+
+
+
+
+</body>
+<script>
+    btn1.onclick = function () { ul2.prepend(ul1.firstElementChild); }
+    btn2.onclick = function () { ul2.append(ul1.firstElementChild); }
+    btn3.onclick = function () { ul2.prepend(ul1.lastElementChild); }
+    btn4.onclick = function () { ul2.append(ul1.lastElementChild); }
+    btn5.onclick = function () { ul1.prepend(ul2.firstElementChild); }
+    btn6.onclick = function () { ul1.append(ul2.firstElementChild); }
+    btn7.onclick = function () { ul1.prepend(ul2.lastElementChild); }
+    btn8.onclick = function () { ul1.append(ul2.lastElementChild); }
+    del1.onclick = function () {
+        const inputs = document.querySelectorAll(`input[name="c1"]`)
+        for (const input of inputs) {
+            if (input.checked) {
+                input.parentElement.remove()
+            }
+        }
+    }
+    fix1.onclick = function () {
+        const inputs = document.querySelectorAll(`input[name="c1"]`)
+        let val1 = text.value;
+        inputs.forEach(function (a) {
+            if (a.checked) a.previousElementSibling.textContent = val1;
+        })
+    }
+    init1.onclick = function () {
+        const inputs = document.querySelectorAll(`input[name="c1"]`)
+        inputs.forEach(function (a, i) {
+            if (i < 5) {
+                ul1.append(a);
+            } else {
+                ul2.append(a);
+            }
+        })
+    }
+</script>
+
+</html>

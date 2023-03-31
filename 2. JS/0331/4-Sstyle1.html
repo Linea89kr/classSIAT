@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <user-card>
+        <span slot="user-span">볼드체</span>
+        <ul id="ul1" slot="word-list">
+            <li>1번말</li>
+            <li>2번말</li>
+            <li>3번말</li>
+            <li>4번말</li>
+            <li>5번말</li>
+        </ul>
+    </user-card>
+    <template id="tmp1">
+        <style>
+            h1 {
+                color: red;
+            }
+
+            ::slotted(span) {
+                color: blue;
+            }
+
+            ::slotted(ul, li) {
+                color: coral;
+            }
+
+            ::slotted(ul[id="ul1"]) {
+                border: 1px solid green;
+            }
+        </style>
+        <h1>안녕하세요!</h1>
+        <p>이곳은 <slot name="user-span"></slot>입니다</p>
+        <slot name="word-list"></slot>
+    </template>
+</body>
+<script>
+
+    customElements.define("user-card", class extends HTMLElement {
+        connectedCallback() {
+            this.attachShadow({ mode: "open" }).append(tmp1.content.cloneNode(true));
+        }
+    })
+</script>
+
+</html>

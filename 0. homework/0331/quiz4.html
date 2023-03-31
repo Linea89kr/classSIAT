@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-spacing: 0;
+            width: 100vw;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            cursor: pointer;
+            background-color: darkgreen;
+            color: white
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 10px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)">Name</th>
+                <th onclick="sortTable(1)">Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Burglunds snabbkop</td>
+                <td>Sweaden</td>
+            </tr>
+            <tr>
+                <td>North/South</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Koniglich Essen</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Magazzini Alimentari Riuniti </td>
+                <td>Italy</td>
+            </tr>
+            <tr>
+                <td>Paris Specialites</td>
+                <td>France</td>
+            </tr>
+            <tr>
+                <td>Island Trading</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>Laughing Bacchus Winesellers</td>
+                <td>Canada</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+<script>
+
+    function sortTable(n) {
+        const trlist = document.querySelectorAll(`tbody tr`)
+        const body = document.querySelector(`tbody`)
+
+
+        Array.from(trlist).sort(function (a, b) {
+            return a.children[n].textContent.localeCompare(b.children[n].textContent)
+        }).forEach(function (tr) {
+            body.append(tr)
+        })
+    }
+</script>
+
+</html>

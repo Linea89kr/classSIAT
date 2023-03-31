@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #murmur {
+            font-weight: bold;
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>불고기</li>
+    <li>김치</li>
+    <li>감자전</li>
+    <li>호박전</li>
+    <li>육전</li>
+    <li>파래무침</li>
+</ul>
+<button id="btn1">오름착순 정렬!</button>
+<br>
+<p id="murmur">아 새벽에 급 배고파지네...</p>
+</body>
+<script>
+    let liData1 = document.querySelectorAll(`li`);
+    let pressDetect = document.getElementById(`btn1`)
+
+
+    pressDetect.addEventListener("click", () => {
+        for (let i = 0; i < liData1.length; i++) {
+            for (let j = i + 1; j < liData1.length; j++) {
+                if (liData1[i].textContent > liData1[j].textContent) {
+                    let temp = liData1[i].textContent;
+                    liData1[i].textContent = liData1[j].textContent;
+                    liData1[j].textContent = temp;
+                }
+            }
+        }
+    })
+</script>
+</html>

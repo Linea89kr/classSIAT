@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <custom-dialogue class="abc">
+        센터임
+    </custom-dialogue>
+    <custom-dialogue>
+        센터가 아님
+    </custom-dialogue>
+    <div>
+        <custom-dialogue class="abc">
+            센터임
+        </custom-dialogue>
+        <custom-dialogue>
+            센터가 아님
+        </custom-dialogue>
+    </div>
+    <template id="tmp1">
+        <style>
+            :host {
+                display: inline-block;
+                border: 1px solid red;
+                padding: 10px;
+            }
+
+            :host(.abc) {
+                border: 1px solid blue;
+            }
+
+            :host(.abc) h1 {
+                color: coral
+            }
+
+            :host-context(div) {
+                background-color: lightcoral
+            }
+        </style>
+        <slot></slot>
+        <h1>안녕하세요!!!</h1>
+        <p>안녕히가세요!!!!!!!</p>
+    </template>
+</body>
+<script>
+    customElements.define(`custom-dialogue`, class extends HTMLElement {
+        connectedCallback() {
+            this.attachShadow({ mode: `open` }).append(tmp1.content.cloneNode(true))
+        }
+    }
+    )
+</script>
+
+</html>

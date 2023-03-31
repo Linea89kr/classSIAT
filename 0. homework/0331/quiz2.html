@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul {
+            padding: 1rem;
+
+            text-align: center;
+            list-style: none;
+
+            font-size: 1.5rem;
+            border: 1px solid black;
+        }
+
+        #btnlist {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        #theinput1 {
+            margin-top: 0.3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="ul1">
+        <li><label for="cbx1">아이템1</label><input id="cbx1" name="" type="checkbox"></li>
+        <li><label for="cbx2">아이템2</label><input id="cbx2" name="" type="checkbox"></li>
+        <li><label for="cbx3">아이템3</label><input id="cbx3" name="" type="checkbox"></li>
+        <li><label for="cbx4">아이템4</label><input id="cbx4" name="" type="checkbox"></li>
+        <li><label for="cbx5">아이템5</label><input id="cbx5" name="" type="checkbox"></li>
+    </ul>
+    <ul id="ul2">
+        <li><label for="cbx6">아이템6</label><input id="cbx6" name="" type="checkbox"></li>
+        <li><label for="cbx7">아이템7</label><input id="cbx7" name="" type="checkbox"></li>
+        <li><label for="cbx8">아이템8</label><input id="cbx8" name="" type="checkbox"></li>
+        <li><label for="cbx9">아이템9</label><input id="cbx9" name="" type="checkbox"></li>
+        <li><label for="cbx10">아이템10</label><input id="cbx10" name="" type="checkbox"></li>
+    </ul>
+    <div id="btnlist">
+        <button id="btn1" type="button">ul1 위에서 ul2 위로</button>
+        <button id="btn2" type="button">ul1 위에서 ul2 아래로</button>
+        <button id="btn3" type="button">ul1 아래에서 ul2위로</button>
+        <button id="btn4" type="button">ul1 아래에서 ul1 아래로</button>
+        <button id="btn5" type="button">ul2 위에서 ul1 위로</button>
+        <button id="btn6" type="button">ul2 위에서 ul1 아래로</button>
+        <button id="btn7" type="button">ul2 아래에서 ul1 위로</button>
+        <button id="btn8" type="button">ul2 아래에서 ul1 아래로</button>
+        <button id="del1" type="button">삭제</button>
+        <button id="fix1" type="button">수정</button>
+    </div>
+    <div id="inputdiv1">
+        <input id="theinput1" placeholder="값을 입력하세요" type="text">
+    </div>
+
+
+
+
+</body>
+<script>
+    let listToModify = document.querySelector("ul");
+    let listItemsToShuffle = listToModify.querySelectorAll("li");
+
+    let button_list = document.querySelectorAll("[id$='ul1'], [id$='ul2']"); // ul1 ul2의 물건을 전부 가져옴
+
+    let button_delete = document.shadowRoot.querySelector("#del1"); // 삭제 기능을 만들기 위해 객체를 가져옴
+    let button_remove = document.shadowRoot.querySelector("#fix1"); // 수정 기능을 만들기 위해 객체를 가져옴
+
+    buttonHandlers = {
+        UpToUp_ul01: this.UpToUp_01,
+        UpToDown_ul01: this.UpToDown_01,
+        DownToUp_ul01: this.DownToUp_01,
+        DownToDown_ul01: this.DownToDown_01,
+
+        UpToUp_ul02: this.UpToUp_02,
+        UpToDown_ul02: this.UpToDown_02,
+        DownToUp_ul02: this.DownToUp_02,
+        DownToDown_ul02: this.DownToDown_02
+    };
+
+    UpToUp_01 = () => {
+        console.log("[Ul01] >> Up to up");
+        this.div_ul2.prepend(this.div_ul1.firstElementChild);
+    }
+    UpToDown_01 = () => {
+        console.log("[Ul01] >> Up to down");
+        this.div_ul2.append(this.div_ul1.firstElementChild);
+    }
+    DownToUp_01 = () => {
+        console.log("[Ul01] >> Down to up");
+        this.div_ul2.prepend(this.div_ul1.lastElementChild);
+    }
+    DownToDown_01 = () => {
+        console.log("[Ul01] >> Down to down");
+        this.div_ul2.append(this.div_ul1.lastElementChild);
+    }
+
+    UpToUp_02 = () => {
+        console.log("[Ul02] >> Up to up");
+        this.div_ul1.prepend(this.div_ul2.firstElementChild);
+    }
+    UpToDown_02 = () => {
+        console.log("[Ul02] >> Up to down");
+        this.div_ul1.append(this.div_ul2.firstElementChild);
+    }
+    DownToUp_02 = () => {
+        console.log("[Ul02] >> Down to up");
+        this.div_ul1.prepend(this.div_ul2.lastElementChild);
+    }
+    DownToDown_02 = () => {
+        console.log("[Ul02] >> Down to Down");
+        this.div_ul1.append(this.div_ul2.lastElementChild);
+    }
+
+</script>
+
+</html>

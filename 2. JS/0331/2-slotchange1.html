@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <custom-elem id="ce">
+        <li slot="listitem">첫번째 li</li>
+        <li slot="listitem">두번째 li</li>
+    </custom-elem>
+    <button id="btn1">추가</button>
+    <template id="temp1">
+        <ul>
+            <slot name="listitem"></slot>
+        </ul>
+    </template>
+</body>
+<script>
+    btn1.onclick = function () {
+        const li = document.createElement("li")
+        li.textContent = "추가된 li"
+        li.setAttribute("slot", "listitem")
+        ce.append(li);
+    }
+
+    class CustomElem extends HTMLElement {
+        connectedCallback() {
+            this.attachShadow({ mode: "open" })
+            this.shadowRoot.append(temp1.content.cloneNode(true))
+            this.shadowRoot.querySelector("slot").addEventListener("slotchange", function () {
+                console.log(`슬롯에 아이템이 추가되었습니다!`)
+                // 최초에 한번은 무조건 실행이 됨. 정상임.
+                // 이벤트 캡쳐. 데이터가 실제로 삽입이 되었을 때 이벤트를 잡고 싶다 싶을 때 씀.
+                // 적은 줄로 더 많은 일을.
+            })
+        }
+    }
+    customElements.define("custom-elem", CustomElem)
+</script>
+
+</html>
