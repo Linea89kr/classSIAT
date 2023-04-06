@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">버튼1</button>
+</body>
+<script>
+    // #1 : Lexical this
+
+    let obj1 = {
+        name: `foo`,
+        // => 는 function(){}으로 감싼 뒤 내장함수로 동작함.
+        // => 로 만든 함수 내부에서 this는 window를 가리킨다.
+        f1: () => {
+            // console.log(this.name)
+            console.dir(this);
+        },
+        f2: function () {
+            const a = () => { console.log(this.name) }
+            a();
+        },
+        f3: function () {
+            console.log(this.name)
+        }
+    }
+
+    // #2 : prototype
+    const obj2 = {
+        name: `foo`,
+    }
+
+    //렉시컬 this.
+    Object.prototype.sayHi = function () {
+        console.log(`Hi ${this.name}`)
+    }
+    // obj2.sayHI();
+
+    // # 3 : 생성자 함수
+    // 생성자 함수는 constructor를 갖고 있어야 하는데 =>로 만든 객체에는 이 constructor가 없음.
+
+    const Class1 = (a) => {
+        this.a = a;
+        this.b = b;
+    }
+    // const obj3 = new Class1(2, 3)
+
+    console.dir(Class1)
+
+    // # 4 : AddEventListener
+
+    document.getElementById(`btn`).addEventListener(`click`, (e) => {
+        console.dir(e.target);
+    })
+
+</script>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // const funcA = function () {
+    //     console.log("funcA를 출력")
+    // }
+    // const funcB = () => (console.log("funcB를 출력"))
+    const funcB = () => console.log("funcB를 출력")
+
+    // const funcC = function (a) (console.log(a))
+
+    const funcC = (a) => console.log(a)
+    // 이렇게도 되지롱
+
+    // const funcD = (a) => (return a + 10)
+    const funcD = (a) => a + 10;
+
+    const funcF = (a, b) => a + b
+
+    const funcG = a => {
+        console.log(`안녕하세요`)
+        console.log(`출력값은 ${a}`)
+    }
+
+    funcB()
+    console.log(funcD(10))
+    console.log(funcD(12))
+    console.log(funcG(2, 10))
+
+    // 예외 상황1
+    const getobj1 = param => ({ a: 123 })
+    console.log(getobj1())
+    const getobj2 = param => param.a
+    console.log(getobj2({ a: 234 }))
+
+    // 예외 상황2
+    // function funcH() {
+    //     console.log(arguments)
+    // }
+
+    const funcH = () => { console.log(/*arguments*/) }
+    funcH(1, 2, 3)
+    console.dir(getobj1)
+</script>
+
+</html>

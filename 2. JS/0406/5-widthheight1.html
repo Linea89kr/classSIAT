@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1 {
+            height: 250px;
+            width: 400px;
+            padding: 10px;
+            margin: 15px;
+            border: 5px solid red;
+            background-color: lightblue;
+            overflow: hidden;
+            overflow-x: scroll;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, animi ab assumenda id ad minima fuga sequi
+        quisquam placeat debitis tempore et. Sed reiciendis quam harum nesciunt veniam minus beatae!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, animi ab assumenda id ad minima fuga sequi
+        quisquam placeat debitis tempore et. Sed reiciendis quam harum nesciunt veniam minus beatae!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, animi ab assumenda id ad minima fuga sequi
+        quisquam placeat debitis tempore et. Sed reiciendis quam harum nesciunt veniam minus beatae!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, animi ab assumenda id ad minima fuga sequi
+        quisquam placeat debitis tempore et. Sed reiciendis quam harum nesciunt veniam minus beatae!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, animi ab assumenda id ad minima fuga sequi
+        quisquam placeat debitis tempore et. Sed reiciendis quam harum nesciunt veniam minus beatae!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, animi ab assumenda id ad minima fuga sequi
+        quisquam placeat debitis tempore et. Sed reiciendis quam harum nesciunt veniam minus beatae!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, animi ab assumenda id ad minima fuga sequi
+        quisquam placeat debitis tempore et. Sed reiciendis quam harum nesciunt veniam minus beatae!
+    </div>
+    <button id="btn">클릭</button>
+    <div id="pr"></div>
+</body>
+<script>
+
+    btn.addEventListener("click", function () {
+        const p1 = document.createElement("p");
+        p1.textContent = `clientwidth: ${div1.clientWidth}px`;
+        const p2 = document.createElement("p");
+        p2.textContent = `clientheight: ${div1.clientHeight}px`
+        const p3 = document.createElement("p");
+        p3.textContent = `offsetwidth: ${div1.offsetWidth}px`;
+        const p4 = document.createElement("p");
+        p4.textContent = `offsetheight: ${div1.offsetHeight}px`
+        const p5 = document.createElement("p");
+        p5.textContent = `scrollwidth: ${div1.scrollWidth}px`;
+        const p6 = document.createElement("p");
+        p6.textContent = `scrollheight: ${div1.scrollHeight}px`
+
+        pr.append(p1);
+        pr.append(p2);
+        pr.append(p3);
+        pr.append(p4);
+        pr.append(p5);
+        pr.append(p6);
+
+    })
+</script>
+
+</html>
