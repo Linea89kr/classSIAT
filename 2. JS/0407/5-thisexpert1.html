@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // let values = [
+    //     {item: "선물1", amount: {apple: 10, candy: 20}},
+    //     {item: "선물2", amount: {apple: 30, candy: 40}},
+    // ];
+    //
+    // for(let obj of values){
+    //      let {item, amount : {apple, candy}} = obj;
+    //  } 이렇게 말고...
+    //
+    //  이렇게 쓸 수 있다.
+    // for (let {item, amount: {apple, candy}} of values) {
+    //     console.log(item, apple, candy)
+    // }
+
+    //     let people = [
+    //         {
+    //             name: "홍길동",
+    //             family: {mother: "엄마1", father: "파더를 파더라부르지 못하고", sister: "여동생1"}
+    //         },
+    //         {
+    //             name: "김삿갓",
+    //             family: {mother: "엄마2", father: "삿갓아빠2", brother: "동자승1"}
+    //         }
+    //     ]
+    //
+    // for (let { name, family: {father, sister, brother} } of people){
+    //     console.log(`name : ${name}, siblings : ${sister ? sister : brother}`)
+    //     }
+
+
+    // 함수를 구조분해할당 하려면
+
+    // # 1
+    function total ({one, plus:{two, five}}){
+        console.log(one+two+five);
+    };
+
+    total({one:1, plus:{two:2, five:5}})
+
+    // # 문제
+    const obj2 = {title: "my menu", items: ["item1", "item2"]};
+    function showMenu({title, items: [item1, item2], width = 100, height = 200}) {
+        console.log(title, item1, item2);
+        console.log(width, height);
+    }
+
+    showMenu(obj2)
+
+</script>
+</html>

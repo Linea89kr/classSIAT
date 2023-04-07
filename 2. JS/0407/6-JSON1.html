@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let a = {1:123};
+    let a_res = JSON.stringify(a);
+    console.log(a_res) // JSON 만들기!
+    console.log(a)
+    console.log(JSON.parse(a_res)) // JSON 풀기!
+
+    let str = `{"a":"abc","b":1}`
+    console.log(JSON.parse(str))
+
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then(response => response.json())
+        .then(json => console.log(json))
+
+  // JSON
+  /*
+  * JSON(Javascript Object Notation)
+  * 데이터 저장 및 전송을 위해 만들어진 메타데이터
+  * 시스템과 시스템 간 통신 되는 데이터를 지원하기 위함은 물론 내부의 프론트와 백엔드 사이의 통신에도
+  * 통신데이터를 지원하기 위해 만들어짐
+  * JSON은 자바스크립트의 겍체를 모델로 하여 만들어진 메타데이터
+  * 기존의 XML에 비해 JSON은 사람이 보다 일기 편하도록 고안됨.
+  * JSON은 언어 독립적이므로 어떤 곳에서든 사용 가능함. 그래서 많은 언어에서 JSON을 처리하는 여러 라이브러리 및 기능을 지원함.
+  *
+  * JSON 작성 방법
+  * 데이터는 이름 / 값의 쌍으로 존재한다.
+  * JSON 데이터는 데이터 이름, 콜론(:), 값의 순서로 구성된다.
+  * 데이터의 쌍은 쉼표로 구분하며, 중괄호는 객체를 표현하고, 대괄호는 배열을 표현한다.
+  * 키도 여기서는 문자열로 표기한다.
+  *
+  * JSON에서 사용할 수 있는 자바스크립트 타입과 없는 자바스크립트 타입
+  * * 사용가능 : string, number, object, array, boolean, null
+  * * 사용불가 : function, data, undefined
+  *
+  * JSON 관련 메서드
+  * JSON.parse(): JSON 문자열의 구문을 분석하고 그 결과로 Javascript 값이나 객체가 생성된다.
+  * => 사용법: JSON.parse([들어갈 json 구문][,변환할 로직이 들어있는 콜백 함수])
+  * JSON.stringify : Javascript 값이나 객체를 JSON 문자열로 반환
+  * => 사용법 : JSON.stringify(value[, replacer[, space]])
+  *     - value: JSON 문자열로 변활될 값
+  *     - replacer:문자열의 동작 방식을 변경하는 함수
+  *     - space: 가독성을 목적으로 JSON 문자열 출력에 공백을 삽입하는데 사용되는 string 또는 number 객체
+  * */
+</script>
+</html>

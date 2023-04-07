@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            height: 2000px;
+        }
+
+        #div1 {
+            margin-top: 800px;
+            width: 180px;
+            height: 100px;
+            border: 5px solid red;
+            background-color: lightblue;
+        }
+
+        #div2 {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 500px;
+            height: 400px;
+            background-color: lightcoral;
+        }
+
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .slide {
+            visibility: hidden;
+        }
+
+        .slide-up {
+            animation-name: slideUp;
+            animation-duration: 1s;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" class="slide"></div>
+<!--<div id="div2"></div>-->
+</body>
+<script>
+    // window.onscroll = function () {
+    //     div2.innerHTML =
+    //         `
+    //     <p>top : ${div1.getBoundingClientRect().top}</p>
+    //     <p>bottom : ${div1.getBoundingClientRect().bottom}</p>
+    //     <p>left : ${div1.getBoundingClientRect().left}</p>
+    //     <p>right : ${div1.getBoundingClientRect().right}</p>
+    //     <p>width : ${div1.getBoundingClientRect().width}</p>
+    //     <p>height : ${div1.getBoundingClientRect().height}</p>
+    //     <p>x : ${div1.getBoundingClientRect().x}</p>
+    //     <p>y : ${div1.getBoundingClientRect().y}</p>
+    //     `
+    //     /*
+    //     * top은 y랑 동일
+    //     * left와 x와 동일
+    //     * left: 브라우저 가장 왼쪽 부터 div2까지의 길이
+    //     * right: 화면 좌측에서 앨리먼트의 right까지의 값.
+    //     * right = left + width
+    //     * top: 화면 상단에서 해당 객체 위쪽까지의 거리 (border 포함)
+    //     * top은 body로 부터 계싼
+    //     * bottom은 현재 브라우저의 맨 위에서부터 계산.
+    //     * bottom: 화면 위에서 해당 요소의 아래까지. (역시 border 포함)
+    //     * height: 해당 객체의 border 위에서아래까지의 값.
+    //     * width:
+    //     * */
+    // }
+    window.onscroll = function () {
+        if (div1.getBoundingClientRect().y < 400) {
+            div1.classList.add("slide-up")
+        }else{
+            div1.classList.remove("slide-up")
+        }
+    }
+</script>
+</html>

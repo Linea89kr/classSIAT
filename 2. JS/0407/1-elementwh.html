@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+        .test{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>이것은 헤더입니다.</h1>
+
+<p id="p1" style="position:fixed"></p>
+</body>
+<script>
+    window.onscroll = function(){
+        p1.textContent = `document.documentElement.scrollTop : scrollTop : ${document.documentElement.scrollTop}`;
+        if(document.body.scrollTop > 300 || document.documentElement.scrollTop>300){
+        // 크로스 브라우징 때문에 둘 다 걸어둠
+        // em 이나 rem은 안됨.
+        // 즉, 반응형 웹에 대한 대응이 전혀 안됨
+        document.getElementById(`p1`).className = `test`;
+        } else {
+            document.getElementById(`p1`).className = "";
+        }
+    }
+    // 앨리먼트 width/height 속성
+    /*
+    * 앨리먼트 위치/크기 속성
+    * * 모든 앨리먼트에는 위치와 크기를 담고 있는 속성이 있으며, 해당 앨리먼트의 특정 키워드 속성을 통해
+    * * *이 속성에 대한 값을 제공받을 수 있다.
+    * 앨리먼트의 특정 속성은 우리가 값을 입력할 경우 해당 속성의 위치를 제어할 수 있으며 앨리먼트의 위치 제어가 보통 여기에 속한다.
+    *
+    * 앨리먼트 위치/크기 속성 종류
+    * * Element.clientWidth / Element.clientHeight : 해당 앨리먼트의 패딩을 포함한 길이
+    * * => 여기서 전체 컨텐츠와는 관련이 없으며 실제 스크롤을 제외하고 보여지는 길이를 말한다.
+    * * Element.Offsetleft / Element.OffetTop : 앨리먼트의 좌측 상단을 기준으로 얼마나 브라우줘 맨 위쪽 상단에서 떨어져 있는가를 정의
+    * * Element.scrollwidth / Element.scrollHeight : 스크롤바가 생성된 컨텐츠의 경우 스크롤 바가 생성된 안쪽의
+    * * 모든 컨텐츠를 포함하는 너비, 높이, 패딩을 나타냄.
+    * * => 단, 여기서 보더는 제외
+    * * Element.scrollLeft / Element.scrollTop : 얼마나 스크롤이 되었는지에 대한 좌표값을 나타냄
+    * * => 이 속성은 핸들링이 가능하다.
+    *
+    *  절대위치 / 상대위치
+    * * 기존에 위치값에 대한 표시는 절대위치를 기준으로 표시함
+    * * 하지만 절대 위치는 반응형 웹이 등장하면서 앨리먼트의 위치를 잡기가 상당히 힘들어지기 시작했음.
+    * * 이를 개선하기 위해 getBoundingClientRect() 메서드를 사용하게 되었다.
+    *
+    * getBoundClientRect() : 요소의 크기와 뷰포트에 상대적인 위치를 반환하는 메서드
+    * * top or y : 화면 상단부터 대상의 처음 위치 값
+    * * bottom : 화면 상단부터 대상의 끝 위치 값
+    * * left or x : 화면 좌측부터 대상의 처음 위치 값
+    * * right : 화면 좌측부터 대상의 끝 위치 값
+    * * width : 대상의 길이
+    * * heigh t: 대상의 높이
+     */
+</script>
+</html>

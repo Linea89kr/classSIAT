@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="openWin()">오픈</button>
+<button onclick="closeWin()">닫기</button>
+<button onclick="writepopup()">팝업작성</button>
+</body>
+<script>
+  // window.alert("얘도 BOM") // window에서 경고를 보내드립니다.
+  // window.console.log(`사실 나도 윈도우 출신`)
+  // console.group();
+  // console.log(`a`)
+  // console.group()
+  // console.log(`b`)
+  // console.group()
+  // console.group()
+  //
+  // window.open(`naver.com`) // 지정된 경로 안의 물건을 새 창에서 열기
+
+  let myWindow;
+
+  function openWin(){
+    myWindow = open("", "mywin","width=200,height=100")
+    myWindow.document.write(`<p>이것은 내가 띄운 팝업</p><div id="div1"></div>`)
+  }
+  function closeWin(){
+    myWindow.close()
+  }
+  function writepopup(){
+      myWindow.document.getElementById("div1").textContent="이것은 메인에서 전달한 메세지"
+  }
+  //opener?
+</script>
+</html>
