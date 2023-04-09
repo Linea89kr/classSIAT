@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            width: 400px;
+            height: 2000px;
+            box-sizing: border-box;
+        }
+
+        p {
+            margin: 0
+        }
+
+        #div1 p {
+            font-weight: bold;
+        }
+
+        #header {
+            margin: 0;
+            width: 400px;
+            height: 100px;
+            background-color: #888888;
+        }
+
+        #header p {
+            margin: 0;
+            transform: translateY(30%);
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        #fixed_header {
+            margin: 0;
+            width: 400px;
+            height: 100px;
+            background-color: #888888;
+            position: fixed;
+        }
+
+        #fixed_header p {
+            margin: 0;
+            transform: translateY(30%);
+            font-size: 3rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<header id="header">
+    <p>Scroll down</p>
+</header>
+<div id="div1">
+    <p> 아래로 스크롤해보세요</p>
+</div>
+<div>
+    The header will stick to the top when you scroll position.
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus venenatis est id aliquet. Aliquam sed
+        convallis risus, vel faucibus lacus. Nulla magna nunc, tincidunt id iaculis ultrices, molestie vel arcu. Nulla
+        dignissim, dui et molestie condimentum, felis turpis faucibus felis, eget dapibus libero ipsum quis nibh. Duis
+        blandit tempus velit. Mauris ultrices ipsum eget risus efficitur suscipit. Morbi et sapien vitae urna cursus
+        sagittis. Praesent sed enim sed arcu bibendum dictum sed ut velit. Quisque ac sapien condimentum, molestie justo
+        interdum, iaculis nisi. Praesent consectetur gravida pulvinar.
+        <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus venenatis est id aliquet. Aliquam sed
+        convallis risus, vel faucibus lacus. Nulla magna nunc, tincidunt id iaculis ultrices, molestie vel arcu. Nulla
+        dignissim, dui et molestie condimentum, felis turpis faucibus felis, eget dapibus libero ipsum quis nibh. Duis
+        blandit tempus velit. Mauris ultrices ipsum eget risus efficitur suscipit. Morbi et sapien vitae urna cursus
+        sagittis. Praesent sed enim sed arcu bibendum dictum sed ut velit. Quisque ac sapien condimentum, molestie justo
+        interdum, iaculis nisi. Praesent consectetur gravida pulvinar.
+        <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus venenatis est id aliquet. Aliquam sed
+        convallis risus, vel faucibus lacus. Nulla magna nunc, tincidunt id iaculis ultrices, molestie vel arcu. Nulla
+        dignissim, dui et molestie condimentum, felis turpis faucibus felis, eget dapibus libero ipsum quis nibh. Duis
+        blandit tempus velit. Mauris ultrices ipsum eget risus efficitur suscipit. Morbi et sapien vitae urna cursus
+        sagittis. Praesent sed enim sed arcu bibendum dictum sed ut velit. Quisque ac sapien condimentum, molestie justo
+        interdum, iaculis nisi. Praesent consectetur gravida pulvinar.
+        <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus venenatis est id aliquet. Aliquam sed
+        convallis risus, vel faucibus lacus. Nulla magna nunc, tincidunt id iaculis ultrices, molestie vel arcu. Nulla
+        dignissim, dui et molestie condimentum, felis turpis faucibus felis, eget dapibus libero ipsum quis nibh. Duis
+        blandit tempus velit. Mauris ultrices ipsum eget risus efficitur suscipit. Morbi et sapien vitae urna cursus
+        sagittis. Praesent sed enim sed arcu bibendum dictum sed ut velit. Quisque ac sapien condimentum, molestie justo
+        interdum, iaculis nisi. Praesent consectetur gravida pulvinar.
+        <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus venenatis est id aliquet. Aliquam sed
+        convallis risus, vel faucibus lacus. Nulla magna nunc, tincidunt id iaculis ultrices, molestie vel arcu. Nulla
+        dignissim, dui et molestie condimentum, felis turpis faucibus felis, eget dapibus libero ipsum quis nibh. Duis
+        blandit tempus velit. Mauris ultrices ipsum eget risus efficitur suscipit. Morbi et sapien vitae urna cursus
+        sagittis. Praesent sed enim sed arcu bibendum dictum sed ut velit. Quisque ac sapien condimentum, molestie justo
+        interdum, iaculis nisi. Praesent consectetur gravida pulvinar.
+    </p>
+</div>
+</body>
+<script>
+
+    let header = document.getElementById(`header`);
+    window.onscroll = function () {
+        if (header.getBoundingClientRect().y < 100) {
+            header.style.position = `fixed`
+        } else {
+            header.classList.remove("slide-up")
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            margin: 0;
+            width: 400px;
+            height: 2000px;
+            box-sizing: border-box;
+        }
+
+        p {
+            margin: 0
+        }
+
+        #div1 p {
+            font-weight: bold;
+        }
+
+        #header {
+            margin: 0;
+            width: 400px;
+            height: 80px;
+            background-color: #888888;
+            position: fixed;
+        }
+
+        #header p {
+            margin: 0;
+            transform: translateY(20%);
+            font-size: 3rem;
+            text-align: center;
+        }
+
+
+        .scroll-line {
+            background-color: rgba(0, 255, 0, .8);
+            top: 0;
+            left: 0;
+            height: 10px;
+            position: fixed;
+            transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div id="header"><p id="p1">HEADER</p></div>
+</div>
+<div>
+    <div class="scroll-line"></div>
+    >
+</div>
+>
+<div id="div1">
+    <p> 아래로 스크롤해보세요</p>
+</div>
+<div>
+    The header will stick to the top when you scroll position.
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus venenatis est id aliquet. Aliquam sed
+        convallis risus, vel faucibus lacus. Nulla magna nunc, tincidunt id iaculis ultrices, molestie vel arcu. Nulla
+        dignissim, dui et molestie condimentum, felis turpis faucibus felis, eget dapibus libero ipsum quis nibh. Duis
+        blandit tempus velit. Mauris ultrices ipsum eget risus efficitur suscipit. Morbi et sapien vitae urna cursus
+        sagittis. Praesent sed enim sed arcu bibendum dictum sed ut velit. Quisque ac sapien condimentum, molestie justo
+        interdum, iaculis nisi. Praesent consectetur gravida pulvinar.
+        <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus venenatis est id aliquet. Aliquam sed
+        convallis risus, vel faucibus lacus. Nulla magna nunc, tincidunt id iaculis ultrices, molestie vel arcu. Nulla
+        dignissim, dui et molestie condimentum, felis turpis faucibus felis, eget dapibus libero ipsum quis nibh. Duis
+        blandit tempus velit. Mauris ultrices ipsum eget risus efficitur suscipit. Morbi et sapien vitae urna cursus
+        sagittis. Praesent sed enim sed arcu bibendum dictum sed ut velit. Quisque ac sapien condimentum, molestie justo
+        interdum, iaculis nisi. Praesent consectetur gravida pulvinar.
+        <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus venenatis est id aliquet. Aliquam sed
+        convallis risus, vel faucibus lacus. Nulla magna nunc, tincidunt id iaculis ultrices, molestie vel arcu. Nulla
+        dignissim, dui et molestie condimentum, felis turpis faucibus felis, eget dapibus libero ipsum quis nibh. Duis
+        blandit tempus velit. Mauris ultrices ipsum eget risus efficitur suscipit. Morbi et sapien vitae urna cursus
+        sagittis. Praesent sed enim sed arcu bibendum dictum sed ut velit. Quisque ac sapien condimentum, molestie justo
+        interdum, iaculis nisi. Praesent consectetur gravida pulvinar.
+        <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus venenatis est id aliquet. Aliquam sed
+        convallis risus, vel faucibus lacus. Nulla magna nunc, tincidunt id iaculis ultrices, molestie vel arcu. Nulla
+        dignissim, dui et molestie condimentum, felis turpis faucibus felis, eget dapibus libero ipsum quis nibh. Duis
+        blandit tempus velit. Mauris ultrices ipsum eget risus efficitur suscipit. Morbi et sapien vitae urna cursus
+        sagittis. Praesent sed enim sed arcu bibendum dictum sed ut velit. Quisque ac sapien condimentum, molestie justo
+        interdum, iaculis nisi. Praesent consectetur gravida pulvinar.
+        <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus venenatis est id aliquet. Aliquam sed
+        convallis risus, vel faucibus lacus. Nulla magna nunc, tincidunt id iaculis ultrices, molestie vel arcu. Nulla
+        dignissim, dui et molestie condimentum, felis turpis faucibus felis, eget dapibus libero ipsum quis nibh. Duis
+        blandit tempus velit. Mauris ultrices ipsum eget risus efficitur suscipit. Morbi et sapien vitae urna cursus
+        sagittis. Praesent sed enim sed arcu bibendum dictum sed ut velit. Quisque ac sapien condimentum, molestie justo
+        interdum, iaculis nisi. Praesent consectetur gravida pulvinar.
+    </p>
+</div>
+</body>
+<script>
+
+    const scrollline = document.querySelector('.scroll-line');
+
+    function fillscrollline() {
+        const windowHeight = window.innerHeight;
+        const fullHeight = document.body.clientHeight;
+        const scrolled = window.scrollY;
+        const percentScrolled = (scrolled / (fullHeight - windowHeight)) * 100;
+
+        scrollline.style.width = percentScrolled + '%';
+    }
+
+    window.addEventListener('scroll', fillscrollline);
+</script>
+</html>
