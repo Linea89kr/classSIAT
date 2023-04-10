@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="myfunc()">윈도우 오픈</button>
+<div id="div1"></div>
+</body>
+<script>
+  function myfunc(){
+    const mywindow = window.open("","mywindow", "width=200, height=100")
+    const p = document.createElement("p")
+    p.textContent="이것은 P태그입니다."
+    const button = document.createElement("button")
+    button.textContent="윈도우로 보내는 데이터"
+    button.addEventListener("click", function(){
+      mywindow.opener.document.getElementById(`div1`).textContent="보낸 내용"
+    })
+    mywindow.document.body.append(p)
+    mywindow.document.body.append(button)
+  }
+</script>
+</html>

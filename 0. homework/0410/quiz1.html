@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        peopleset{
+
+        }
+        #connect {
+            color: white;
+            background-color: black;
+            border-radius: 1px;
+            text-align: center;
+            box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.75);
+            -webkit-box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: 1px 3px 3px 0px rgba(0, 0, 0, 0.75);
+        }
+    </style>
+    <link rel="stylesheet" href="/1.%20HTML/0309/default.css">
+</head>
+<body>
+<div id="peopleset">
+    <div id="img1"></div>
+    <div id="username"></div>
+    <div id="userdesc"></div>
+    <div id="connect">연결하기</div>
+</div>
+</body>
+
+<script>
+let xhr = new XMLHttpRequest();
+xhr.open("GET", "./profile.json", true)
+xhr.send();
+
+xhr.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+    }
+}
+</script>
+</html>

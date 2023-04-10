@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <button onclick="showCookie();">쿠키 굽자!</button>
+  <button onclick="clearCookie();">쿠키 치우자!</button>
+  <div>
+    <code id="cookies"></code>
+  </div>
+</body>
+<script>
+  document.cookie = "name=sakura; sameSite=none; expires=none; Secure";
+  document.cookie = "name=bakushin; sameSite=none; expires=Tue,11 Apr 2023 12:00:00 UTC; Secure";
+
+  function showCookie() {
+    cookies.textContent = ">" + document.cookie;
+  }
+
+  function clearCookie() {
+    cookies.textContent = "";
+  }
+
+    //cookie
+  /*쿠키는 클라이언트의 정보를 임시로 저장하기 위해 사용되는 기술
+  브라우저에 저장되는 키와 값의 형태로 저장되는 데이터를 의미한다.
+  웹 서버가 웹 페이지를 브라우저로 보낼 때 쿠키를 생성하여 전달할 수 있고 또한 반대로 클라이언트에서 임의로 데이터를 만들
+  경우에도 해당 쿠키를 사용할 수 있다.
+  쿠키는 정보를 원하는 시간동안 저장할 수 있으며 해당 시간이 지날 경우 쿠키는 그대로 삭제된다.
+  쿠키는 '사용자에 대한 정보를 기억하는 방법' 문제를 해결하기 위해 클라이언트 각각의 브라우저에 데이터를 임시로
+  저장하기 위한 용도로 고안되었다.
+
+  쿠키 사용 방법
+  document 사용 방법: document.cookie
+
+  쿠키의 문제점
+  네트워크 부하 유발: 클라이언트 요청의 크기는 매우작지만 매 요청시 클라이언트에 저장된 쿠키들이 서버로 전송된다.
+  이 과정에서 네트워크에 대한 부하가 늘어난다.
+  보안상의 문제: 쿠키는 네트워크를 타고 서버와 클라이언트를 왕래한다. 네트워크에서 악의적인 사람이 중간에 쿠키를 가로채는등의
+  보안에 대한 위협이 발생할 수 있다.
+  쿠키의 차단: 클라이언트들 중에서는 이러한 쿠키의 사용을 싫어하는 경우도 있고 해당 쿠키의 사용을 옵션을 통해 차단하는
+  사용자들도 있다. 이럴 경우 쿠키는 사용할 수 없는 환경이 된다.
+  제한적인 용량: 쿠키의 용량은 기껏해야 4kb정도밖에 안된다. 이 용량은 일반적으로 저장하는 간단한 문자열 정보를 저장하기에는
+  충분하지만, 문서, 이메일 등의 정보를 저장하기에는 매우 부족하다.
+  * */
+</script>
+
+</html>

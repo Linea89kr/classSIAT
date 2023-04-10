@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+        .sticky-parents {
+            height: 700vh;
+        }
+
+        .sticky {
+            position: sticky;
+            top: 0px;
+            max-height: 100vh;
+            overflow: hidden;
+        }
+
+        .dim {
+            display: block;
+            min-width: 50vw;
+            height: 100vh;
+        }
+
+        .horizontal {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+<div style="height:100vh;width:100vw; border:1px solid black;">
+    <p>Scroll</p>
+</div>
+<div class="sticky-parents">
+    <div class="sticky">
+        <div class="horizontal">
+            <div class="dim" style="background-color: aqua"></div>
+            <div class="dim" style="background-color: yellow"></div>
+            <div class="dim" style="background-color: lightgreen;"></div>
+            <div class="dim" style="background-color: purple"></div>
+            <div class="dim" style="background-color: blue"></div>
+            <div class="dim" style="background-color: black"></div>
+        </div>
+    </div>
+</div>
+<div style="height: 100vh; width: 100vw;"></div>
+</body>
+<script>
+    const sticky = document.querySelector(`.sticky`);
+    const stickyParents = document.querySelector(`.sticky-parents`);
+
+    let scrollWidth = sticky.scrollWidth;
+    let verticalScrollHeight =
+        stickyParents.getBoundingClientRect().height - sticky.getBoundingClientRect().height
+
+    document.addEventListener(`scroll`, function () {
+        let stickyPosition = sticky.getBoundingClientRect().top;
+        if (stickyPosition > 1) {
+            return;
+        } else {
+            let scrolled = stickyParents.getBoundingClientRect().top;
+            sticky.scrollLeft = (scrollWidth / verticalScrollHeight) * 0.85 * (-scrolled);
+        }
+    })
+</script>
+</html>

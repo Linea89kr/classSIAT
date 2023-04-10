@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn1">삽입</button>
+<button id="btn2">가져오기</button>
+<button id="btn3">삭제</button>
+<br><br>
+<input type="text" name="key1" id="key1">
+<br>
+<input type="text" name="val" id="val1"><br>
+<button id="btn4">input insert</button>
+<br><br>
+<button id="btn5">싹 사라져라</button>
+
+<button id="btn6">input 삽입(session)</button>
+
+<div id="div1"></div>
+</body>
+<script>
+    btn1.addEventListener("click", function () {
+        if (localStorage) {
+            localStorage.setItem("test", "test-value");
+        }
+    })
+    btn2.addEventListener("click", function(){
+        if(localStorage){
+            let value = localStorage.getItem("test");
+            const p = document.createElement("p");
+            p.textContent = value;
+            div1.append(p);
+        }
+    })
+
+    btn3.addEventListener("click", function(){
+        if(localStorage){
+            localStorage.removeItem("test");
+        }
+    })
+
+    btn4.addEventListener("click", function(){
+        if(localStorage){
+            let $key1 = key1.value;
+            let $val1 = val1.value;
+            localStorage.setItem($key1,$val1);
+        }
+    })
+
+    btn5.addEventListener("click", function(){
+        localStorage.clear();
+    })
+
+    btn6.addEventListener("click", function(){
+        if (sessionStorage){
+            let $key1 = key1.value;
+            let $val1 = val1.value;
+            sessionStorage.setItem($key1, $val1)
+        }
+    })
+
+    // localStorage / sessionStorage
+    /*
+    * webStorage
+    * 웹 스토리지 API는 기존의 쿠키가 가직 ㅗ있는 닩점들을 극복하기 위해 탄생함
+    * 쿠키와 동일한 점은 이름과 값의 단순한 형태로 데이터가 저장되며 클라이언트의 공간에 데이터를 저장한다는 점이다.
+    * 차이점이 있다면 웹 스토리지의 아이템은 서버와 통신할 때마다 전송되지 않으며 실제 서버와 통신해야할 시점에
+    * 프론트 로직을 통해 서버로 선택즉어로 보낼 수 있다.
+    * 고로 네트워크의 부하가 발생하지 않는다.
+    * 보안상의 문제점 또한 줄어들었기 때문에 실제 쿠키처럼 차단하는 일이 적어졌다. 일부 브라우저에서 옵션을 통해
+    * 웹 스토리지를 사용 못하게 하도록 하는 방법을 채택하고 있었으나, 대부분의 브라우저는 웹 스토리지 옵션을 켜두는 경우가 많다.
+    * 웹 스토리지에 저장할 수 있는 양은 기존 4kb에서 5mb로 획기적으로 증가했다. 브라우저마다 차이는 있지만 보통 5mb의 이상의
+    * 용량을 저장할 수 있다.
+    * */
+
+    // localStorage
+    /*
+    * 데이터를 사용자가 원하는 기간동안 보존, 데이터를 생성하고 유지할 수 있다.
+    * 저장 위치: 크롬 기준 %userprofile%\Local Settings\Application Data\Google\Chrome\user Data\Default\Local Storage
+    * 용량: 스펙 권장 5mb
+    * 삭제 시점: 데이터 임의 삭제, 브라우저 언인스톨, OS 재설치시
+    * */
+
+    //sessionStorage
+    /*
+    * 세션 쿠키에 대한 대체로 특정 페이지의 세션 기간에만 데이터 사용
+    * 단일 윈도우나 웹에서만 접근 가능하며 해당 윈도우가 닫힐 때까지 유지
+    * 저장위치: 브라우저 메모리(큰 값 넣으면 메모리가 그만큼 소모됨)
+    * 용량: 브라우저 메모리가 허용하는 정도
+    * 삭제 시점: 브라우저 창이 완전히 닫히고 프로세스가 종료될 때
+    * */
+</script>
+</html>
