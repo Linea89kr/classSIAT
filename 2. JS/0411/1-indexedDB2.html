@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    let booksShelfDB = null;
+
+    //DB를 오픈하는 함수
+    function openDB() {
+        // DB를 생성하는 함수
+        const openResult = window.indexedDB.open("bookShelf", 1);
+        // DB 생성이 성공했을 시
+        openResult.addEventListener(`success`, function () {
+            console.log(`DB가 성공적으로 오픈되었습니다. ${this.result}`)
+            booksShelfDB = this.result;
+            showDatabaseinfo(booksShelfDB)
+        });
+        // DB 생성이 실패했을 시
+        openResult.addEventListener(`error`, function () {
+            console.log(`DB를 오픈하는 데에 실패했습니다.`)
+        })
+        // DB 업그레이드가 성공했을 시.
+        /*
+        * DB의 구조, 즉 스키마가 바뀌거나 하면 버전을 올려줘야 하는데, 이것을 DB 업그레이드라 함.
+        * */
+        openResult.addEventListener(`upgradeneeded`, function () {
+            console.log(`DB 업그레이드 진행`)
+            booksShelfDB = this.result;
+            // ObjectStore에 'books'라고 하는 이름이 있으면
+            if (booksShelfDB.objectStoreNames.contains("books")) {
+                // 해당 오브젝트 스토어를 삭제
+                booksShelfDB.deleteObjectStore("books")
+            }
+            // 해당 오프젝트 스토어를 생성
+            booksShelfDB.createObjectStore("books", {
+                //keyPath = index 값 = 셀 고유의 값
+                keyPath: "isbn", // index 이름
+                autoIncrement: true // 자동으로 번호 추가.
+                //autoIncrement: 번호 지정을 안할 시에는 알아서 keypath 값을 1 올려서 넣는다.
+            })
+            // 브라우저마다 동작방식이 다르기 때문에 엣지 같은 경우에는 생성 시로 이 코드를 옮겨야 함.
+            // 지금 이 코드는 크롬 기준.
+            // DB의 업그레이드, 즉 수정 자체가 임의로 막혔을 시
+            openResult.addEventListener(`blocked`, function () {
+                console.log(`DB의 수정이 임의로 막혀있습니다.`)
+            })
+
+        })
+    }
+
+    openDB();
+
+    // DB 정보 출력하는 함수
+    function showDatabaseinfo(db) {
+        console.log(`이름: ${db.name}, 버전: ${db.version}`)
+        console.log(`ObjectStore 개수: ${db.objectStoreNames.length}`);
+
+        for (let index = 0; index < db.objectStoreNames.length; index++) {
+            console.log(`${index} : ${db.objectStoreNames[index]}`)
+        }
+    }
+
+    // indexed DB
+    /*
+    * 등장배경
+    * 웹 스토리지는 효율적인 저장 수단이나 소량의 단순 데이터를 처리하는 정도가 한계
+    * 만약 오브젝트에 관련된 정보가 많이 필요하고 체계적인 정보 저장이 필요한 경우 웹 스토리지는 한계가 명확함
+    * 대량의 구조적인 데이터를 처리하기 위한 API가 필요.
+    * 기존의 웹 환경에서도 데이터가 모두 서버 영역에 저장되여야 하므로 온라인 작업이 필수였지만
+    * 현재는 MSA(Micro Software Architecture)라는 방식의 도입으로 프론트와 백엔드 두곳에서 데이터를 저장, 관리하는
+    * 기술이 필요해짐.
+    * 다시 말해 오프라인시 웹만 별도로 동작하는 형태의 지원이 필요해지면서 자연스럽게 대용량의
+    * 데이터를 저장시킬 수 있는 API가 필요하게 되어진 것.
+    *
+    * Indexed DB의 특징
+    * Key-value 형태의 데이터 저장
+    * 트랜젝션 데이터베이스 모델에 기반을 둔다.
+    * 비동기 방식으로 동작한다.
+    * => Indexed DB의 동작 방식은 비동기방식이며 작업의 결과를 DOM 이벤트 처리 방식으로 올려주는 형태로 동작한다.
+    * => 대부분의 함수는 호출 즉시 IDBRequest를 반환하지만 이 객체르 바로 쓸 수는 없다.
+    * =? success와 error 이벤트에 대한 리스너를 등록하고 이벤트를 수신했을 때 관련 속성들을 사용 가능하다.
+    * SQL을 사용하지 않는다.
+    * 동일근원 (Same Origin policy) 정책을 따른다.
+    *
+    * iDBRequest 이벤트 & 속성
+    * * 여기가 이벤트
+    * success: 요청이 성공했을 시 동작하는 이벤트
+    * error: 요청이 실패했을 시 동작하는 이벤트
+    * upgradeneeded: 현재 버전보다 높은 버전 번호로 데이터베이스를 오픈할 경우 동작하는 리스너.
+    *
+    * * 여기가 속성
+    * result: 요청에 대한 결과를 가지는 속성. 만약 요청이 실패하여 사용할 수 없을 경우 invaildStateError가 발생한다.
+    * error: 일반적으로 error 이벤트시 오류의 원인을 나타낸다.
+    * source: 요청에 대한 소스 IDBIndex나 IDBObjectStore 등이며 요청에 따라 달라진다.
+    * 소스가 없을 경우 null이 반환된다.
+    * transaction: 요청이 동작하는 드랜젝션 객체, 처음 데이터베이스 오픈 시 트랜젝션 미포함일 경우 null이 발생.
+    */
+</script>
+
+</html>

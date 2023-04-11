@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<fieldset>
+    <legend>도서정보</legend>
+    <label for="title">제목</label><input type="text" name="title" id="title">
+    <label for="isbn">isbn</label><input type="text" name="isbn" id="isbn">
+    <br>
+    <label for="year">출판년도</label><input type="number" name="year" id="year">
+    <label for="category">분야</label>
+    <select name="category" id="category">
+        <option value="문학">문학</option>
+        <option value="경제">경제</option>
+        <option value="기술">기술</option>
+        <option value="시사">시사</option>
+    </select><br>
+    <button id="registerB">등록</button>
+</fieldset>
+<fieldset id="control">
+    <!-- label[for="datas"]{자료목록}+select#datas+(button*3) -->
+    <label for="datas">자료목록</label><select name="datas" id="datas"></select>
+    <button id="searchB">조회</button>
+    <button id="delB">삭제</button>
+    <button id="getAllB">전체조회</button>
+</fieldset>
+<div id="dashboard"></div>
+</body>
+
+<script>
+    let booksShelfDB = null;
+    //DB를 오픈하는 함수
+    function openDB() {
+        // DB를 생성하는 함수
+        const openResult = window.indexedDB.open("bookShelf", 1);
+        // DB 생성이 성공했을 시
+        openResult.addEventListener(`success`, function () {
+            console.log(`DB가 성공적으로 오픈되었습니다. ${this.result}`)
+            booksShelfDB = this.result;
+            showDatabaseinfo(booksShelfDB)
+            updateISBNList();
+        });
+        // DB 생성이 실패했을 시
+        openResult.addEventListener(`error`, function () {
+            console.log(`DB를 오픈하는 데에 실패했습니다.`)
+        })
+        // DB 업그레이드가 성공했을 시.
+        /*
+        * DB의 구조, 즉 스키마가 바뀌거나 하면 버전을 올려줘야 하는데, 이것을 DB 업그레이드라 함.
+        * */
+        openResult.addEventListener(`upgradeneeded`, function () {
+            console.log(`DB 업그레이드 진행`)
+            booksShelfDB = this.result;
+            // ObjectStore에 'books'라고 하는 이름이 있으면
+            if (booksShelfDB.objectStoreNames.contains("books")) {
+                // 해당 오브젝트 스토어를 삭제
+                booksShelfDB.deleteObjectStore("books")
+            }
+            // 해당 오프젝트 스토어를 생성
+            booksShelfDB.createObjectStore("books", {
+                //keyPath = index 값 = 셀 고유의 값
+                keyPath: "isbn", // index 이름
+                autoIncrement: true // 자동으로 번호 추가.
+                //autoIncrement: 번호 지정을 안할 시에는 알아서 keypath 값을 1 올려서 넣는다.
+            })
+            // 브라우저마다 동작방식이 다르기 때문에 엣지 같은 경우에는 생성 시로 이 코드를 옮겨야 함.
+            // 지금 이 코드는 크롬 기준.
+            // DB의 업그레이드, 즉 수정 자체가 임의로 막혔을 시
+            openResult.addEventListener(`blocked`, function () {
+                console.log(`DB의 수정이 임의로 막혀있습니다.`)
+            })
+        })
+    }
+
+    openDB();
+
+    // DB 정보 출력하는 함수
+    function showDatabaseinfo(db) {
+        console.log(`이름: ${db.name}, 버전: ${db.version}`)
+        console.log(`ObjectStore 개수: ${db.objectStoreNames.length}`);
+
+        for (let index = 0; index < db.objectStoreNames.length; index++) {
+            console.log(`${index} : ${db.objectStoreNames[index]}`)
+        }
+    }
+    // registerB를 눌렀을 시 데이터 입력
+    registerB.addEventListener("click", function () {
+        // dashboard 안의 내용 초기화
+        dashboard.innerHTML = "";
+        // 데이터 객체 생성
+        const data = {
+            title: title.value,
+            year: year.value,
+            category: category.value
+        }
+        //isbn에 대한 값이 있으면 받아오되, 그렇지 않을 경우 default를 사용하는 로직
+        if (isbn.value) data.isbn = Number.parseInt(isbn.value);
+
+        //트랜젝션을 생성하되 트랜젝션의 objectStore 타겟을 'books'로 지정 그리고 옵션을 readwrite로 저장
+        const tx = booksShelfDB.transaction([`books`], "readwrite");
+        //트래젝션에 대한 스테이터스 출력
+        showTransactioninfo(tx);
+
+        tx.addEventListener("complete", function () {
+            dashboard.innerHTML = "<p>트랜젝션 종료</p>>"
+        })
+
+        tx.addEventListener("abort", function () {
+            dashboard.innerHTML = "<p>트랜젝션 취소</p>>"
+        })
+
+        tx.addEventListener("error", function () {
+            dashboard.innerHTML = "<p>트랜젝션 실패</p>>"
+        })
+
+        // 갱신할 objectStore를 가져오기
+        const objStore = tx.objectStore("books");
+        // objectStore의 내용을 콘솔로 출력
+        showObjectStoreInfo(objStore);
+        // 데이터 삽입
+        const request = objStore.put(data);
+        // 데이터 삽입 성공 시
+        request.addEventListener("success", function () {
+            dashboard.innerHTML += `<p>자료 저장 성공 ${JSON.stringify(data)}</p>`
+            updateISBNList();
+        });
+        // 데이터 삽입 실패 시
+        request.addEventListener("error", function () {
+            dashboard.innerHTML += `<p>자료 저장 실패 ${JSON.stringify(data)}</p>`
+        });
+        // tx.abort();
+    });
+
+    //트랜젝션에 대한 스테이터스 출력
+
+    function showTransactioninfo(tx) {
+        console.log(`transaction 정보 -> 소속 DB: ${tx.db.name}, 모드 : ${tx.mode}`);
+        console.log(`연동되는 objectStore 정보 ${tx.objectStoreNames}`);
+        console.log(`transaction 정보 출력 종료 ------------------------------------------------------`)
+    }
+
+
+    // objectStore의 내용을 콘솔로 출력
+    function showObjectStoreInfo(os) {
+        console.log(`objectStore 정보 -> 이름 : ${os.name}`)
+        console.log(`자동완성 컬럼 보유 여부 : ${os.autoIncrement}`)
+        console.log(`키패스 : ${os.keyPath}`)
+        console.log(`인덱스 정보 : ${os.indexNames}`)
+        console.log(`objectStore 정보 출력 종료------------------------------------------------------`)
+    }
+
+    // 테이블의 키값을 리스트로 가져와서 option으로 뿌려주는 함수
+    function updateISBNList() {
+        dashboard.innerHTML = "";
+        const tx = booksShelfDB.transaction(["books"], "readonly")
+
+        // 'books' 오브젝트 스토어를 트렌젝션에서 가져오기
+        const objStore = tx.objectStore("books");
+        // 오직 읽기만 가능.
+        // books 오브젝트 스토어의 모든 키값을 가져오기
+        const request = objStore.getAllKeys();
+
+        // 성공 시 로직
+        datas.innerHTML = "";
+        request.addEventListener("success", function () {
+            for (let index = 0; index < request.result.length; index++) {
+                datas.innerHTML += `<option value="${request.result[index]}">${request.result[index]}</option>`
+            }
+            dashboard.innerHTML += "<p>목록 업데이트 성공</p>"
+        })
+        // 실패 시 로직
+        request.addEventListener("error", function () {
+            dashboard.innerHTML += `<p>목록 업데이트 실패</p>`
+        })
+        //버튼을 누르게 되면 현재 스토어 오브젝트에 있는 모든 데이터들을 데쉬보드에 출력.
+        // 메서드는 getAll
+    }
+
+    // getAllB를 눌렀을 때:
+    getAllB.addEventListener("click", function () {
+        dashboard.innerHTML = "";
+        const tx = booksShelfDB.transaction(["books"], "readonly")
+        const objStore = tx.objectStore("books");
+        const request = objStore.getAll();
+
+        // 트렌젝션이 성공했다면, 객체 수를 조회한 뒤 대시보드에 해당 객체를 뿌려주기
+        request.addEventListener("success", function () {
+            for (let index = 0; index < request.result.length; index++) {
+                dashboard.innerHTML += `<p>${JSON.stringify(request.result[index])}</p>>`
+            }
+            // 실패했다면 다음의 로그를 출력
+            request.addEventListener("error", function () {
+                dashboard.innerHTML += `<p>목록 업데이트 실패</p>`
+            })
+        })
+    })
+
+    //단건조회
+    searchB.addEventListener("click", function () {
+        const tx = booksShelfDB.transaction(["books"], "readonly");
+        const objStore = tx.objectStore("books")
+        const request = objStore.get(Number.parseInt(datas.value));
+
+        // 요청이 성공했다면 대시보드에 해당 텍스트를 띄우고,
+        // 객체에 맞는 값을 뿌려준다.
+        request.addEventListener("success", function () {
+            dashboard.innerHTML = `<p>자료 조회 성공</p>>`
+            title.value = this.result.title;
+            isbn.value = this.result.isbn;
+            year.value = this.result.year;
+            category.value = this.result.category;
+        })
+        // 요청이 실패했다면 예정된 문구를 뿌려준다.
+        request.addEventListener("click", function () {
+            dashboard.innerHTML += `<p>자료 조회 실패</p>>`
+        })
+    })
+
+    //삭제
+    delB.addEventListener("click", function () {
+        const tx = booksShelfDB.transaction(["books"], "readwrite");
+
+        const objStore = tx.objectStore("books")
+        const request = objStore.delete(Number.parseInt(datas.value));
+        request.addEventListener("success", function () {
+            updateISBNList();
+            dashboard.innerHTML = "<p>자료 삭제 성공</p>>"
+
+        })
+        request.addEventListener("error", function () {
+            dashboard.innerHTML += "<p>자료 삭제 실패</p>>"
+        })
+    })
+</script>
+<script>
+    // IndexedDb 프로세스와 Transaction
+    /*
+    * IndexedDb 데이터 관리 프로세스
+    * - 데이터베이스의 createObjectStore() 함수를 이용ㅇ해 오브젝트 스토어 생성
+    * - 데이터베이스의 transaction() 함수를 통해 특정 오브젝트 스토어에서 사용할 트랜젝션 열기
+    * - 트랜젝션의 objectStore()를 이용해 트랜젝션에서 사용할 오브젝틋 ㅡ토어를 획득
+    * - 오브젝트 스토어를 통해 add(), remove() 등의 함수로 데이터베이스를 사용
+    * - 위의 함수 사용 후 IDBRequest를 받아 성공과 실패 시에 대한 이벤트 정의
+    *
+    * IDBObjectStore 인터페이스
+    * - 저장되는 데이터의 구조를 결정할 때 사용하는 인터페이스
+    * - indexedDB에서 transaction을 통해 핸들링하고 싶은 objectStore를 받아 쓸 경우 이 인터페이스를 가진
+    * 오브젝트 스토어가 나오게 한다.
+    * - 데이터에 대한 추가/수정/삭제/조회 등의 핸들러를 제공한다.
+    *
+    * IDBObjectStore 인터페이스 속성
+    * - indexNames : ObjectStore에 설정된 인덱스의 이름들을 리스트로 출력
+    * - KeyPath : ObjectStore에 설정된 keypath를 나타낸다.
+    * - transaction : ObjectStore가 속해있는 IDBTransaction 객체를 나타낸다.
+    * - autoIncrement : ObjectStore에 설정된 auto increment 속성의 값을 나타낸다.
+    *
+    * IDBObjectStore 함수
+    * - add(item [, optionalkey]) - item의 복제본을(중요!) 데이터 오브젝트 스토어에 저장한다.
+    *                               만약 지정 뒤에 다른 값이 존재할 경우 에러가 발생한다.
+    * - put(item[, optionalkey]) - item의 복제본을 오브젝트 스토어에 저장한다.
+    *                               add와 다른 점이 있다면 지정 뒤에 다른 값이 존재할 경우 해당 값을 교체한다.
+    * - delete(recordKey) - keypath의 키가 recordkey인 자료를 삭제한다.
+    * - get(key) - 주어진 key로 오브젝트 스토어에 등록된 자료를 조회하여 해당 메서드는 단건 조회시 사용이 가능하다.
+    * - getAll([query, count]) - 단건이 아닌 복수 로우 조회를 할 경우 사용한다. query는 특정 조건을 넣어 사용할 경우 쓰며,
+    *                            count는 몇개의 row를 반환할 것인지를 나타낸다.
+    * - clear() : 오브젝트 스토어에 있는 모든 자료를 삭제한다.
+    * - getAllKeys([query, count]) - getAll과 동일하지만 차이점은 모든 객체들을 반환하는 것이 아닌,
+    *                                모든 객체들의 키값만 반환한다.
+    * - createIndex(name, property, optionObj) ` 오브젝트 스토어에서 키를 생성해 반환한다. name은 키 이름, property는
+    *                                            인덱스로 사용할 객체 속성을, optionalObj는 인덱스가 가질 속성을 정의한다.
+    * - deleteIndex(name) - name으로 등록된 인덱스를 삭제한다.
+    * - Index(name) - name으로 등록된 인덱스를 반환한다.
+    * - count([keyRange]) - 데이터의 갯수를 반환한다. 만약 keyRange가 없을 경우 데이터의 전체 갯수를 반환한다.
+    *
+    *
+    * */
+</script>
+</html>

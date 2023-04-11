@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        label {
+            display: inline-block;
+            width: 70px;
+        }
+    </style>
+</head>
+<body>
+<fieldset>
+    <legend>도서정보</legend>
+    <label for="title">제목</label><input type="text" name="title" id="title">
+    <label for="isbn">isbn</label><input type="text" name="isbn" id="isbn">
+    <br>
+    <label for="year">출판년도</label><input type="number" name="year" id="year">
+    <label for="category">분야</label>
+    <select name="category" id="category">
+        <option value="문학">문학</option>
+        <option value="경제">경제</option>
+        <option value="기술">기술</option>
+        <option value="시사">시사</option>
+    </select><br>
+    <button id="registerB">등록</button>
+</fieldset>
+<div id="dashboard"></div>
+</body>
+<script>
+
+    let booksShelfDB = null;
+
+    //DB를 오픈하는 함수
+    function openDB() {
+        // DB를 생성하는 함수
+        const openResult = window.indexedDB.open("bookShelf", 1);
+        // DB 생성이 성공했을 시
+        openResult.addEventListener(`success`, function () {
+            console.log(`DB가 성공적으로 오픈되었습니다. ${this.result}`)
+            booksShelfDB = this.result;
+            showDatabaseinfo(booksShelfDB)
+        });
+        // DB 생성이 실패했을 시
+        openResult.addEventListener(`error`, function () {
+            console.log(`DB를 오픈하는 데에 실패했습니다.`)
+        })
+        // DB 업그레이드가 성공했을 시.
+        /*
+        * DB의 구조, 즉 스키마가 바뀌거나 하면 버전을 올려줘야 하는데, 이것을 DB 업그레이드라 함.
+        * */
+        openResult.addEventListener(`upgradeneeded`, function () {
+            console.log(`DB 업그레이드 진행`)
+            booksShelfDB = this.result;
+            // ObjectStore에 'books'라고 하는 이름이 있으면
+            if (booksShelfDB.objectStoreNames.contains("books")) {
+                // 해당 오브젝트 스토어를 삭제
+                booksShelfDB.deleteObjectStore("books")
+            }
+            // 해당 오프젝트 스토어를 생성
+            booksShelfDB.createObjectStore("books", {
+                //keyPath = index 값 = 셀 고유의 값
+                keyPath: "isbn", // index 이름
+                autoIncrement: true // 자동으로 번호 추가.
+                //autoIncrement: 번호 지정을 안할 시에는 알아서 keypath 값을 1 올려서 넣는다.
+            })
+            // 브라우저마다 동작방식이 다르기 때문에 엣지 같은 경우에는 생성 시로 이 코드를 옮겨야 함.
+            // 지금 이 코드는 크롬 기준.
+            // DB의 업그레이드, 즉 수정 자체가 임의로 막혔을 시
+            openResult.addEventListener(`blocked`, function () {
+                console.log(`DB의 수정이 임의로 막혀있습니다.`)
+            })
+
+        })
+    }
+
+    openDB();
+
+    // DB 정보 출력하는 함수
+    function showDatabaseinfo(db) {
+        console.log(`이름: ${db.name}, 버전: ${db.version}`)
+        console.log(`ObjectStore 개수: ${db.objectStoreNames.length}`);
+
+        for (let index = 0; index < db.objectStoreNames.length; index++) {
+            console.log(`${index} : ${db.objectStoreNames[index]}`)
+        }
+    }
+
+    registerB.addEventListener("click", function () {
+        // dashborard 안의 내용 초기화
+        dashboard.innerHTML = "";
+        const data = {
+            title: title.value,
+            year: year.value,
+            category: category.value,
+        }
+        //isbn에 대한 값이 있으면 받아오되, 그렇지 않을 경우 default를 사용하는 로직
+        if (isbn.value) data.isbn = Number.parseInt(isbn.value);
+
+        //트랜젝션을 생성하되 트랜젝션의 objectStore 타겟을 'books'로 지정 그리고 옵션을 readwrite로 저장
+        const tx = booksShelfDB.transaction([`books`], "readwrite");
+        //트래젝션에 대한 스테이터스 출력
+        showTransactioninfo(tx);
+
+        tx.addEventListener("complete", function () {
+            dashboard.innerHTML = "<p>트랜젝션 종료</p>>"
+        })
+
+        tx.addEventListener("abort", function () {
+            dashboard.innerHTML = "<p>트랜젝션 취소</p>>"
+        })
+
+        tx.addEventListener("error", function () {
+            dashboard.innerHTML = "<p>트랜젝션 실패</p>>"
+        })
+
+
+        const objStore = tx.objectStore("books");
+        showObjectStoreInfo(objStore);
+        const request = objStore.put(data);
+        request.addEventListener("success", function () {
+            dashboard.innerHTML += `<p>자료 저장 성공 ${JSON.stringify(data)}</p>`
+        });
+        request.addEventListener("error", function () {
+            dashboard.innerHTML += `<p>자료 저장 실패 ${JSON.stringify(data)}</p>`
+        });
+        // tx.abort();
+    });
+    // 데이터 삽입 실패 시
+    //트랜젝션에 대한 스테이터스 출력
+
+    function showTransactioninfo(tx) {
+        console.log(`transaction 저보 -> 소속 DB: ${tx.db}, 모드 : ${tx.mode}`);
+        console.log(`연동되는 objectStore 정보 ${tx.objectStoreNames}`);
+        console.log(`transaction 정보 출력 종료 ------------------------------------------------------`)
+    }
+
+    function showObjectStoreInfo(os) {
+        console.log(`objectStore 정보 -> 이름 : ${os.name}`)
+        console.log(`자동완성 컬럼 보유 여부 : ${os.autoIncrement}`)
+        console.log(`키패스 : ${os.keyPath}`)
+        console.log(`인덱스 정보 : ${os.indexNames}`)
+        console.log(`objectStore 정보 출력 종료------------------------------------------------------`)
+    }
+
+    // 데이터 베이스 생성과 트랜젝션
+    /*
+    * 데이터베이스 생성
+    * 자바스크립트의 전역 객체인 window에서 indexedDB 속성을 제공하며 이 속성을 활용해 DB 생성과 삭제가 가능하다.
+    *
+    * 데이터베이스 관련 함수
+    * open(db name[, version]) : 데이터베이스의 생성을 요청하는 함수, 호출 결과로 IDBOpenDBRequest 타입의 객체를 반환한다.
+    * 디비이름과 동일한 이름의 데이터베이스가 존재할 경우 그 데이터베이스를 사용하고,
+    * 존재하지 않는 경우 새로운 데이터베이스를 연결한다.
+    * 새로 생성되는 데이터베이스의 디폴트 버전은 1이며 version 정보를 기존 DB 정보보다 더 높게 줄 경우
+    * 데이터베이스는 upgradeneeded 이벤트를 발생한다.
+    * deleteDatabase(db name) : 디비 이름에 해당하는 디비를 삭제한다. 결과룰 IDBOpenDBRequest 타입의 객체를 반환한다.
+    *
+    * 디비 구조 생성
+    * IDBDatabase 타입의 객체는 데이터베이스 자체를 나타내며 관리를 위한 아래와 같은 속성과 메서드를 제공한다.
+    *
+    * => 속성
+    * name : 연결된 데이터베이스의 이름
+    * version : 연결된 데이터베이스의 버전
+    * objectStoreName : 연결된 데이터베이스에 속한 objectStore의 이름들을 리스트 형태로 반환
+    * createObjectStore[store name[, optionalParameter]]
+    * => 연결된 데이터베이스에서 store 이름으로 IDBObjectStore 타입의 객체를 생성한다.
+    * -> optionalParameter에서는 아래와 같은 값이 들어있는 객체를 지정한다.
+    * - keypath: 일종의 기본 키 (primary key), 모든 오브젝트 스토어에 저장되는 객체는 keypath에 결정된 속성을 가져야 한다.
+    * - autoincrement: 불리언 값이며 true일 경우 키 생성기 (key generator)를 통해 키가 자동으로 공급되므로,
+    *                  저장되는 객체들은 키를 입력할 필요가 없다.
+    *                  false 일 경우 해당 객체들은 반드시 키 입력을 해야 한다
+    * deleteObjectStore[store name] : sotre name 으로 설정된 오브젝트 스토어 객체를 삭제
+    * close() : 연결된 데이터베이스와의 연결을 즉시 종료한다.
+    * trasaction(store_name_arr, prop) : IDBTransaction 타입의 트랜젝션 객체를 반환한다 (중요!!!)
+    *            store_name_arr은 트랜젝션을 ㅈ적용할 오브젝트 스토어 이름의 배열이며, prop는 트랜젝션을 사용할 모드이다.
+    *
+    * */
+</script>
+</html>
