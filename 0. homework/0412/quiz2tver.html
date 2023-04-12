@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="nav"></div>
+<template id="cardLayout">
+    <style>
+        :host(.column) {
+            width: 100%;
+            display: block;
+        }
+
+        :host(.card) {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        :host(.container) {
+            padding: 0 16px;
+        }
+
+        :host(.title) {
+            color: gray;
+        }
+
+        :host(.button) {
+            border: none;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%
+        }
+
+        :host(.button):hover {
+            background-color: #555;
+        }
+    </style>
+    <div class="column">
+        <div class="card">
+            <div class="img"></div>
+            <div class="container">
+                <h2 class="name"></h2>
+                <p class="content"></p>
+                <p class="emall"></p>
+                <button class="button">연결하기</button>
+            </div>
+        </div>
+    </div>
+</template>
+</body>
+<script>
+    class CustomCard extends HTMLElement {
+
+        connectedCallback() {
+            this.attachShadow({mode: "open"})
+            this.shadowRoot.append(cardLayout.content.cloneNode(true))
+            // this.render();
+        }
+
+        setattributeItems(img, name, title, content, email){
+        this.img = img;
+        this.name = name;
+        this.title = title;
+        this.content = content;
+        this.email = email;
+        }
+
+        attributeChangedCallback(attrName, oleVal, newVal) {
+            this.render();
+            let str = "";
+            switch (attrName) {
+                case "cpimg":
+                    document.querySelector(".img").setAttribute("src", newVal)
+                    str = ".img"
+                    break;
+                case "cpname":
+                    str = ".name"
+                    break;
+                case "cptitle":
+                    str = ".title"
+                    break;
+                case "cpcontent":
+                    str = ".content"
+                    break;
+                case "cpemail":
+                    str = ".email"
+                    break;
+            }
+            document.querySelector("str").textContent = newVal
+        }
+
+        static get observeAttribute() {
+            return ["cpimg", "cpname", "cptitle", "cpcontent", "cpemail"]
+        }
+
+        render() {
+            this.shadowRoot.append(CardLayout.content.cloneNode(true))
+        }
+    }
+
+    customElements.define(`custom-card`, CustomCard);
+
+    //insert element
+    const target = document.querySelector(`.nav`)
+    const customCard1 = document.createElement("custom-card")
+    let query = `{"img" : "img/team1.jpg", "name" : "Jane Doe", "title" : "CEO & Founder", "content" : "Phasellus eget enim eu lectus faucibus vestibulum.","email" : "example@example.com"}`
+    let jsonObj = JSON.parse(query);
+    customCard1.setAttribute("cpimg", jsonObj.img);
+    customCard1.setAttribute("cpname", jsonObj.name);
+    customCard1.setAttribute("cptitle", jsonObj.title);
+    customCard1.setAttribute("cpcontent", jsonObj.content);
+    customCard1.setAttribute("cpemail", jsonObj.email);
+
+    target.append(customCard1);
+</script>
+</html>

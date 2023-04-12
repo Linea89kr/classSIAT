@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        peopleset{
+        peopleset {
 
         }
+
         #connect {
             color: white;
             background-color: black;
@@ -30,14 +31,23 @@
 </body>
 
 <script>
-let xhr = new XMLHttpRequest();
-xhr.open("GET", "./profile.json", true)
-xhr.send();
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", "./profile.json", true)
+    xhr.send();
+    let usernamep = document.createElement("p");
+    // usernamep.textContent = `${parsedData}`;
+    // document.querySelector(`#d1`).append(h11);
+    let userdescp = document.createElement("p");
+    let userconnectp = document.createElement("p");
 
-xhr.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-        console.log(this.responseText);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            let parsedData = JSON.parse(this.responseText);
+            console.log(parsedData)
+            // usernamep = parsedData.name.value
+            // userdescp = parsedData.data.value
+            // userconnectp = parsedData.value
+        }
     }
-}
 </script>
 </html>

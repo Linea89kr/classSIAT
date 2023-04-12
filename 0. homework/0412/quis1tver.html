@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .card{
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            max-width: 300px;
+            margin:auto;
+            text-align: center;
+        }
+        .profile-img{
+            width: 100px;
+            height: 150px;
+            background: url("img/profile.jpg") no-repeat center;
+            background-size: cover;
+        }
+        .title{
+            color: gray;
+            font-size:10px;
+        }
+        button{
+            border:none;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            background-color: #1f1f1f;
+            text-align: center;
+            cursor:pointer;
+            width:100%;
+            font-size: 10px;
+        }
+
+        button:hover{
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="profile-img"></div>
+    <h1 class="name"></h1>
+    <p class="title"></p>
+    <p class="content"></p>
+    <button class="button">연결하기</button>
+</div>
+</body>
+<script>
+// const jsonString = {
+//     "name": "GrayKim", "title": "프리랜서 컨설턴트", "content": "웹, 안드로이드 개발관련 컨설팅 및 보안 컨설팅에 대해 도와드립니다."}
+// const jsonObj = JSON.parse(jsonString)
+// document.querySelector(`.name`).textContent = jsonObj.name
+// document.querySelector(`.title`).textContent = jsonObj.title
+// document.querySelector(`.content`).textContent = jsonObj.content
+
+fetch("./profile.json")
+    .then(response => response.json())
+    .then(data => {
+        document.querySelector(".name").textContent = data.name;
+        document.querySelector(".title").textContent = data.title;
+        document.querySelector(".content").textContent = data.content;
+    })
+</script>
+</html>
