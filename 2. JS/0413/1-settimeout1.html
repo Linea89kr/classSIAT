@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="inp1" name="inp1" placeholder="값을 입력해주세요">
+<button id="btn">버튼</button>
+<button id="btn2">버튼</button>
+<button id="btn3">FOCUS!</button>
+<button id="btn4">BLUR!</button>
+</body>
+<script>
+    const interval1 =  setInterval(function(){
+        // 어떠한 동작을 몇초에 걸쳐 지속적으로 줄 것인지 (ms 기준)
+        // 몇초 있다 슬라이드 자동으로 넘어가는 것: 다 이런 거.
+        // 3초 간격으로 콜백 function 안의 내용을 실행시키는 로직
+        console.log(`Hello!`)
+    }, 3000)
+    // 이벤트가 발생했을 시 인터벌 로직을 멈추게 함.
+    btn.addEventListener("click", ()=>{
+        clearInterval(interval1)
+    })
+
+    // 5초 뒤에 문자열을 출력하는 로직
+    // set timeout
+    const timeo1 = setTimeout(function(){
+        console.log(`타임아웃 설정됨!!!!!!!!!`)
+    }, 5000)
+
+    //타임아웃 걸린 이벤트를 실행 전에 취소
+    btn2.addEventListener("click", function(){
+        clearTimeout(timeo1)
+    })
+
+    // inp1 아이디의 텍스트 공간을 활성화
+    btn3.addEventListener("click", function(){
+        inp1.focus();
+    })
+
+    // 활성화되어있는 inp의 텍스트 공간을 비활성화
+    btn4.addEventListener("click", function(){
+        inp1.blur();
+    })
+</script>
+</html>

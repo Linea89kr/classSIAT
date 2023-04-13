@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<dl>
+    <dt>위도</dt>
+    <dd id="latitude"></dd>
+    <dt>경도</dt>
+    <dd id="longitude"></dd>
+</dl>
+</body>
+<script>
+    //위치정보를 얻은 뒤의 처리
+    document.addEventListener("DOMContentLoaded", function () {
+        // 현 위치에 대한 정보를 받기
+        window.navigator.geolocation.getCurrentPosition(showLocation)
+    })
+function showLocation(event) {
+    // 위도
+    latitude.textContent = event.coords.latitude;
+    // 경도
+    longitude.textContent = event.coords.longitude;
+}
+</script>
+</html>

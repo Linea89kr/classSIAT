@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<h1>Here's history3 PAGE</h1>
+<button id="btn1">Move to prev Page</button>
+<button id="btn2">Move to First Page</button>
+</body>
+<script>
+    btn1.onclick = function () {
+        history.go(-1);
+    }
+    btn2.onclick = function () {
+        history.go(-2);
+    }
+    // -면 한 칸 뒤로 가기
+    // +면 한 칸 앞으로 가기
+    /*
+    * history.go(0) => 새로고침.
+    * */
+</script>
+
+</html>

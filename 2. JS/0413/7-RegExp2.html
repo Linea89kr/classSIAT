@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+  const targetStr = "This is a pen";
+  const targetStr1 = "This IS a pen";
+  const regexpr = /is/ig;
+  const regexpr1 = /is/i;
+
+  console.log(regexpr.test(targetStr)) // true
+  console.log(regexpr.test(targetStr1)) // true
+  console.log(regexpr1.test(targetStr1))
+  console.log(regexpr1.exec(targetStr))
+  // lg = flag.
+
+  console.log(targetStr.match(regexpr)) // 스트링에서 제공받는 메서드.
+  console.log(targetStr.replace(regexpr, "IS")) // ThIS IS a pen.
+
+  console.log(targetStr.search(regexpr)) // index:2
+  //플래그 값이 있더라 해도 검색된 문자열의 첫번째 인덱스만 반환.
+  //진짜 자강두천이다....
+
+  console.log(targetStr.split(regexpr)) // Th + " " + pen
+</script>
+</html>

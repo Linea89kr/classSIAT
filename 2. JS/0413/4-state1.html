@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section>
+    <h2>push state</h2>
+    <button id="pushState1">pushState1</button>
+    <button id="pushState2">pushState2</button>
+    <button id="pushState3">pushState3</button>
+</section>
+<section>
+    <h2>replace state</h2>
+    <button id="replaceState">replaceState</button>
+</section>
+<section>
+    <h2>history state</h2>
+    <span id="state"></span>
+</section>
+</body>
+<script>
+    // history.state : history 세션에 저장된 데이터를 나타냄.
+    // history 안에 저장된 데이터를 가져온다.
+    // 페이지를 이동하면서도 별도로 데이터를 저장할 수 있음.
+    function currenHistoryState() {
+        state.innerHTML = JSON.stringify(history.state)
+    }
+
+    currenHistoryState();
+
+    // 현재 페이지의 상태에 대한 데이터와 이름 등 상태 데이터를 추가할 때
+    pushState1.addEventListener("click", function () {
+        history.pushState({data: "push state1"}, "", "/push-state1")
+        currenHistoryState()
+    })
+    pushState2.addEventListener("click", function () {
+        history.pushState({data: "push state2"}, "", "/push-state2")
+        currenHistoryState()
+    })
+    pushState3.addEventListener("click", function () {
+        history.pushState({data: "push state3"}, "", "/push-state3")
+        currenHistoryState()
+    })
+
+    // 현재 페이지에 대한 상태를 변경하는 로직
+    replaceAmpersands.addEventListener("click", function(){
+      history.replaceState({data : "replaceState"}, "", "/replace-state")
+    })
+
+    //윈도우의 앞으로 가기나 뒤로 가기를 할 때 세션 기록 항목을 브라우저에 강제 로드
+    window.addEventListener("popstate", function () {
+        currenHistoryState()
+    })
+
+    // 페이지 하이퍼링크가 바뀐 게 아님.
+    // 주소와 주소에 따른 상태값을 맵핑 시켜서 로드한 거임.
+
+
+
+</script>
+</html>

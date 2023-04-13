@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <button id="btn1">페이지 리로드</button>
+  <button id="btn2">페이지 이동1</button>
+  <button id="btn3">페이지 이동2</button>
+  <button id="btn4">1번 문서로 이동</button>
+</body>
+<script>
+  btn1.addEventListener("click", function () {
+    location.reload();
+  })
+  console.log(location.toString()) // 예는 거의 안쓰임.
+  console.log(location.href)
+  console.log(location.protocol)
+  console.log(location.host)
+  console.log(location.port)
+  console.log(location.pathname)
+  console.log(location.search)
+  console.log(location.hash)
+  btn2.addEventListener("click", function () {
+    location.href = "https://www.naver.com"
+    // toString과는 다르게 href는 페이지 이동도 가능.
+  })
+
+  btn3.addEventListener("click", function () {
+    location.href = "http://127.0.0.1:5500/2.%20JS/0413/2-location1.html#top"
+    // location.href = "http://127.0.0.1:5500/2.%20JS/0413/2-location1.html#top?id=foo&pw=123123"
+  })
+
+  btn4.addEventListener("click", function () {
+    location.pathname = "/2.%20JS/0413/1-settimeout1.html"
+  })
+</script>
+
+</html>

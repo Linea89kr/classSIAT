@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    const sym1 = Symbol("MA NAME")
+    console.log(typeof sym1)
+    console.log(sym1)
+    // console.log(+sym1)
+    // console.log(1sym)
+    const sym2 = Symbol("Ur name")
+    console.log(sym1 == sym2)
+
+    const obj1 = {
+        id: 123,
+        [sym1]: "가나다"
+    }
+    console.dir(obj1[sym1])
+    console.dir(obj1)
+
+    // symbol = 못쓰게 하려고 돌림.
+
+    for (const key in obj1) {
+        console.log(key)
+    }
+
+    function func1() {
+
+    }
+
+    console.dir(func1)
+</script>
+</html>

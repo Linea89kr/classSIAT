@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        label {
+            display: inline-block;
+            width: 70px;
+        }
+
+        .smallInput {
+            width: 40px;
+        }
+    </style>
+</head>
+
+<body>
+<fieldset>
+    <legend>정보 조회</legend>
+    <button id="getAllB">전체 조회</button>
+    <button id="getByIsbnRangeB">ISBN 범위 조회</button>
+    (
+    <input type="number" name="" id="lowerISBN" class="smallInput" placeholder="최소"> ~
+    <input type="number" name="" id="upperISBN" class="smallInput" placeholder="최대">
+    )
+    <br>
+    <button id="titleIdxb">타이틀 인덱스</button>
+    <input type="text" id="startChar" class="smallInput" placeholder="시작">부터
+    <input type="text" id="endChar" class="smallInput" placeholder="종료">까지의 제목 <br>
+    <button id="yearIdxB">출판년도 인덱스</button>
+    <input type="text" id="fromYear" class="smallInput" placeholder="년도"> 부터
+    <input type="text" id="toYear" class="smallInput" placeholder="년도"> 까지 출판된 도서 (정렬:
+    <input type="radio" id="next" name="orderby" checked><label for="next">오름차순</label>
+    <input type="radio" id="prev" name="orderby"><label for="prev">내림차순</label>
+</fieldset>
+<div id="dashboard"></div>
+</body>
+<script>
+
+    let bookShelfDB;
+
+    function openDB() {
+        indexedDB.deleteDatabase("bookShelf");
+        const openResult = window.indexedDB.open("bookShelf", 1)
+        openResult.addEventListener("success", function () {
+            bookShelfDB = this.result;
+            initData();
+            console.log("이거 타나?")
+        })
+        openResult.addEventListener("upgradeneeded", function () {
+            bookShelfDB = this.result;
+            console.log("얘는 타나?")
+            if (bookShelfDB.objectStoreNames.contains("books")) {
+                bookShelfDB.deleteObjectStore("books")
+            }
+            const objStore = bookShelfDB.createObjectStore("books", {
+                keyPath: "isbn",
+                autoIncrement: true,
+            })
+            objStore.createIndex("yearIdx", "year", {unique: false})
+            objStore.createIndex("titleIdx", "title", {unique: false})
+        })
+        openResult.addEventListener("error", function () {
+            console.log("에러는 뜨나?")
+        })
+    }
+
+    openDB();
+
+    function initData() {
+        const tx = bookShelfDB.transaction(["books"], "readwrite");
+
+        const objStore = tx.objectStore("books")
+        objStore.put({title: "HTML5", year: 2016, category: "기술"})
+        objStore.put({title: "CSS3", year: 2015, category: "기술"})
+        objStore.put({title: "Javascript", year: 2014, category: "기술"})
+        objStore.put({title: "Java", year: 2014, category: "기술"})
+        objStore.put({title: "Servlet/JSP", year: 2012, category: "기술"})
+        objStore.put({title: "JQuary", year: 2011, category: "기술"})
+        objStore.put({title: "SQL", year: 2010, category: "기술"})
+        objStore.put({title: "Spring", year: 2009, category: "기술"})
+        objStore.put({title: "MyBatis", year: 2008, category: "기술"})
+        objStore.put({title: "XML", year: 2007, category: "기술"})
+
+    }
+
+    getAllB.addEventListener("click", function () {
+        dashboard.innerHTML = "";
+
+        const tx = bookShelfDB.transaction(["books"], "readonly")
+        const objStore = tx.objectStore("books");
+        const request = objStore.getAll();
+
+        request.addEventListener("success", function () {
+            for (let index = 0; index < request.result.length; index++) {
+                dashboard.innerHTML += `<p>${JSON.stringify(request.result[index])}</p>`
+            }
+        })
+
+        request.addEventListener("error", function () {
+            dashboard.innerHTML = "자료를 받아오지 못했어요."
+            console.log("자료 받아오기 실패")
+        })
+    })
+
+    getByIsbnRangeB.addEventListener("click", function () {
+        let keyRange = null;
+        let lowerValue = Number.parseInt(lowerISBN.value)
+        let upperValue = Number.parseInt(upperISBN.value)
+
+        console.log(lowerValue)
+        console.log(upperValue)
+
+
+        if (!(lowerValue || upperValue)) {
+            dashboard.innerHTML = "<p>최소 값과 채대 값이 필요합니다.</p>"
+            return;
+        } else {
+            console.dir(IDBKeyRange)
+            keyRange = IDBKeyRange.bound(lowerValue, upperValue, true, true)
+        }
+        const tx = bookShelfDB.transaction(["books"], "readonly");
+        const objStore = tx.objectStore("books");
+        const request = objStore.getAll(keyRange);
+        request.addEventListener("success", function () {
+            dashboard.innerHTML = "";
+            for (let i = 0; i < request.result.length; i++) {
+                dashboard.innerHTML += `<p>${JSON.stringify(request.result[i])}</p>`
+            }
+        })
+        request.addEventListener("error", function () {
+            console.dir(e)
+        })
+    })
+
+
+    function showIndexInfo(idx) {
+        console.log(`인덱스 정보`)
+        console.log(`이름 : ${idx.name} 소속 오브젝트 스토어 : ${idx.store}`)
+        console.log(`키패스 : ${idx.keyPath} unique : ${idx.unique}`)
+    }
+
+    titleIdxb.addEventListener("click", function () {
+        let keyRange = null;
+        let startValue = startChar.value;
+        let endValue = endChar.value;
+
+        //유효성 검사
+        if (!(startValue || endValue)) {
+            dashboard.innerHTML = "<p>시작 문자와 끝 문자가 필요합니다.</p>"
+            return;
+        } else {
+            keyRange = IDBKeyRange.bound(startValue, endValue, false, false)
+        }
+
+        //트랜젝션 설정
+        const tx = bookShelfDB.transaction(["books"], "readonly")
+        //오브젝트 스토어 설정
+        const objStore = tx.objectStore("books")
+        //인덱스 객체를 호출할 수 있다.
+        const titleIdx = objStore.index("titleIdx")
+        showIndexInfo(titleIdx);
+        // 인덱스로 데이터 조회
+        const request = titleIdx.getAll(keyRange);
+        request.addEventListener("success", function () {
+            dashboard.innerHTML = "";
+            for (let i = 0; i < request.result.length; i++) {
+                dashboard.innerHTML += `<p>${JSON.stringify(request.result[i])}</p>`
+            }
+        })
+    })
+
+
+    yearIdxB.addEventListener("click", function () {
+        let keyRange = null;
+        let fromValue = Number.parseInt(fromYear.value)
+        let toValue = Number.parseInt(toYear.value)
+
+        if (!(fromValue || toValue)) {
+            dashboard.innerHTML = "<p>시작 년도와 끝 년도가 필요합니다.</p>";
+            return;
+        } else {
+            keyRange = IDBKeyRange.bound(fromValue, toValue, false, false)
+        }
+        const tx = bookShelfDB.transaction(["books"], "readonly")
+
+        const objStore = tx.objectStore(["books"])
+        const yearIdx = objStore.index("yearIdx")
+
+        // cursor에 대한 초기화
+        const dir = prev.checked ? "prev" : "next";
+        const request = yearIdx.openCursor(keyRange, dir);
+
+        dashboard.innerHTML - "";
+        request.addEventListener("success", function () {
+            const cursor = request.result;
+            // 커서라는 객체를 호출
+            // 커서 있는지 확인
+            if (cursor) {
+                dashboard.innerHTML += `<p>${JSON.stringify(cursor.value)}</p>`
+                cursor.continue();
+                // 다음 커서 객체 호출
+            }
+        })
+    })
+    // keyRange
+    /*
+    * - 검색하는 키의 범위를 제한할 때 쓰는 기능
+    * - 조건의 최소, 최대 범위를 함수를 통해 설정이 가능하다.
+    * - HTML5에서는 IDBKeyRange 인터페이스가 이 역할을 수행하여 다음과 같은 속성 및 함수를 제공한다.
+    * <속성>
+    * => lower : keyRange의 최소값, 만약 설정되지 않을 경우 undefined
+    * => upper : keyRange의 최대값, 만약 설정되지 않을 경우 undefined
+    * => lowerOpen : 최소값에 등호가 포함되면 false, 아니면 true
+    * => upperOpen : 최대값에 등호가 포함되면 false, 아니면 true
+    * <함수>
+    * => lowerBound(value, lowerOpen) : 조회하려는 최소값을 지정한다.
+    * => upperBound(value, upperOpen) : 조회하려는 최대값을 지정한다.
+    * => Bound(lower, upper, lowerOpen, upperOpen) : 조회하려는 최대값과 최소값을 지정한다.
+    * => only(value) L 범위가 아닌 등호로 값을 조회한다.
+    * => includes(value): value가 저장된 키레인지 범위에 포함되는지를 boolean 값으로 변환한다.
+    *
+    * 
+    * index
+    * 키가 아닌 다른 값들을 기준으로 조회할 경우 사용하는 인터페이스
+    * HTML5에서는 인덱스를 위해 IDBIndex 인터페이스를 제공한다.
+    * 기본적으로 objectStore를 생성할 때 설정한 keyPath가 인덱스로 사용되는데 추가로 다른 인덱스를 생성하려는 경우 오브젝트 스토어에 있는 createIndex() 함수를 이욯한다.
+    * 주의할 점은 이 함수는 VersionChange 트랜젝션 모드에서 호출되어야 하므로 upgradeneeded이벤트에서 호출한다.
+    * <속성>
+    * - name : 인덱스의 이름
+    * - objectStore : 인덱스가 속해있는 오브젝트 스토어
+    * - keyPath : 인덱스가 사용하는 keyPath를 나타낸다.
+    * - unique : Boolean형태로 true인 경우 인덱스 값은 중복될 수 없다.
+    * <함수>
+    * - count() : 지정된 자료의 개수를 표시 할 경우 사용하는 함수
+    * - get(condition) : condition에 부합되는 자료를 할당할 경우 사용하는 함수. condition에 키 레인지 객체를 할당해서 여러개의 자료가 해당될 시 처음 발견된 자료가 반환된다.
+    * - getAll(condition [, count]) : 위와 동일, 차이점이 있다면 결과의 개수 제한이 가능.
+    * cursor
+        - SQL문장의 실행 결과를 임시로 저장할 수 있는 객체
+        - 포인터는 커서에 지정된 데이터 중 하나를 가리키는 개념
+        - indexedDB에서 커서 역시 조회된 자료들을 관리하는 역할로 포인터를 이용해 인덱스를 통해서
+          조회한 개별 자료를 가리킬 수 있고 수정, 삭제, 정렬시킬 수 있다.
+        - 커서를 제공하는 인터페이스는 IDBCursor
+        - 커서는 ObjectStore나 인덱스의 openCursor() 함수를 이용해서 생성할 수 있다.
+        <속성>
+        - source : 커서가 오픈된 오브젝트 스토어나 인덱스 객체를 나타냄
+        - direction : 커서의 진행 방법으로 next, nextunique, prev, prevunique 중 하나의 값을 가지며
+          기본은 next이다.
+        - key : 커서에 사용한 속성의 값
+        - primaryKey : 조회된 자료의 keyPath 속성 값
+        - value : 현재 포인터가 가리키는 객체를 반환한다.
+        <기능>
+        - advance(count) : 커서의 포인터를 count 만큼 이동
+        - continue() : 커서의 현재 포인터에서 다음 위치로 이동시키고 IDBRequest의 success 이벤트를
+          다시 발생시킨다. 포인터가 목록의 끝에 도달해도 success 이벤트가 발생하지만 빈 객체가 반환된다.
+        - delete() : 현재 커서 위치에 있는 객체를 삭제한다.
+        - update(value) : 현재 커서 위치에 있는 객체의 내용을 value 값으로 수정
+        * 참고 : direction 속성에 사용할 수 있는 값
+        - next : 조회한 조건에 대해 오름차순으로 정렬
+        - nextunique : 조회한 조건에 대해 오름차순 정렬. 단 키가 중복되는 경우 처음 자료만 조회
+        - prev : 조회한 조건에 대해 내림차순 정렬
+        - prevunique : 조회한 조건에 대해 내림차순으로 정렬. 단, 키가 중복되는 경우 처음 자료만 조회
+    * */
+</script>
+
+</html>
