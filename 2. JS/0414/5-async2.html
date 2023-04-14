@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //resolve => 로직이 정상적으로 처리될 경우
+    //reject => 로직이 비정상적으로 처리될 경우 실행 함수.
+    new Promise((resolve, reject) => {
+        setTimeout(function () {
+            //비동기 처리되는 로직
+            console.log(`첫 실행한 문장`)
+            // resolve(`첫 실생`);
+            // reject(`ERROR!!!!!!!!!!`)
+        }, 3000)
+        throw new Error(`ERROR!!!!!!!!!!!!`)
+        //socket.io
+    // }).then(function (v) {
+    //     return new Promise(function (resolve, reject) {
+    //         setTimeout(function () {
+    //             console.log(`이것은 then에서 실행되는 로직`)
+    //             console.log(v)
+    //             resolve(`두번째 실행`)
+    //         }, 3000)
+    //     })
+    }, function(e){
+            console.log(e.message)}
+    ).then(function (v) {
+        console.log(`이것은 두번째 then에서 실행되는 로직`)
+        return 13;
+    }).then(function (v) {
+        console.log(v)
+    }).catch(function(e){
+        console.log(`catch : ${e}`)
+    })
+</script>
+</html>

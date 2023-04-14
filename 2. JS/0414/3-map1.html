@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    //Iterable
+    /*
+    * 반복처리가 가능한 객체일 경우 해당 객체를 이터러블 객체라고 함.
+    * 이터러블 객체는 오브젝트의 반복 처리 규약이 정의되어 있다.
+    * Array, Set, Map등 실제 자바스크립트 es6 버전으로 넘어가면서 이터러블 객체가 많아짐.
+    * 이런 객체들은 이터러블 형태로 객체를 변환할 수도 있지만 for of 문을 통해 반복 처리가 가능함.
+    *
+    * set
+    * value를 키 값으로 갖는 콜렉션
+    * 키가 곧 값이 되기 때문에 set은 키와 같이 동일하다.
+    * Set 오브젝트가 기존 다른 언어와의 차이가 있다면 여기서는 순서로 인덱스를 부여하기 때문에 다른 언어에서에는 없는 순서가 존재한다.
+    * set 안에 동일한 value 값은 존재하지 않으며 만약 동일한 값을 넣을 경우 해당 값은 무시된다.
+    *
+    * Map
+    *
+    * key와 value의 값의 쌍으로 구성된 콜렉션
+    * Map은 일반 오브젝트처럼 String, symbol만 가능하다.
+    * Map의 데이터는 키와 값의 쌍으로 되어있기 때문에 반드시 키와 값의 쌍으로 입력을 해야 하며
+    * 만약 키가 동일할 경우 동일한 키에 존재하던 이전 값은 새로운 값으로 대체된다.
+    * 오브젝트를 조회하려면 많은 비용이 발생하기 때문에 이러한 순회를 적은 비용으로 하기 위해 map을 쓰기도 한다.
+    *
+    * */
+
+    // WeakSet, Weakmap
+    /*
+    * 메모리 사용에 대한 오버헤드를 줄이기 위해 나온 Map과 Set의 경량판
+    * 두 개체는 일반적인 프리미티브 타입으로 데이터 선언이 불가능하며 iteratot 객체가 아니기 때문에 순회가 불가능하다.
+    * 메모리 관리를 원활하게 한다는 장점이 있지만 기능이 제한적이고 써야하는 상황이 국한된다는 단점이 존재한다.
+    * 만약 만드려는 기능을 전부 커버할 수 있다면 해당 내용을 사용할 수 있지만 그렇지 못한다면 일반 set 과 Map을 사용할 것.
+    *
+    *
+    *
+    *
+    *
+    * */
+
+    let map1 = new Map([
+        ["key1", "value1"],
+        ["key2", "value2"],
+        ["key3", "value3"],
+    ])
+    // 2중 배열의 구조라 좀 쓰기가 그래
+    // for of 문으로 순회하고자 할 때 씀.
+    console.dir(map1)
+    console.log(map1.get("key1"))
+    //키값을 찾아가야 함.
+
+    map1.set("key4", "added V")
+
+    for (const map1Element of map1) {
+        console.log(map1Element)
+    }
+
+    //이건 어레이에서 제공하는 map
+    const arr1 = [1, 2, 3, 4]
+    const arr2 = arr1.map(v => v + 1)
+
+    console.log(arr2)
+
+    //map과 set은 메서드가 똑같음.
+    //map은 add 대신 set이 있음.
+</script>
+</html>

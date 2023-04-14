@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    const set1 = new Set([1, 2, 3, 4])
+    set1.add(3)
+    set1.add(4)
+    set1.add(5)
+
+    // for of 로 싹 풀어주기
+    console.dir(set1)
+    for (const item of set1) {
+        console.log(item)
+    }
+
+    console.log(`-----------------------------------------------------------------------`)
+
+    const set2 = new Set(["one", "two", "three", "four", "five"])
+    const iterset1 = set2.entries();
+    console.log(iterset1.next())
+    console.log(iterset1.next())
+    console.log(iterset1.next())
+
+    console.log(`-----------------------------------------------------------------------`)
+
+    const set3 = new Set(["one", "two", "three", "four", "five"])
+    set3.delete("two")
+    set3.forEach((v,i) => {
+        console.log(v,i)
+        // 디자인 패턴/이터레이터 패턴 : 다음으로 넘어갈 수는 있지만 이전으로 되돌아갈 수는 없다.
+    })
+</script>
+</html>

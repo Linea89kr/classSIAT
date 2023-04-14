@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // Promise.all([ => 1. 2. 3
+    //     new Promise(resolve => setTimeout(() => resolve(1), 3000)),
+    //     new Promise(resolve => setTimeout(() => resolve(2), 2000)),
+    //     new Promise(resolve => setTimeout(() => resolve(3), 1000))
+    // ]).then(function(v){
+    //     console.log(v);
+    // })
+    // 가장 빠른 친구만 받으셈 => 3
+    Promise.race([
+        new Promise(resolve => setTimeout(() => resolve(1), 3000)),
+        new Promise(resolve => setTimeout(() => resolve(2), 2000)),
+        new Promise(resolve => setTimeout(() => resolve(3), 1000))
+    ]).then(function(v){
+        console.log(v);
+    })
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    //async/await
+    /*
+    * - es8/ECMAScript2017에서 나온 공식 스펙
+    * - 기존의 promise의 가독성 및 사용성을 높이기 위해 등장한 문법
+    * - 기존의 promise를 async와 await 문법을 이용해 동기적으로 깔끔하게 처리할 수 있음
+    * - 다만 모든 문법을 async/await가 지원하는 것은 아니며 필요에 따라서는 Promise 문법을 써야 한다.
+    *
+    * 특징
+    * - async는 비동기 기능이 존재하는 function 앞에 선언해야 함
+    * - await로 지정할 수 있는 대상은 promise 객체 이거나 일반 값이 될 수 있으며 그 외의 것들은 들어올 수 없다.
+    * - await는 async 함수 내에서만 유효하다
+    * - await에서 연속적으로 배치된 await는 Promise에서 then 메서드와 동일한 동작을 한다.
+    * - 하지만 await 앞에 있는 로직이 promise 객체가 아닐 경우 await 로직이 아닌 일반 로직처럼 동작하게 된다.
+    * - await를 쓰지 않는 로직 역시 일반 로직처럼 동작하게 된다.
+    * - 만약 값이 일반 리터럴일 경우 해당 값은 resolve된 Promise로 변환된다.
+    * - 예외처리는 자바스크립트에서 제공하는 try~catch문을 그대로 사용 가능하다.
+    * */
+    new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            console.log(`순서 1`)
+            resolve(2)
+        }, 2000)
+    }).then(function (v) {
+        return new Promise(function () {
+            setTimeout(function () {
+                console.log(`순서 ${v}`)
+                resolve(3)
+            }, 2000)
+        })
+    }).then(function (v) {
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                console.log(`순서 ${v}`)
+            }, 2000)
+        })
+    })
+
+    // function timeoutLogic(num, timer) {
+    //     return new Promise(function (resolve, reject) {
+    //         setTimeout(function () {
+    //             console.log(`순서 ${num}`)
+    //             resolve(num + 1)
+    //         ),
+    //             timer;
+    //         })
+    //     })
+    // }
+    // async function test(){
+    //     await timeoutLogic(1, 2000);
+    //     console.log(11);
+    //     await timeoutLogic(2, 2000);
+    //     await timeoutLogic(3, 2000);
+    // }
+    // test();
+</script>
+</html>
