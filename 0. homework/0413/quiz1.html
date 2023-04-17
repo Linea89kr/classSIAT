@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h2>OPENER</h2>
+    <button id="homebtn1">open new window</button>
+    <input type="text" name="" id="homeinput1" placeholder="take your words">
+    <button id="submitbtn1">submit</button>
+</div>
+</body>
+<script>
+    homebtn1.addEventListener("click", function () {
+        const newwindow = window.open("", "new window", height = "200", width = "300")
+        newwindow.document.write(`<h1>POPUP</h1>
+        <input type="text" name="" id="newwinput1" placeholder="default text">
+            <button id="closebtn1">close window</button>`)
+
+
+        const homeinput = document.getElementById(`homeinput1`)
+        const newwinput1 = newwindow.document.getElementById(`newwinput1`)
+        const closebtn = newwindow.document.getElementById(`closebtn1`)
+
+        submitbtn1.addEventListener("click", function () {
+            newwinput1.value = homeinput.value
+        })
+        closebtn.addEventListener("click", function () {
+            newwindow.window.close()
+        })
+    })
+</script>
+</html>
