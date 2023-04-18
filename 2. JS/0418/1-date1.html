@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 id="nowDate"></h1>
+<h1 id="nowTime"></h1>
+<h1 id="gtime"></h1>
+<h1 id="newDate"></h1>
+<h1 id="newTime"></h1>
+</body>
+<script>
+
+  const d = new Date("2023-04-25T13:30:52")
+  nowDate.textContent = d.toLocaleDateString()
+  nowTime.textContent = d.toLocaleTimeString()
+  //단말 OS의 시계를 기준으로 따라감.
+  const d1 = new Date()
+  gtime.textContent = d1.getTime()
+  newDate.textContent = d1.toLocaleDateString()
+  newTime.textContent = d1.toLocaleTimeString()
+</script>
+</html>
