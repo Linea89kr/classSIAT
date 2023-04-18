@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .container > div {
+            width: 200px;
+            height: 200px;
+            margin: 5px;
+            text-align: center;
+            justify-items: center;
+        }
+
+        #naver {
+            display: flex;
+            background-color: green;
+        }
+
+        #naver > h1 {
+            color: #f1f1f1;
+        }
+
+        #kakao {
+            background-color: yellow;
+        }
+
+        #kakao > h1 {
+            color: black;
+        }
+
+        #google {
+            background-color: red;
+        }
+
+        #google > h1 {
+            color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="naver">
+        <h1>naver</h1>
+    </div>
+    <div id="kakao">
+        <h1>kakao</h1>
+    </div>
+    <div id="google">
+        <h1>google</h1>
+    </div>
+</div>
+</body>
+<script>
+    kakao.onclick = function () {
+        location.href = "http://daum.net"
+    }
+
+    naver.onclick = function () {
+        location.href = "http://naver.com"
+    }
+
+    google.onclick = function () {
+        location.href = "http://google.com"
+    }
+</script>
+</html>

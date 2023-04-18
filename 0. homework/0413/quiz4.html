@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h1>클리커 게임 만들기</h1>
+    <button id="btn1">10원</button>
+    <p id="p11">벌어들인 금액: 0</p>
+    <button id="savebtn1">저장</button>
+</div>
+</body>
+<script>
+    let score = 0;
+
+    btn1.addEventListener("click", function () {
+        const p1 = document.getElementById(`p11`)
+        score = score + 10;
+        console.log(score)
+        p1.textContent = `벌어들인 금액: ${score}`
+
+        savebtn1.addEventListener("click", function () {
+            if (localStorage) {
+                localStorage.setItem(`key`, `${score}`);
+            }
+        })
+    })
+</script>
+</html>
