@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 id="tTime"><span>0</span>>초 남았습니다!</h1>
+<button id="btn1">시작!</button>
+</body>
+<script>
+
+    let span = document.getElementsByTagName(`span`)
+    let time = 60000;
+
+
+    btn1.addEventListener("click", function () {
+        let time = 60000
+        setInterval(function () {
+            if (time > 0) {
+                time = time - 1000
+                console.log(`남은 시간 : ${time / 1000}`)
+            } else {
+                if (time < 0) {
+                    clearInterval()
+                }
+            }
+        }, 1000)
+    })
+</script>
+</html>
