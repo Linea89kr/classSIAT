@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>OPENER</h1>
+  <button id="op">OPEN POPUP</button>
+  <label for="pinput">전달할 값 : </label><input type="text" name="pinput" id="pinput">
+  <script>
+    let openWin = null;
+
+    op.addEventListener("click", function () {
+      window.name = "parentForm";
+
+      openWin = window.open("02-quiz2-1.html", "childForm",
+        "width=570, height=350, resizable=no, scrollbars=no")
+    });
+
+  </script>
+</body>
+
+</html>
