@@ -1,0 +1,18 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "for package.json test",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "Linea89kr",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.35.1",
+    "webpack-cli": "^4.6.0"
+  },
+  "dependencies": {
+    "sort-array": "^4.1.4"
+  }
+}
