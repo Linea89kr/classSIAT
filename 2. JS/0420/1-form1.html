@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select name="" id="mySelector" onchange="myFunction1()">
+  <option value="AUDI">AUDI</option>
+  <option value="BMW">BMW</option>
+  <option value="Mercedes">Mercedes</option>
+  <option value="Volvo">Volvo</option>
+  <option value="Porsche">Porsche</option>
+</select>
+<br>
+<!--uppercase: <input type="text" name="fname" id="fname" onchange="myFunction2()">-->
+uppercase: <input type="text" name="fname" id="fname" oninput="myFunction2()">
+<div id="demo"></div>
+</body>
+<script>
+  function myFunction1() {
+    let x = document.getElementById(`mySelector`).value;
+    demo.textContent = `What you choosed... : ${x}`
+  }
+  function myFunction2(){
+  fname.value = fname.value.toUpperCase()
+  }
+
+</script>
+</html>

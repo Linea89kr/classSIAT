@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="Number" name="id1" id="id1" min="100" max="200">
+    <button onclick="myfunction1()">OK</button>
+<div id="demo"></div>
+</body>
+<script>
+    let inpobj = document.getElementById(`id1`)
+    if(inpobj.validity.rangeOverflow){
+      console.log("오버플로우시")
+      demo.textContent = inpobj.validationMessage;
+    }else if(inpobj.validity.rangeUnderflow){
+      console.log(`언더플로우시`)
+      demo.textContent = inpobj.validationMessage;
+    } else{
+      demo.textContent = "input ok"
+  }
+</script>
+</html>

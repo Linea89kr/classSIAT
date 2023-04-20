@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>article ::before{
+    content:attr(data-parent)
+  }
+  </style>
+</head>
+<body>
+<p id="p1" data-aaa="a1" data-bbb="b1" data-user-name="Mr Paik">안녕하슈</p>
+<ul>
+  <li onclick="showDetails(this)" data-animal-type="bird">Owl</li>
+  <li onclick="showDetails(this)" data-animal-type="fish">Salmon</li>
+  <li onclick="showDetails(this)" data-animal-type="spider">Tarantula</li>
+</ul>
+</body>
+<script>
+  console.log(p1.dataset.aaa)
+  // camelCase는 이렇게 쓰면 된다.
+  console.log(p1.dataset.userName)
+  
+  function showDetails(animal) {
+    let animalType = animal.dataset.animaltype
+    alert(`the ${animal.textContent} is a ${animalType}`)
+  }
+
+</script>
+</html>

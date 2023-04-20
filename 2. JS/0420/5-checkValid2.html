@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#">
+    <label for="passcode">write your passcode...</label>
+    <input type="password" name="passcode" id="passcode" placeholder="your passcode" required oninput="checkPasscode()">
+    <button>submit</button>
+</form>
+</body>
+<script>
+    function checkPasscode() {
+        if (passcode.value != "kjh") {
+            passcode.setCustomValidity("이것은 kjh가 아닙니다.")
+        } else {
+            passcode.setCustomValidity("")
+            alert(`correct`)
+        }
+    }
+</script>
+</html>

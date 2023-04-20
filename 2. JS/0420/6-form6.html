@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" name="tb" id="tb" size="20" value="hello world">
+<button onclick="selectText()">click!</button>
+</body>
+<script>
+  function selectText(){
+    tb.focus()
+    //전체 선택
+    tb.select()
+    //선택 시작점 선택
+    // tb.selectionStart=1
+    // 선택 종료점 선택
+    // tb.selectionend=5
+    // 시작&종료를 한번에 잡기.
+    // tb.setSelectionRange(2,6)
+  }
+</script>
+</html>

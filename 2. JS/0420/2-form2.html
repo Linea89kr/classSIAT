@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="a" method="get">
+  Name : <input type="text" id="fname" name="name" title="글자는 6글자 이상" pattern=".{6,}" required>
+  <button>버튼</button>
+</form>
+</body>
+<script>
+  document.getElementById(`fname`).addEventListener(`invalid`, function () {
+    // e.preventDefault();
+    alert(`글자는 무조건 6자 이상이 되어야 합니다.`)
+  })
+</script>
+</html>

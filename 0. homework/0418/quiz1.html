@@ -14,7 +14,10 @@
     let time = 60000;
 
     btn1.addEventListener("click", function () {
+        // disable btn.
         let time = 60000
+
+        this.disabled = `disabled`;
         setInterval(function () {
             if (time > 0) {
                 time = time - 1000
@@ -27,5 +30,27 @@
             }
         }, 1000)
     })
+
+    // or...
+
+    // btn1.addEventListener("click", function () {
+    //     // disable btn.
+    //     let time = 60000
+    //
+    //     if (time == null){
+    //     this.disabled = `disabled`;
+    //     setInterval(function () {
+    //         if (time > 0) {
+    //             time = time - 1000
+    //             console.log(`남은 시간 : ${time / 1000}`)
+    //             span.innerHTML=`${time/1000}`
+    //         } else {
+    //             if (time < 0) {
+    //                 clearInterval()
+    //             }
+    //         }
+    //     }, 1000)
+    //     }
+    // })
 </script>
 </html>
