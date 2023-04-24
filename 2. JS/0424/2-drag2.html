@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li {
+            list-style-type: none;
+            margin: 10px;
+            float: left;
+        }
+
+        h2 {
+            clear: both;
+        }
+
+        ul {
+            background-color: #9C9C9C;
+            border: 1px solid black;
+            height: 200px;
+            width: 550px;
+        }
+    </style>
+</head>
+<body>
+<h2>상표 목록</h2>
+<ul id="items">
+    <li><img src="./imgs/b1.png" alt="" id="b1" name="b1"></li>
+    <li><img src="./imgs/b2.png" alt="" id="b2" name="b2"></li>
+    <li><img src="./imgs/b3.png" alt="" id="b3" name="b3"></li>
+</ul>
+<h2>장바구니</h2>
+<ul id="cart"></ul>
+</body>
+<script>
+    // 드래그에 대한 처리
+    const imgs = document.querySelectorAll(`#items li img`);
+    for (const i of imgs) {
+        i.addEventListener("dragstart", function (event) {
+            // 각 이미지에 대한 드래그가 시작되었을 때.
+            // 데이터 전송을 위한 데이터 지정
+            event.dataTransfer.setData("text", event.target.id)
+        }, false)
+    }
+
+    //드랍에 대한 처리
+    cart.addEventListener("dragenter", function (event) {
+        event.preventDefault()
+    }, false)
+    cart.addEventListener("dragover", function (event) {
+        event.preventDefault()
+    }, false)
+
+    cart.addEventListener("drop", function (event) {
+        event.preventDefault()
+
+        let id = event.dataTransfer.getData("text")
+        // setData getData가 있겠지
+        const img = document.getElementById(id);
+        const li = document.createElement("li")
+        li.append(img)
+        cart.append(li)
+    }, false)
+
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    li {
+      list-style-type: none;
+      text-overflow: clip;
+      margin: 10px;
+      float: left;
+      width:170px;
+    }
+
+    h2 {
+      clear: both;
+    }
+
+    ul {
+      background-color: #9C9C9C;
+      border: 1px solid black;
+      height: 200px;
+      width: 550px;
+    }
+  </style>
+</head>
+<body>
+<h2>상표 목록</h2>
+<ul id="items">
+  <li><img src="./imgs/b1.png" alt="" id="b1" name="b1" draggable="true" title="책1"></li>
+  <li><img src="./imgs/b2.png" alt="" id="b2" name="b2" draggable="true" title="책1"></li>
+  <li><img src="./imgs/b3.png" alt="" id="b3" name="b3" draggable="true" title="책1"></li>
+</ul>
+<h2>장바구니</h2>
+<ul id="cart"></ul>
+</body>
+<script>
+  const lis = document.querySelectorAll("#items>li")
+  for (const i of lis) {
+    i.addEventListener("dragstart", function(event){
+      event.dataTransfer.addElement(event.currentTarget)
+    })
+  }
+</script>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" name="myInput" id="myInput">
+<button id="mybtn1" onclick="alert('hello world!')">BUTTON</button>
+</body>
+<script>
+  myInput.addEventListener(`keyup`, (e)=>{
+    if (e.keycode ==13){
+      e.preventDefault();
+      mybtn1.click();
+    }
+  })
+</script>
+</html>

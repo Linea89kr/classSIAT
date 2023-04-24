@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .warning{
+            color:red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<form action="#" method="get"></form>>
+<label for="myInput">ID : </label>
+<input type="text" name="myInput" id="myInput" pattern="[A-Za-z0-9]{6,9}" placeholder="알파벳을 입력하세요" required size="30">
+<button>submit</button>
+<div class="warning"></div>
+</body>
+<script>
+document.getElementById(`myInput`).addEventListener(`invalid`, function(e){
+    e.preventDefault()
+    document.querySelector(".warning").textContent = "반드시 알파벳 대소문자 포함 6~9글자를 포함해야 합니다."
+})
+</script>
+</html>

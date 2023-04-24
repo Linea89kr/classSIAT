@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        #myInput{
+            width:100%;
+            font-size: 16px;
+            padding: 17px;
+            border:1px solid #dddddd;
+            margin-bottom: 12px;
+        }
+        #myUl{
+        list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        #myUl li a{
+            border: 1px solid #dddddd;
+            margin-top: 1px;
+            background-color: #f6f6f6;
+            padding:12px;
+            text-decoration: none;
+            font-size: 18px;
+            color:#000000;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="myInput" placeholder="search for names...">
+
+<ul id="myUl">
+    <li><a href="#">Adelle</a></li>
+    <li><a href="#">Agnes</a></li>
+    <li><a href="#">Bill</a></li>
+    <li><a href="#">Bob</a></li>
+    <li><a href="#">Calvin</a></li>
+    <li><a href="#">Christina</a></li>
+    <li><a href="#">Cindy</a></li>
+</ul>
+</body>
+<script>
+    //가급적 key에 대한 이벤트는 keyUp으로 놓는 게 중복 처리도 덜되고 안정적이니 이걸 선택할 것.
+    myInput.addEventListener(`keyup`, function(){
+        const filter = myInput.value.toUpperCase();
+        const lis = document.querySelectorAll("#myUl li");
+        for (const li of lis) {
+            let aEl = li.getElementsByTagName("a")[0];
+            let txtVal = aEl.textContent || aEl.innerText;
+            if (txtVal.toUpperCase().indexOf(filter) > -1){
+                li.style.display="";
+            }else{
+                li.style.display="none"
+            }
+        }
+    })
+</script>
+</html>

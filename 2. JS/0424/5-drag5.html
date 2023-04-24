@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><img src="./imgs/b1.png" alt="" id="book" title="HTML5 마크업 가이드"></p>
+</body>
+<script>
+  // 드래그 시 대신 위치시킬 이미지 앨리먼트 지정
+  const fb = document.createElement("img");
+  fb.src="./imgs/fb.png";
+
+  book.addEventListener("dragstart", function(event){
+    event.dataTransfer.setDragImage(fb,30,30)
+  })
+
+</script>
+</html>

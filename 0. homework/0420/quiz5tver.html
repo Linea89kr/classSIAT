@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top: 6px;
+            margin-bottom: 16px;
+        }
+        input[type=submit]{
+            background-color: #04AA60;
+            color:white;
+        }
+        .container{
+            background-color: #f1f1f1;
+            padding:20px;
+        }
+        #message{
+            display:none;
+            background: #f1f1f1;
+            color:black;
+            position:relative;
+            padding:20px;
+            margin-top: 10px;
+        }
+
+        #message p {
+            padding: 10px 35px;
+            font-size: 18px;
+        }
+
+        .valid{
+            color:green;
+        }
+        .valid::before{
+            position:relative;
+            left:-35px;
+            content:"✔";
+        }
+        .invalid{
+            color: red;
+        }
+        .invalid::before{
+            position: relative;
+            left:-35px;
+            content:"✖";
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <form action="#">
+        <label for="psw">password : </label>
+        <input type="password" name="psw" id="psw"></label>
+        <button>submit</button>
+    </form>
+</div>
+<div id="message">
+    <h3>패스워드로 다음과 같은 조건을 따라야 한다.</h3>
+    <li id="letter">소문자 무조건 한글자 이상</li>
+    <li id="capital">대문자 무조건 한글자 이상</li>
+    <li id="number">숫자 무조건 하나 이상</li>
+    <li id="lengths"> 8자 이상</li>
+</div>
+</body>
+<script>
+    //input에 focus 되었을 때:
+    psw.addEventListener("focus",function(){
+        message.style.display = "block";
+    })
+
+    //input에 focus가 사라졌을 때:
+    psw.addEventListener("blur", function(){
+        message.style.display = "none"
+    })
+
+    psw.addEventListener("keyup", function(){
+        // 소문자 체크
+        const lowCaseLetter = /[a-z]/g
+        if(psw.value.match(lowCaseLetter)){
+            letter.classList.remove("invalid")
+            letter.classList.add("valid")
+        }else{
+            letter.classList.remove("valid")
+            letter.classList.add("invalid")
+        }
+
+        // 대문자 체크
+        const upperCaseLetter = /[A-Z]/g
+        if(psw.value.match(upperCaseLetter)){
+            capital.classList.remove("invalid")
+            capital.classList.add("valid")
+        }else{
+            capital.classList.remove("valid")
+            capital.classList.add("invalid")
+        }
+
+        // 숫자 체크
+        const numbers1 = /[0-9]/g
+        if(psw.value.match(numbers1)){
+            number.classList.remove("invalid")
+            number.classList.add("valid")
+        }else{
+            number.classList.remove("valid")
+            number.classList.add("invalid")
+        }
+
+        // 길이 체크
+        if(psw.value.length>= 8){
+            lengths.classList.remove("invalid")
+            lengths.classList.add("valid")
+        }else{
+            lengths.classList.remove("valid")
+            lengths.classList.add("invalid")
+        }
+    })
+</script>
+</html>

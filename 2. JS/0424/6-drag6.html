@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #drop1 {
+            border: 1px solid black;
+            height: 250px;
+            width: 450px;
+        }
+    </style>
+</head>
+<body>
+<p>PC의 파일을 드랍해주세요</p>
+<div id="drop1"></div>
+</body>
+<script>
+    // 드롭 측의 처리
+    // 디폴트 이벤트 제거
+    drop1.addEventListener("dragenter", function (event) {
+        event.preventDefault()
+    }, false)
+    drop1.addEventListener("dragover", function (event) {
+        event.preventDefault()
+    }, false)
+    // div 요소에 drop 이벤트 리스너 지정
+    drop1.addEventListener("drop", function (event) {
+        // 기본 이벤트 제거
+        event.preventDefault();
+        // filelist 오브젝트를 통해 파일에 대한 정보를 가져오기
+        const files = event.dataTransfer.files;
+        // 드롭된 파일의 정보가 0개이면 로직 종료
+        const f = files[0]
+        if (!f) return;
+        // 드롭된 파일이 이미지가 아니면 로직 종료
+        if (!f.type.match(/^image\//)) return;
+        // filereader 오브젝트 생성
+        const rd = new FileReader();
+        // Data url 방식으로 파일 데이터 받기
+        rd.readAsDataURL(f);
+        // 파일 데이터 읽기를 성공했을 때의 처리
+        rd.onload = function () {
+            //img 요소를 생성 / div 요소에 추가.
+            const img1 = document.createElement("img")
+            img1.src = rd.result;
+            drop1.append(img1)
+        }
+    }, false)
+</script>
+</html>
