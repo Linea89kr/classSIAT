@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script>
+    window.addEventListener("load", function () {
+      function playbackToggle(){
+        vd1.paused ? vd1.play() : vd1.pause;
+      }
+      vd1.addEventListener("click", playbackToggle, false)
+    })
+  </script>
+</head>
+<body>
+<div>
+  <p>비디오를 선택하고 비디오를 출력해 주세요</p>
+  <select id="se1" name="list" id="list">
+    <option value=""></option>
+    <option value="video1"></option>
+    <option value="video2"></option>
+    <option value="video3"></option>
+  </select>
+</div>
+<div>
+  <video id="vd1" poster="./audio/poster.png" width="480" height="272"></video>
+</div>
+</body>
+<script></script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #vd1 {
+            position: absolute;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<video id="vd1" src="./audio/video.mp4" autoplay="autoplay" loop="loop" width="400" height="272" muted="muted"></video>
+</body>
+<script>
+    window.addEventListener("load", function () {
+        // 동영상 쓸 때는 DOMContentLoaded 쓰지 말 것. 비디오는 기다려주지 않는다.
+        // 페이지의 동영상까지 전부 로드되었을 시 이벤트.
+        window.addEventListener("click", toggleSize, false)
+        window.addEventListener("click", centering, false)
+        centering();
+        // #1 video 요소가 클릭되었을 시 처리
+        // #2 창의 크기가 변경 되었을 시 처리
+        // 비디오 요소를 한가운데로 이동시키고
+        vd1.style.display = "block";
+    })
+
+    // window 요소가 클릭되었을 시 처리
+    function toggleSize() {
+        // 현재 비디오의 해상도 크기와 화면에 위치한
+        // 비디오의 세로 크기가 같다면
+        if (vd1.height == vd1.videoHeight) {
+            vd1.width = document.documentElement.clientWidth;
+            vd1.height = document.documentElement.clientHeight;
+            // 비디오의 위치를 왼쪽 상단 끝으로 이동.
+            vd1.style.left = "0px";
+            vd1.style.top = "0px";
+        } else {
+            // 원래 크기로 돌린다면
+            vd1.width = vdi.videoWidth;
+            vd1.height = vd1.videoHeight;
+            centering();
+        }
+    }
+
+    // 요소를 한가운데로 이동
+    function centering() {
+        //창 크기
+        let ww = document.documentElement.clientWidth;
+        //창 크기 세로
+        let wh = document.documentElement.clientHeight;
+        //비디오 요소의 가로
+        let vw = vd1.width;
+        //비디오 요소의 세로
+        let vh = vd1.height;
+        // 가운데 배치
+        vd1.style.left = ((ww - vw) / 2) + "px"
+        vd1.style.top = ((wh - vh) / 2) + "px"
+    }
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <video id="vidi1" src="./audio/video.mp4" controls="controls"></video>
+</div>
+<div>
+    <video id="vidi2" src="./audio/video.mp4" controls="controls"></video>
+</div>
+<div id="txt1">
+    <button id="btn">반복 재생 토글</button>
+</div>
+</body>
+<script>
+    btn.addEventListener("click", function () {
+        vidi1.loop = vidi1.loop ? false : true;
+        txt1.textContent = vidi1.loop ? "반복 재생 중" : "반복 재생 해제 상태"
+    })
+</script>
+</html>
+
+

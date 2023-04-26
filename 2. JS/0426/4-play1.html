@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // DOMContentLoaded : DOM 요소들이 전부 브라우저에 랜더링이 되면
+        // load : 브라우저의 요소 및 동영상 혹은 사진이 전부 로드 되면
+        // 그래서 보통 DOMContentLoaded가 load보다 빠름.
+        window.addEventListener("load", function () {
+        //window의 audio 요소가 지윈되지 않으면
+        if (window.Audio) return;
+        // 오디오 객체 생성
+        const audio1 = new Audio();
+        // 재생할 수 있는 오디오 형식을 판별, src에 지정
+        if (audio1.canPlayType("audio/mpeg")) {
+            audio1.src = "./audio/audio.mp3";
+        } else if (audio1.canPlayType("audio/ogg")) {
+            audio1.src = "./audio/audio.ogg";
+        }
+    })
+
+    </script>
+</head>
+<body>
+<div>
+    <button id="play1">play!</button>
+</div>
+<div>
+    <button id="pause1">pause!</button>
+</div>
+<div>
+    <button id="isPaused1">isPause!</button>
+</div>
+<div>
+    <button id="ended">ended!</button>
+</div>
+<p id="printpause"></p>
+<p id="end"></p>
+</body>
+<script>
+    play1.addEventListener("click", function (){audio1.play();})
+    pause1.addEventListener("click", function (){audio1.pause();})
+    isPaused1.addEventListener("click", function (){
+        printpause.textContent = audio1.paused
+    })
+    ended.addEventListener("click", function () {
+        printend.textContent = audio1.ended;
+        
+    })
+</script>
+<script>
+
+</script>
+</html>
