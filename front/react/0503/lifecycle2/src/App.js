@@ -1,0 +1,17 @@
+import './App.css';
+import Comp3 from "./component/Comp3";
+// import Comp1 from './component/Comp1'
+// import Comp2 from "./component/Comp2";
+
+function App() {
+    return (
+        <div>
+            {/*<Comp1></Comp1>*/}
+            {/*  <br></br>*/}
+            {/*  <Comp2></Comp2>*/}
+            <Comp3></Comp3>
+        </div>
+    );
+}
+
+export default App;
