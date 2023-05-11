@@ -57,7 +57,6 @@
     document.addEventListener(`scroll`, function () {
         let stickyPosition = sticky.getBoundingClientRect().top;
         if (stickyPosition > 1) {
-            return;
         } else {
             let scrolled = stickyParents.getBoundingClientRect().top;
             sticky.scrollLeft = (scrollWidth / verticalScrollHeight) * 0.85 * (-scrolled);
