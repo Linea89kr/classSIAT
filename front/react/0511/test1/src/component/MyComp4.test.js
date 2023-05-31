@@ -8,4 +8,22 @@ describe("MyComp4 Test1", ()=>{
         expect(inputEl1).toBeInTheDocument();
     })
 
+    test('check textbox what get label content has profile', ()=>{
+        render(<MyComp4/>);
+        const inputEl2 = screen.getByRole("textbox", {selector: "textarea"});
+        expect(inputEl2).toBeInTheDocument();
+    });
+
+    test('check input type Tom by getbydisplayvalue', ()=>{
+        render(<MyComp4/>);
+        const inputEl3 = screen.getByDisplayValue("Tom");
+        expect(inputEl3).toBeInTheDocument();
+    });
+
+    test('find element in my-div by getbytestid', ()=>{
+        render(<MyComp4/>);
+        const inputEl3 = screen.getByTestId("my-div");
+        expect(inputEl3).toBeInTheDocument();
+    })
+
 });
