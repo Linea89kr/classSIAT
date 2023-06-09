@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Set Attribute</h1>
+<input type="text" name="mock" th:name="UserA"/>
+
+<h1>Add Attribute</h1>
+<p>th:attrappend = <input type="text" name="txt" id="txt" class="txt" th:attrappend="class=' large'"></p>
+<p>th:attrpreppend = <input type="text" name="txt2" id="txt2" class="txt2" th:attrprepend="class=' large'"></p>
+<p>th:classappend = <input type="text" name="txt3" id="txt3" class="txt3" th:classappend="large"></p>
+
+<h1>checked</h1>
+<p>checked o = <input type="checkbox" id="chk1" name="chk" class="chk1" th:checked="true"></p>
+<p>checked x = <input type="checkbox" id="chk2" name="chk" class="chk1" th:checked="false"></p>
+<p>checked=false = <input type="checkbox" id="chk3" name="chk" class="chk1" checked="false"></p>
+</body>
+</html>

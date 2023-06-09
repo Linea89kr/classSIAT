@@ -95,6 +95,10 @@ Spring의 모든 요청의 가장 핵심적인 기능이 담겨있는 객체이�
 그래서 다른 의미로 커맨드 객체라고 불리기도 하며 이 어노테이션을 받은 객체를 통해 객체 째로 매핑 주입, 응답 후 접근 가능, 전처리, 후처리 등 다양한 방법으로 접근 사용이 가능하다.
 @ModelAttribute는 생략이 가능하다.
 
+//Setter를 기준으로 들어감.
+//Redirectattribute
+
+
 응답 주요 객체
 Model : 기존의 HttpServletRequest는 상당히 무겁고 사용하기 번거로웠던 반면 Spring에서는 Model이라는 객체를 도입하여 단점을 해결. Model은 기존 객체보다 경량화 되어 있으며 request를 통해 setAttribute로 데이터를 받아 사용하는 데이터 전송 역할을 대신 담당한다. Model에서는 해당 데이터를 객체에 받아 처리할 때 addAttribute라는 메서드를 활용해 영역 객체에 데이터를 받을 수 있다.
 

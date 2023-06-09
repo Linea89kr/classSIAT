@@ -13,7 +13,10 @@
     <li><a href="test1/test4">move to test4</a></li>
     <hr>
     <li><a href="example02">Request Response Parameter</a></li>
+    <hr>
     <li><a href="example03">response basic example</a></li>
+    <hr>
+    <li><a href="example04">custom form tag</a></li>
 </ul>
 <img src="/resources/image/spring.png"/>
 </body>

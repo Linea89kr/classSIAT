@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="result1" th:action="@{${action}}" th:object="${userVO}" method="post">
+  name : <input type="text" id="username" th:field="*{userName}">
+  id : <input type="text" id="userid" th:field="*{userId}">
+  pw : <input type="password" id="userpw" th:field="*{userPw}">
+  PN : <input type="text" id="postcode" th:field="*{userPostcode}">
+  Add1 : <input type="text" id="address1" th:field="*{userAddress1}">
+  Add2 : <input type="text" id="address2" th:field="*{userAddress2}">
+
+  <div>
+    <h2>Delivery option</h2>
+    <select th:field="*{deliveryCode}">
+      <option value="">==choose option==</option>
+      <option th:each="deliveryCode : ${deliveryCodes}" th:value="${deliveryCode.code}"
+              th:text="${deliveryCode.displayName}">etc</option>
+    </select>
+  </div>
+  <button>submit</button>
+</form>
+</body>
+</html>

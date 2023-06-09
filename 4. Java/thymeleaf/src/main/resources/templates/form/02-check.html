@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>here's page for form practice</h1>
+
+<form action="result1" th:action="@{${action}}" th:object="${userVO}" method="post">
+    Name : <input type="text" id="username" th:field="*{userName}"><br>
+    ID : <input type="text" id="userid" th:field="*{userId}"><br>
+    Pw : <input type="password" id="userpw" th:field="*{userPw}"><br>
+    PN : <input type="text" id="postcode" th:field="*{userPostcode}"><br>
+    Add1 : <input type="text" id="address1" th:field="*{userAddress1}"><br>
+    Add2 : <input type="text" id="address2" th:field="*{userAddress2}"><br>
+    Single checkbox : <input type="checkbox" th:field="*{userCheck}"><br>
+    <button>Submit</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<h1>기본 객체(Expression basic object)</h1>
+<!-- <ul>
+  <li>request = <span th:text="${#request}"></span></li>
+  <li>response = <span th:text="${#response}"></span></li>
+  <li>session = <span th:text="${#session}"></span></li>
+  <li>servletContext = <span th:text="${#servletContext}"></span></li>
+  <li>locale = <span th:text="${#locale}"></span></li>
+</ul> -->
+<h1>편의 객체</h1>
+<ul>
+    <li>Request Parameter = <span th:text="${param.paramData}"></span></li>
+    <li>session = <span th:text="${session.sessionData}"></span></li>
+    <li>spring bean = <span th:text="${@HelloBean.hello('spring!')}"></span></li>
+</ul>
+</body>
+
+</html>

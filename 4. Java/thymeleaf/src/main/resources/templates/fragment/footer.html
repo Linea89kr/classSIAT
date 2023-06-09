@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<footer th:fragment="copy">
+  here's place for footer1
+</footer>
+
+<footer th:fragment="copyParam(param1,param2)">
+  <p>here's place for footer2</p>
+  <p th:text="${param1}"></p>
+  <p th:text="${param2}"></p>
+</footer>
+
+</body>
+</html>

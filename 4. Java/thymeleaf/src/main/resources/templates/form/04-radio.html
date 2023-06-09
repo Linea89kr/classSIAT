@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="result1" th:action="@{${action}}" th:object="${userVO}" method="post">
+    name : <input type="text" id="username" th:field="*{userName}"/>
+    id : <input type="text" id="userid" th:field="*{userId}"/>
+    pw : <input type="password" id="userpw" th:field="*{userPw}"/>
+    PN : <input type="text" id="PostNumber" th:field="*{userPostcode}"/>
+    Add1 : <input type="text" id="address1" th:field="*{userAddress1}"/>
+    Add2 : <input type="text" id="address2" th:field="*{userAddress2}"/>
+
+    <div>
+        <h2>Region</h2>
+        <div th:each="st : ${stateType}">
+            <input type="radio" th:field="*{state}" th:value="${st.name}"/>
+            <label th:for="${#ids.prev('state')}" th:text="${st.desc}">region</label>
+
+            <!--    <label th:for="${#ids.next('states')}" th:text="${region.value}">region</label>-->
+            <!--    <input type="checkbox" th:field="*{states}" th:value="${region.key}">-->
+        </div>
+    </div>
+    <button>submit</button>
+</form>
+</body>
+</html>

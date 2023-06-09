@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Print data on content</h1>
+<picture>
+    <img src="/imgs/thymeleaf.png" alt="thymeleaf" width="200" height="200">
+</picture>
+<hr>
+<ul>
+    <li>th:text use1 <span th:text="${data1}"></span></li>
+    <li>print data1 in content = [[${data1}]]</li>
+    <li>th:utext use2 <span th:utext="${data2}"></span></li>
+    <li>print data1 in content = [(${data2})]</li>
+
+    <li>th:text use1 <span th:inline=javascript>
+        ${data1}
+    </span></li>
+    <li>th:text use1 <span th:inline=javascript>
+        ${data2}
+    </span></li>
+<!--    <li>th:utext use2 <span th:utext="${data2}"></span></li>-->
+<!--    <li>print data1 in content = [(${data2})]</li>-->
+</ul>
+<hr>
+
+</body>
+</html>
