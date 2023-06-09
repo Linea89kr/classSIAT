@@ -11,8 +11,9 @@ public class IMemberServiceImpl implements IMemberInterface{
     }
 
     @Override
-    public void plusNum() {
+    public int plusNum() {
         this.num += 1;
+        return 0;
     }
 
     @Override
